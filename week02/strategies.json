@@ -1,0 +1,497 @@
+{
+ "drafts": {
+  "draft-1793344209364": {
+   "aux": {
+    "addWhileOpen": false,
+    "buyPriceBasis": "",
+    "dailyLoss": "500000",
+    "entryEnd": "",
+    "entryStart": "",
+    "fillCond": "FAS",
+    "lossStreak": "",
+    "marginBudget": "100000000",
+    "maxEntriesPerDay": "",
+    "maxHold": "1",
+    "oppositeSignal": "exit",
+    "orderType": "시장가",
+    "perOrder": "1",
+    "priceBasis": "신호가 + 1틱",
+    "reentryWaitBars": "0",
+    "sellPriceBasis": "",
+    "session": "국내 주간",
+    "sessionEndFlat": true,
+    "sessionEndMinutes": "10",
+    "stopBasis": "신호가",
+    "stopTicks": "8",
+    "stopUnit": "tick",
+    "takeTicks": "16",
+    "takeUnit": "tick",
+    "trailTicks": "",
+    "trailUnit": "tick"
+   },
+   "baseBar": "1분봉",
+   "evalMode": "마감",
+   "memo": "",
+   "rules": {
+    "buyEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c101",
+         "left": "ema",
+         "leftParams": {
+          "period": 5
+         },
+         "op": "crossUp",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s101",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "buyExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c106",
+         "left": "ema",
+         "leftParams": {
+          "period": 5
+         },
+         "op": "crossDown",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s106",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c105",
+         "left": "ema",
+         "leftParams": {
+          "period": 5
+         },
+         "op": "crossDown",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s105",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c107",
+         "left": "ema",
+         "leftParams": {
+          "period": 5
+         },
+         "op": "crossUp",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s107",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    }
+   }
+  },
+  "draft-1793359554507": {
+   "aux": {
+    "addWhileOpen": false,
+    "buyPriceBasis": "",
+    "dailyLoss": "750000",
+    "entryEnd": "",
+    "entryStart": "",
+    "fillCond": "FAS",
+    "lossStreak": "\t3",
+    "marginBudget": "100000000",
+    "maxEntriesPerDay": "6",
+    "maxHold": "1",
+    "oppositeSignal": "ignore",
+    "orderType": "시장가",
+    "perOrder": "1",
+    "priceBasis": "신호가 + 1틱",
+    "reentryWaitBars": "1",
+    "sellPriceBasis": "",
+    "session": "국내 야간",
+    "sessionEndFlat": true,
+    "sessionEndMinutes": "10",
+    "stopBasis": "신호가",
+    "stopTicks": "1.5",
+    "stopUnit": "atr",
+    "takeTicks": "2",
+    "takeUnit": "atr",
+    "trailTicks": "",
+    "trailUnit": "tick"
+   },
+   "baseBar": "1분봉",
+   "evalMode": "마감",
+   "memo": "",
+   "rules": {
+    "buyEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c108",
+         "left": "close",
+         "op": "gt",
+         "right": "prevHigh",
+         "rightKind": "operand"
+        },
+        {
+         "id": "c110",
+         "left": "rsi",
+         "leftParams": {
+          "period": 7
+         },
+         "op": "gte",
+         "right": "55",
+         "rightKind": "number"
+        }
+       ],
+       "id": "s108",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "buyExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c113",
+         "left": "close",
+         "op": "lt",
+         "right": "prevLow",
+         "rightKind": "operand"
+        }
+       ],
+       "id": "s113",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c111",
+         "left": "close",
+         "op": "lt",
+         "right": "prevLow",
+         "rightKind": "operand"
+        },
+        {
+         "id": "c112",
+         "left": "rsi",
+         "leftParams": {
+          "period": 7
+         },
+         "op": "lte",
+         "right": "45",
+         "rightKind": "number"
+        }
+       ],
+       "id": "s111",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c114",
+         "left": "close",
+         "op": "gt",
+         "right": "prevHigh",
+         "rightKind": "operand"
+        }
+       ],
+       "id": "s114",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    }
+   }
+  },
+  "draft-1793366017700": {
+   "aux": {
+    "addWhileOpen": false,
+    "buyPriceBasis": "",
+    "dailyLoss": "750000",
+    "entryEnd": "",
+    "entryStart": "",
+    "fillCond": "FAS",
+    "lossStreak": "\t3",
+    "marginBudget": "100000000",
+    "maxEntriesPerDay": "6",
+    "maxHold": "1",
+    "oppositeSignal": "ignore",
+    "orderType": "시장가",
+    "perOrder": "1",
+    "priceBasis": "신호가 + 1틱",
+    "reentryWaitBars": "3",
+    "sellPriceBasis": "",
+    "session": "국내 야간",
+    "sessionEndFlat": true,
+    "sessionEndMinutes": "10",
+    "stopBasis": "신호가",
+    "stopTicks": "1.5",
+    "stopUnit": "atr",
+    "takeTicks": "3",
+    "takeUnit": "atr",
+    "trailTicks": "",
+    "trailUnit": "tick"
+   },
+   "baseBar": "1분봉",
+   "evalMode": "마감",
+   "memo": "",
+   "rules": {
+    "buyEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c108",
+         "left": "ema",
+         "leftParams": {
+          "period": 20
+         },
+         "op": "gt",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 60
+         }
+        },
+        {
+         "id": "c110",
+         "left": "close",
+         "op": "crossUp",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s108",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "buyExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c113",
+         "left": "close",
+         "op": "crossDown",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 60
+         }
+        }
+       ],
+       "id": "s113",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellEntry": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c111",
+         "left": "ema",
+         "leftParams": {
+          "period": 20
+         },
+         "op": "lt",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 60
+         }
+        },
+        {
+         "id": "c112",
+         "left": "close",
+         "op": "crossDown",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 20
+         }
+        }
+       ],
+       "id": "s111",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    },
+    "sellExit": {
+     "on": true,
+     "resetBars": "",
+     "steps": [
+      {
+       "conds": [
+        {
+         "id": "c114",
+         "left": "close",
+         "op": "crossUp",
+         "right": "ema",
+         "rightKind": "operand",
+         "rightParams": {
+          "period": 60
+         }
+        }
+       ],
+       "id": "s114",
+       "join": "all",
+       "withinBars": 3
+      }
+     ]
+    }
+   }
+  }
+ },
+ "version": 1,
+ "versions": [
+  {
+   "account": "모의 · 국내",
+   "currency": "원",
+   "dailyLoss": 500000,
+   "groupId": "draft-1793344209364",
+   "id": "draft-1793344209364",
+   "instrumentFallback": "코스피200 선물",
+   "marginBudget": 100000000,
+   "market": "domestic",
+   "name": "K200_EMA_5_20_v1",
+   "orderQty": 1,
+   "productCode": "KOSPI",
+   "productKind": "futures",
+   "record": "모의 계좌 거래",
+   "role": "kospiFutures",
+   "seed": "empty",
+   "status": "초안",
+   "summary": "1분봉 마감에서 EMA(5)가 EMA(20)을 상향 교차하면 매수 진입.",
+   "tags": [],
+   "version": "v1 초안"
+  },
+  {
+   "account": "모의 · 국내",
+   "currency": "원",
+   "dailyLoss": 750000,
+   "groupId": "draft-1793359554507",
+   "id": "draft-1793359554507",
+   "instrumentFallback": "코스피200 선물",
+   "marginBudget": 100000000,
+   "market": "domestic",
+   "name": "W2_코스피200_1분돌파_RSI7_ATR",
+   "orderQty": 1,
+   "productCode": "KOSPI",
+   "productKind": "futures",
+   "record": "모의 계좌 거래",
+   "role": "kospiFutures",
+   "seed": "empty",
+   "status": "초안",
+   "summary": "1분봉 마감에서 종가가 이전 1봉의 고가를 초과하고 RSI(7)이 55 이상이면 매수 진입 — 참으로 바뀌는 순간에 냅니다.",
+   "tags": [],
+   "version": "v1 초안"
+  },
+  {
+   "account": "모의 · 국내",
+   "currency": "원",
+   "dailyLoss": 750000,
+   "groupId": "draft-1793366017700",
+   "id": "draft-1793366017700",
+   "instrumentFallback": "코스피200 선물",
+   "marginBudget": 100000000,
+   "market": "domestic",
+   "name": "W2_코스피200_추세눌림_ATR_v1 사본",
+   "orderQty": 1,
+   "productCode": "KOSPI",
+   "productKind": "futures",
+   "record": "모의 계좌 거래",
+   "role": "kospiFutures",
+   "seed": "empty",
+   "status": "초안",
+   "summary": "1분봉 마감에서 EMA(20)이 EMA(60)을 초과하고 종가가 EMA(20)을 상향 교차하면 매수 진입 — 참으로 바뀌는 순간에 냅니다.",
+   "tags": [],
+   "version": "v1 초안"
+  }
+ ]
+}
