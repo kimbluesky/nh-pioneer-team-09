@@ -1,0 +1,290 @@
+{
+ "origin": "live",
+ "runs": [
+  {
+   "approved_at": 0,
+   "cash": 10000.0,
+   "code": "MNQZ26",
+   "currency": "USD",
+   "currency_unknown": false,
+   "daily_loss": 150.0,
+   "draft": {
+    "aux": {
+     "addWhileOpen": false,
+     "buyPriceBasis": "",
+     "dailyLoss": "150",
+     "entryEnd": "",
+     "entryStart": "",
+     "fillCond": "",
+     "lossStreak": "3",
+     "marginBudget": "10000",
+     "maxEntriesPerDay": "20",
+     "maxHold": "2",
+     "oppositeSignal": "ignore",
+     "orderType": "시장가",
+     "perOrder": "2",
+     "priceBasis": "신호가 + 1틱",
+     "reentryWaitBars": "1",
+     "sellPriceBasis": "",
+     "session": "해외 CME",
+     "sessionEndFlat": true,
+     "sessionEndMinutes": "10",
+     "stopBasis": "신호가",
+     "stopTicks": "1.2",
+     "stopUnit": "atr",
+     "takeTicks": "2.0",
+     "takeUnit": "atr",
+     "trailTicks": "",
+     "trailUnit": "tick"
+    },
+    "baseBar": "1분봉",
+    "evalMode": "틱",
+    "memo": "",
+    "rules": {
+     "buyEntry": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c101",
+          "left": "close",
+          "op": "gt",
+          "right": "prevHigh",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s101",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "buyExit": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c107",
+          "left": "close",
+          "op": "lt",
+          "right": "prevLow",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s107",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "sellEntry": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c104",
+          "left": "close",
+          "op": "lt",
+          "right": "prevLow",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s104",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "sellExit": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c109",
+          "left": "close",
+          "op": "gt",
+          "right": "prevHigh",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s109",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     }
+    }
+   },
+   "environment": "",
+   "exchange": "FCME",
+   "fee_per_contract": 0.0,
+   "group_id": "draft-1793971262491",
+   "id": "run-1793973336401",
+   "kind": "futures",
+   "margin": null,
+   "margin_budget": 10000.0,
+   "market": "overseas",
+   "mode": "paper",
+   "model": "paper-v2",
+   "multiplier": 2.0,
+   "qty": 2,
+   "session": "overseas",
+   "started_at": 0,
+   "state": "ended",
+   "stop_reason": "",
+   "stopped_at": 1793976665765,
+   "version_id": "draft-1793971262491"
+  },
+  {
+   "approved_at": 0,
+   "cash": 10000.0,
+   "code": "MNQZ26",
+   "currency": "USD",
+   "currency_unknown": false,
+   "daily_loss": 150.0,
+   "draft": {
+    "aux": {
+     "addWhileOpen": false,
+     "buyPriceBasis": "",
+     "dailyLoss": "150",
+     "entryEnd": "",
+     "entryStart": "",
+     "fillCond": "",
+     "lossStreak": "3",
+     "marginBudget": "10000",
+     "maxEntriesPerDay": "20",
+     "maxHold": "1",
+     "oppositeSignal": "ignore",
+     "orderType": "시장가",
+     "perOrder": "1",
+     "priceBasis": "신호가 + 1틱",
+     "reentryWaitBars": "1",
+     "sellPriceBasis": "",
+     "session": "해외 CME",
+     "sessionEndFlat": true,
+     "sessionEndMinutes": "10",
+     "stopBasis": "신호가",
+     "stopTicks": "1.2",
+     "stopUnit": "atr",
+     "takeTicks": "2",
+     "takeUnit": "atr",
+     "trailTicks": "",
+     "trailUnit": "tick"
+    },
+    "baseBar": "1분봉",
+    "evalMode": "마감",
+    "memo": "",
+    "rules": {
+     "buyEntry": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c121",
+          "left": "close",
+          "op": "gt",
+          "right": "prevHigh",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s114",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "buyExit": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c118",
+          "left": "close",
+          "op": "lt",
+          "right": "prevLow",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s118",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "sellEntry": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c117",
+          "left": "close",
+          "op": "lt",
+          "right": "vwap",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s116",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     },
+     "sellExit": {
+      "on": true,
+      "resetBars": "",
+      "steps": [
+       {
+        "conds": [
+         {
+          "id": "c119",
+          "left": "close",
+          "op": "gt",
+          "right": "prevHigh",
+          "rightKind": "operand"
+         }
+        ],
+        "id": "s119",
+        "join": "all",
+        "withinBars": 3
+       }
+      ]
+     }
+    }
+   },
+   "environment": "",
+   "exchange": "FCME",
+   "fee_per_contract": 0.0,
+   "group_id": "draft-1793975086566",
+   "id": "run-1793975483722",
+   "kind": "futures",
+   "margin": null,
+   "margin_budget": 10000.0,
+   "market": "overseas",
+   "mode": "paper",
+   "model": "paper-v2",
+   "multiplier": 2.0,
+   "qty": 1,
+   "session": "overseas",
+   "started_at": 0,
+   "state": "ended",
+   "stop_reason": "",
+   "stopped_at": 1793976665799,
+   "version_id": "draft-1793975086566"
+  }
+ ],
+ "version": 1
+}
