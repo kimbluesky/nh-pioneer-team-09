@@ -1,0 +1,114 @@
+{
+  "commit": "fbfca3ef2ac360029cb822e0fae16aa31fa1edc2",
+  "checked_at": "2026-11-11T16:10:34.885781+09:00",
+  "verification": "사용자가 2026-11-11 16:10:34 KST에 실행한 오프라인 재현 결과에서 R05 사례를 추출했습니다.",
+  "cases": {
+    "R5_duplicate_flatten": {
+      "reproduced": true,
+      "valid_draft": true,
+      "first_http": {
+        "status": 200,
+        "body": {
+          "state": "exiting",
+          "position": 1,
+          "average_price": 101.0,
+          "open_entry_quantity": 0,
+          "exit_orders": 1,
+          "orders": [
+            {
+              "side": "buy",
+              "quantity": 1,
+              "filled": 1,
+              "status": "filled"
+            },
+            {
+              "side": "sell",
+              "quantity": 1,
+              "filled": 0,
+              "status": "waiting"
+            }
+          ]
+        }
+      },
+      "second_http": {
+        "status": 200,
+        "body": {
+          "state": "exiting",
+          "position": 1,
+          "average_price": 101.0,
+          "open_entry_quantity": 0,
+          "exit_orders": 2,
+          "orders": [
+            {
+              "side": "buy",
+              "quantity": 1,
+              "filled": 1,
+              "status": "filled"
+            },
+            {
+              "side": "sell",
+              "quantity": 1,
+              "filled": 0,
+              "status": "waiting"
+            },
+            {
+              "side": "sell",
+              "quantity": 1,
+              "filled": 0,
+              "status": "waiting"
+            }
+          ]
+        }
+      },
+      "after_fills": {
+        "state": "holding",
+        "position": -1,
+        "average_price": 101.0,
+        "open_entry_quantity": 0,
+        "exit_orders": 0,
+        "orders": [
+          {
+            "side": "buy",
+            "quantity": 1,
+            "filled": 1,
+            "status": "filled"
+          },
+          {
+            "side": "sell",
+            "quantity": 1,
+            "filled": 1,
+            "status": "filled"
+          },
+          {
+            "side": "sell",
+            "quantity": 1,
+            "filled": 1,
+            "status": "filled"
+          }
+        ]
+      },
+      "single_request_control": {
+        "state": "armed",
+        "position": 0,
+        "average_price": 0.0,
+        "open_entry_quantity": 0,
+        "exit_orders": 0,
+        "orders": [
+          {
+            "side": "buy",
+            "quantity": 1,
+            "filled": 1,
+            "status": "filled"
+          },
+          {
+            "side": "sell",
+            "quantity": 1,
+            "filled": 1,
+            "status": "filled"
+          }
+        ]
+      },
+      "expected": "Pending exits must prevent a second full-size exit; final position must be zero."
+    }
+  }
+}
