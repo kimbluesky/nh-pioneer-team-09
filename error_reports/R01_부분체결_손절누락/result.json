@@ -1,0 +1,919 @@
+{
+  "case_id": "R01_PARTIAL_FILL_STOP",
+  "team": "team-09",
+  "checked_at": "2026-11-12T21:05:37.872147+09:00",
+  "source_repository": "PetterChanHyuk/nh-futures-open-api",
+  "source_commit": "fbfca3ef2ac360029cb822e0fae16aa31fa1edc2",
+  "original_source_hashes_verified": 65,
+  "python": "3.12.10",
+  "platform": "win32",
+  "scope": "Original strategy start validation and RunEngine with synthetic input; no GUI automation or NH server calls.",
+  "mocked_dependencies": [
+    "instrument metadata for admission",
+    "synthetic trade and quote inputs"
+  ],
+  "modified_original_functions": [],
+  "nh_server_requests": 0,
+  "expected_behavior": "A filled position should remain protected by the configured stop while the entry is partially filled.",
+  "imported_original_modules": [
+    "backend",
+    "backend.auth",
+    "backend.auth.auth_functions",
+    "backend.auth.token_store",
+    "backend.config",
+    "backend.domestic_futureoption",
+    "backend.domestic_futureoption.domestic_futureoption_functions",
+    "backend.domestic_futureoption.domestic_hours",
+    "backend.domestic_futureoption.master",
+    "backend.domestic_futureoption.master.fut_opt",
+    "backend.domestic_futureoption.master.idx_fut_opt",
+    "backend.domestic_futureoption.master.stk_fut_opt",
+    "backend.market_values",
+    "backend.master",
+    "backend.master.master_download",
+    "backend.master.master_files",
+    "backend.master.master_index",
+    "backend.master.master_parser",
+    "backend.master.master_service",
+    "backend.master.master_store",
+    "backend.master.master_widths",
+    "backend.net_failure",
+    "backend.nh_api",
+    "backend.nh_api.catalog",
+    "backend.nh_api.client",
+    "backend.nh_api.error_codes",
+    "backend.nh_api.errors",
+    "backend.nh_api.fixtures",
+    "backend.nh_api.rate_limit",
+    "backend.nh_api.reference",
+    "backend.nh_api.replay",
+    "backend.nh_api.runtime",
+    "backend.nh_api.session",
+    "backend.order_outcome",
+    "backend.orders",
+    "backend.overseas_futureoption",
+    "backend.overseas_futureoption.master",
+    "backend.overseas_futureoption.master.cme",
+    "backend.overseas_futureoption.master.etc",
+    "backend.overseas_futureoption.master.opra",
+    "backend.overseas_futureoption.overseas_futureoption_functions",
+    "backend.overseas_futureoption.overseas_hours",
+    "backend.quotes",
+    "backend.sessions",
+    "backend.sessions.hours",
+    "backend.sessions.judge",
+    "backend.sessions.service",
+    "backend.storage",
+    "backend.strategy",
+    "backend.strategy.bars",
+    "backend.strategy.engine",
+    "backend.strategy.indicators",
+    "backend.strategy.instrument",
+    "backend.strategy.journal",
+    "backend.strategy.limits",
+    "backend.strategy.paper",
+    "backend.strategy.rules",
+    "backend.strategy.runs",
+    "backend.strategy.service",
+    "backend.strategy.sim",
+    "backend.strategy.store",
+    "backend.strategy.validate"
+  ],
+  "results": [
+    {
+      "side": "buy",
+      "case": "partial",
+      "settings": {
+        "memo": "",
+        "baseBar": "1분봉",
+        "evalMode": "마감",
+        "rules": {
+          "buyEntry": {
+            "on": true,
+            "steps": [
+              {
+                "id": "s1",
+                "join": "all",
+                "withinBars": 0,
+                "conds": [
+                  {
+                    "id": "c1",
+                    "left": "close",
+                    "op": "gt",
+                    "rightKind": "number",
+                    "right": "100"
+                  }
+                ]
+              }
+            ]
+          },
+          "sellEntry": {
+            "on": false,
+            "steps": []
+          },
+          "buyExit": {
+            "on": false,
+            "steps": []
+          },
+          "sellExit": {
+            "on": false,
+            "steps": []
+          }
+        },
+        "aux": {
+          "orderType": "시장가",
+          "priceBasis": "신호가",
+          "stopBasis": "",
+          "fillCond": "FAS",
+          "stopTicks": "2",
+          "takeTicks": "20",
+          "perOrder": "2",
+          "maxHold": "5",
+          "session": "국내 주간",
+          "addWhileOpen": false,
+          "dailyLoss": "300000",
+          "marginBudget": "10000000"
+        }
+      },
+      "save_validation_errors": [],
+      "start_validation_errors": [],
+      "synthetic_inputs": [
+        {
+          "kind": "trade",
+          "at": 1794445200000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445200000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445260000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445260000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445320000
+          }
+        },
+        {
+          "kind": "book",
+          "at": 1794445320300,
+          "data": {
+            "asks": [
+              {
+                "price": 101.0,
+                "quantity": 1
+              }
+            ],
+            "bids": [
+              {
+                "price": 100.95,
+                "quantity": 10
+              }
+            ]
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320400,
+          "data": {
+            "price": 100.85,
+            "quantity": 1,
+            "timestamp": 1794445320400
+          }
+        }
+      ],
+      "requested_quantity": 2,
+      "entry_filled": 1,
+      "entry_remaining": 1,
+      "position_at_stop_check": 1,
+      "entry_price": 101.0,
+      "tick_size": 0.05,
+      "stop_ticks": 2,
+      "stop_price": 100.9,
+      "breach_price": 100.85,
+      "state_before_breach": "entering",
+      "state_after_breach": "entering",
+      "stop_orders_created": 0,
+      "feed": "live",
+      "orders": [
+        {
+          "id": "r01-buy-partial-1",
+          "side": "buy",
+          "quantity": 2,
+          "filled": 1,
+          "remaining": 1,
+          "status": "partial",
+          "purpose": "entry"
+        }
+      ],
+      "events": [
+        {
+          "time": 1794445260000,
+          "runId": "r01-buy-partial",
+          "kind": "ready",
+          "text": "준비 중 — 필요 2 · 확보 1"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-partial",
+          "kind": "signal",
+          "text": "매수 진입 규칙이 걸렸습니다"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-partial",
+          "kind": "state",
+          "text": "진입 주문 중"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-partial",
+          "kind": "order",
+          "text": "buy 2계약 시장가 시장가"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-buy-partial",
+          "kind": "fill",
+          "text": "1계약 101 체결"
+        }
+      ],
+      "fills": [
+        {
+          "orderId": "r01-buy-partial-1",
+          "execNo": "r01-buy-partial-1#1",
+          "time": 1794445320300,
+          "price": 101.0,
+          "quantity": 1,
+          "side": "buy",
+          "runId": "r01-buy-partial",
+          "intent": "entry",
+          "reason": "signal",
+          "virtual": true,
+          "snapshot": {
+            "barTime": 1794445260000,
+            "values": {
+              "close": 101.0
+            }
+          },
+          "fee": 0.0,
+          "feeExchange": 0.0,
+          "feeClearing": null,
+          "model": "paper-v2",
+          "realized": null
+        }
+      ]
+    },
+    {
+      "side": "buy",
+      "case": "full_control",
+      "settings": {
+        "memo": "",
+        "baseBar": "1분봉",
+        "evalMode": "마감",
+        "rules": {
+          "buyEntry": {
+            "on": true,
+            "steps": [
+              {
+                "id": "s1",
+                "join": "all",
+                "withinBars": 0,
+                "conds": [
+                  {
+                    "id": "c1",
+                    "left": "close",
+                    "op": "gt",
+                    "rightKind": "number",
+                    "right": "100"
+                  }
+                ]
+              }
+            ]
+          },
+          "sellEntry": {
+            "on": false,
+            "steps": []
+          },
+          "buyExit": {
+            "on": false,
+            "steps": []
+          },
+          "sellExit": {
+            "on": false,
+            "steps": []
+          }
+        },
+        "aux": {
+          "orderType": "시장가",
+          "priceBasis": "신호가",
+          "stopBasis": "",
+          "fillCond": "FAS",
+          "stopTicks": "2",
+          "takeTicks": "20",
+          "perOrder": "1",
+          "maxHold": "5",
+          "session": "국내 주간",
+          "addWhileOpen": false,
+          "dailyLoss": "300000",
+          "marginBudget": "10000000"
+        }
+      },
+      "save_validation_errors": [],
+      "start_validation_errors": [],
+      "synthetic_inputs": [
+        {
+          "kind": "trade",
+          "at": 1794445200000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445200000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445260000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445260000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445320000
+          }
+        },
+        {
+          "kind": "book",
+          "at": 1794445320300,
+          "data": {
+            "asks": [
+              {
+                "price": 101.0,
+                "quantity": 1
+              }
+            ],
+            "bids": [
+              {
+                "price": 100.95,
+                "quantity": 10
+              }
+            ]
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320400,
+          "data": {
+            "price": 100.85,
+            "quantity": 1,
+            "timestamp": 1794445320400
+          }
+        }
+      ],
+      "requested_quantity": 1,
+      "entry_filled": 1,
+      "entry_remaining": 0,
+      "position_at_stop_check": 1,
+      "entry_price": 101.0,
+      "tick_size": 0.05,
+      "stop_ticks": 2,
+      "stop_price": 100.9,
+      "breach_price": 100.85,
+      "state_before_breach": "holding",
+      "state_after_breach": "exiting",
+      "stop_orders_created": 1,
+      "feed": "live",
+      "orders": [
+        {
+          "id": "r01-buy-full_control-1",
+          "side": "buy",
+          "quantity": 1,
+          "filled": 1,
+          "remaining": 0,
+          "status": "filled",
+          "purpose": null
+        },
+        {
+          "id": "r01-buy-full_control-2",
+          "side": "sell",
+          "quantity": 1,
+          "filled": 0,
+          "remaining": 1,
+          "status": "waiting",
+          "purpose": "exit"
+        }
+      ],
+      "events": [
+        {
+          "time": 1794445260000,
+          "runId": "r01-buy-full_control",
+          "kind": "ready",
+          "text": "준비 중 — 필요 2 · 확보 1"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-full_control",
+          "kind": "signal",
+          "text": "매수 진입 규칙이 걸렸습니다"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-full_control",
+          "kind": "state",
+          "text": "진입 주문 중"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-buy-full_control",
+          "kind": "order",
+          "text": "buy 1계약 시장가 시장가"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-buy-full_control",
+          "kind": "fill",
+          "text": "1계약 101 체결"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-buy-full_control",
+          "kind": "state",
+          "text": "보유 중"
+        },
+        {
+          "time": 1794445320400,
+          "runId": "r01-buy-full_control",
+          "kind": "state",
+          "text": "청산 요청"
+        },
+        {
+          "time": 1794445320400,
+          "runId": "r01-buy-full_control",
+          "kind": "order",
+          "text": "손절 — sell 1계약 시장가 전량"
+        }
+      ],
+      "fills": [
+        {
+          "orderId": "r01-buy-full_control-1",
+          "execNo": "r01-buy-full_control-1#1",
+          "time": 1794445320300,
+          "price": 101.0,
+          "quantity": 1,
+          "side": "buy",
+          "runId": "r01-buy-full_control",
+          "intent": "entry",
+          "reason": "signal",
+          "virtual": true,
+          "snapshot": {
+            "barTime": 1794445260000,
+            "values": {
+              "close": 101.0
+            }
+          },
+          "fee": 0.0,
+          "feeExchange": 0.0,
+          "feeClearing": null,
+          "model": "paper-v2",
+          "realized": null
+        }
+      ]
+    },
+    {
+      "side": "sell",
+      "case": "partial",
+      "settings": {
+        "memo": "",
+        "baseBar": "1분봉",
+        "evalMode": "마감",
+        "rules": {
+          "buyEntry": {
+            "on": false,
+            "steps": []
+          },
+          "sellEntry": {
+            "on": true,
+            "steps": [
+              {
+                "id": "s1",
+                "join": "all",
+                "withinBars": 0,
+                "conds": [
+                  {
+                    "id": "c1",
+                    "left": "close",
+                    "op": "lt",
+                    "rightKind": "number",
+                    "right": "100"
+                  }
+                ]
+              }
+            ]
+          },
+          "buyExit": {
+            "on": false,
+            "steps": []
+          },
+          "sellExit": {
+            "on": false,
+            "steps": []
+          }
+        },
+        "aux": {
+          "orderType": "시장가",
+          "priceBasis": "신호가",
+          "stopBasis": "",
+          "fillCond": "FAS",
+          "stopTicks": "2",
+          "takeTicks": "20",
+          "perOrder": "2",
+          "maxHold": "5",
+          "session": "국내 주간",
+          "addWhileOpen": false,
+          "dailyLoss": "300000",
+          "marginBudget": "10000000"
+        }
+      },
+      "save_validation_errors": [],
+      "start_validation_errors": [],
+      "synthetic_inputs": [
+        {
+          "kind": "trade",
+          "at": 1794445200000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445200000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445260000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445260000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445320000
+          }
+        },
+        {
+          "kind": "book",
+          "at": 1794445320300,
+          "data": {
+            "asks": [
+              {
+                "price": 99.05,
+                "quantity": 10
+              }
+            ],
+            "bids": [
+              {
+                "price": 99.0,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320400,
+          "data": {
+            "price": 99.15,
+            "quantity": 1,
+            "timestamp": 1794445320400
+          }
+        }
+      ],
+      "requested_quantity": 2,
+      "entry_filled": 1,
+      "entry_remaining": 1,
+      "position_at_stop_check": -1,
+      "entry_price": 99.0,
+      "tick_size": 0.05,
+      "stop_ticks": 2,
+      "stop_price": 99.1,
+      "breach_price": 99.15,
+      "state_before_breach": "entering",
+      "state_after_breach": "entering",
+      "stop_orders_created": 0,
+      "feed": "live",
+      "orders": [
+        {
+          "id": "r01-sell-partial-1",
+          "side": "sell",
+          "quantity": 2,
+          "filled": 1,
+          "remaining": 1,
+          "status": "partial",
+          "purpose": "entry"
+        }
+      ],
+      "events": [
+        {
+          "time": 1794445260000,
+          "runId": "r01-sell-partial",
+          "kind": "ready",
+          "text": "준비 중 — 필요 2 · 확보 1"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-partial",
+          "kind": "signal",
+          "text": "매도 진입 규칙이 걸렸습니다"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-partial",
+          "kind": "state",
+          "text": "진입 주문 중"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-partial",
+          "kind": "order",
+          "text": "sell 2계약 시장가 시장가"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-sell-partial",
+          "kind": "fill",
+          "text": "1계약 99 체결"
+        }
+      ],
+      "fills": [
+        {
+          "orderId": "r01-sell-partial-1",
+          "execNo": "r01-sell-partial-1#1",
+          "time": 1794445320300,
+          "price": 99.0,
+          "quantity": 1,
+          "side": "sell",
+          "runId": "r01-sell-partial",
+          "intent": "entry",
+          "reason": "signal",
+          "virtual": true,
+          "snapshot": {
+            "barTime": 1794445260000,
+            "values": {
+              "close": 99.0
+            }
+          },
+          "fee": 0.0,
+          "feeExchange": 0.0,
+          "feeClearing": null,
+          "model": "paper-v2",
+          "realized": null
+        }
+      ]
+    },
+    {
+      "side": "sell",
+      "case": "full_control",
+      "settings": {
+        "memo": "",
+        "baseBar": "1분봉",
+        "evalMode": "마감",
+        "rules": {
+          "buyEntry": {
+            "on": false,
+            "steps": []
+          },
+          "sellEntry": {
+            "on": true,
+            "steps": [
+              {
+                "id": "s1",
+                "join": "all",
+                "withinBars": 0,
+                "conds": [
+                  {
+                    "id": "c1",
+                    "left": "close",
+                    "op": "lt",
+                    "rightKind": "number",
+                    "right": "100"
+                  }
+                ]
+              }
+            ]
+          },
+          "buyExit": {
+            "on": false,
+            "steps": []
+          },
+          "sellExit": {
+            "on": false,
+            "steps": []
+          }
+        },
+        "aux": {
+          "orderType": "시장가",
+          "priceBasis": "신호가",
+          "stopBasis": "",
+          "fillCond": "FAS",
+          "stopTicks": "2",
+          "takeTicks": "20",
+          "perOrder": "1",
+          "maxHold": "5",
+          "session": "국내 주간",
+          "addWhileOpen": false,
+          "dailyLoss": "300000",
+          "marginBudget": "10000000"
+        }
+      },
+      "save_validation_errors": [],
+      "start_validation_errors": [],
+      "synthetic_inputs": [
+        {
+          "kind": "trade",
+          "at": 1794445200000,
+          "data": {
+            "price": 101.0,
+            "quantity": 1,
+            "timestamp": 1794445200000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445260000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445260000
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320000,
+          "data": {
+            "price": 99.0,
+            "quantity": 1,
+            "timestamp": 1794445320000
+          }
+        },
+        {
+          "kind": "book",
+          "at": 1794445320300,
+          "data": {
+            "asks": [
+              {
+                "price": 99.05,
+                "quantity": 10
+              }
+            ],
+            "bids": [
+              {
+                "price": 99.0,
+                "quantity": 1
+              }
+            ]
+          }
+        },
+        {
+          "kind": "trade",
+          "at": 1794445320400,
+          "data": {
+            "price": 99.15,
+            "quantity": 1,
+            "timestamp": 1794445320400
+          }
+        }
+      ],
+      "requested_quantity": 1,
+      "entry_filled": 1,
+      "entry_remaining": 0,
+      "position_at_stop_check": -1,
+      "entry_price": 99.0,
+      "tick_size": 0.05,
+      "stop_ticks": 2,
+      "stop_price": 99.1,
+      "breach_price": 99.15,
+      "state_before_breach": "holding",
+      "state_after_breach": "exiting",
+      "stop_orders_created": 1,
+      "feed": "live",
+      "orders": [
+        {
+          "id": "r01-sell-full_control-1",
+          "side": "sell",
+          "quantity": 1,
+          "filled": 1,
+          "remaining": 0,
+          "status": "filled",
+          "purpose": null
+        },
+        {
+          "id": "r01-sell-full_control-2",
+          "side": "buy",
+          "quantity": 1,
+          "filled": 0,
+          "remaining": 1,
+          "status": "waiting",
+          "purpose": "exit"
+        }
+      ],
+      "events": [
+        {
+          "time": 1794445260000,
+          "runId": "r01-sell-full_control",
+          "kind": "ready",
+          "text": "준비 중 — 필요 2 · 확보 1"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-full_control",
+          "kind": "signal",
+          "text": "매도 진입 규칙이 걸렸습니다"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-full_control",
+          "kind": "state",
+          "text": "진입 주문 중"
+        },
+        {
+          "time": 1794445320000,
+          "runId": "r01-sell-full_control",
+          "kind": "order",
+          "text": "sell 1계약 시장가 시장가"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-sell-full_control",
+          "kind": "fill",
+          "text": "1계약 99 체결"
+        },
+        {
+          "time": 1794445320300,
+          "runId": "r01-sell-full_control",
+          "kind": "state",
+          "text": "보유 중"
+        },
+        {
+          "time": 1794445320400,
+          "runId": "r01-sell-full_control",
+          "kind": "state",
+          "text": "청산 요청"
+        },
+        {
+          "time": 1794445320400,
+          "runId": "r01-sell-full_control",
+          "kind": "order",
+          "text": "손절 — buy 1계약 시장가 전량"
+        }
+      ],
+      "fills": [
+        {
+          "orderId": "r01-sell-full_control-1",
+          "execNo": "r01-sell-full_control-1#1",
+          "time": 1794445320300,
+          "price": 99.0,
+          "quantity": 1,
+          "side": "sell",
+          "runId": "r01-sell-full_control",
+          "intent": "entry",
+          "reason": "signal",
+          "virtual": true,
+          "snapshot": {
+            "barTime": 1794445260000,
+            "values": {
+              "close": 99.0
+            }
+          },
+          "fee": 0.0,
+          "feeExchange": 0.0,
+          "feeClearing": null,
+          "model": "paper-v2",
+          "realized": null
+        }
+      ]
+    }
+  ],
+  "reproduced": true
+}
