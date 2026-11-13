@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NH FUTURES API</title>
+    <link rel="icon" href="/favicon.ico" />
+    <script>
+      /* 테마를 **첫 그리기 전에** 정합니다.
+       *
+       * 화면이 뜬 뒤에 붙이면 어두운 화면을 쓰는 사람에게 밝은 화면이 한 프레임
+       * 번쩍입니다. 장이 열린 시간에 어두운 방에서 쓰는 화면이라 그 한 번이
+       * 눈에 남습니다. 앱이 그려지기 전에 끝나야 하는 일이라 여기서 합니다.
+       *
+       * 기본은 어두움입니다. 저장된 값이 있으면 그것을 따르고, 저장소가 막혀
+       * 있거나 값이 깨져 있으면 기본으로 갑니다 — 여기서 멈추면 화면 전체가
+       * 안 뜨므로 무슨 일이 있어도 넘어갑니다.
+       *
+       * 열쇠와 값 모양은 `useStoredState('nh.theme', …)` 와 같아야 합니다. 그쪽이
+       * JSON 으로 넣으므로 여기서도 JSON 으로 읽습니다. */
+      (function () {
+        var theme = 'dark'
+        try {
+          var saved = JSON.parse(localStorage.getItem('nh.theme'))
+          if (saved === 'light' || saved === 'dark') theme = saved
+        } catch (e) {
+          /* 저장소가 막혀 있거나 값이 깨졌습니다. 기본으로 갑니다. */
+        }
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-CSFXqc3C.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-MxcD2wIZ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

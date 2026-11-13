@@ -1,0 +1,1032 @@
+/* NH선물 데스크톱 앱 — 전역 토큰과 기본 스타일
+ *
+ * 색은 전부 CSS 변수로 둡니다. 라이트가 기본이고 다크는 OS 설정이 아니라
+ * 앱의 토글이 정합니다. 토글은 <html> 에 data-theme="dark" 를 붙입니다.
+ */
+
+/* ── 라이트 ───────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* 표면 */
+  --bg: #f4f5f9;
+  --surface: #ffffff;
+  --surface-muted: #edf1f4;
+  --divider: #f2f3f5;
+  /* 목록 행 사이의 선. **잔선(--divider)보다 진합니다** — 잔선은 이미 나뉜
+   * 것들 사이를 지나지만, 이 선은 같은 모양의 항목이 줄줄이 선 목록을 가릅니다.
+   * 표면 대비 1.25:1 입니다: 잔선 1.11 은 여섯 줄이 붙어 있을 때 줄이 섞이고,
+   * 더 진하면 값보다 선이 먼저 보입니다.
+   *
+   * **잔선과 세기가 같은 카드 머리 선(--card-divider)을 쓰지 않고 이름을 따로
+   * 둡니다.** 지금 두 값이 같은 것은 우연이고, 카드 머리 선을 조정했다고 모든
+   * 표의 행이 같이 움직이면 안 됩니다.
+   *
+   * **반투명입니다.** 마우스가 얹힌 행은 바탕이 한 단 어두워지는데, 불투명
+   * 값으로 박아두면 그 행에서만 선의 단차가 1.25 에서 1.15 로 주저앉습니다.
+   * 반투명은 어느 바탕 위에서나 같은 단차로 합성됩니다. */
+  --row-line: rgb(var(--ink) / 0.11);
+  /* 카드 머리와 내용을 가르는 선. 잔선(--divider)보다 한 단 진합니다 — 그 선들은
+   * 이미 나뉜 것들 사이를 지나지만, 이 선은 「위는 껍데기, 아래는 내용」을 혼자
+   * 말합니다. 흰 면 위에서 안 보이면 카드 머리가 내용의 첫 줄로 읽힙니다. */
+  --card-divider: #e4e7ec;
+  --wash: #f1f3f7; /* 표 안에서 구간을 가르는 옅은 바탕 */
+
+  /* 글자 */
+  --text: #181f29;
+  --text-label: #4e5968;
+  --text-dim: #8c8d91;
+
+  /* 방향 — 상승·매수 / 하락·매도. 이 두 색은 방향에만 씁니다 */
+  --up: #e01f32;
+  --up-text: #e01f32;
+  --up-soft: #feeeee;
+  --down: #1c6fe0;
+  --down-text: #1c6fe0;
+  --down-soft: #e9f3ff;
+
+  /* 호가 잔량 막대. 방향색을 그대로 깔면 호가 열이 통째로 색 덩어리가 되어
+   * 값이 안 읽힙니다. 「훑으면 보이되 쳐다보면 조용한」 세기로 낮추고,
+   * 두 색의 밝기를 서로 맞춰 한쪽 막대만 무거워 보이지 않게 합니다.
+   *
+   * **표면 대비 1.5 는 낮은 것이 아니라 정한 값입니다.** 막대는 잔량을 혼자
+   * 말하지 않습니다 — 같은 줄에 숫자가 나란히 서고, 막대가 답하는 것은
+   * 「옆 줄보다 많은가」뿐이라 **길이로만 읽는 바탕 칠**입니다. 글자만큼 세우면
+   * 숫자를 이기고, 그때 호가 열은 색으로 읽히기 시작합니다.
+   *
+   * 잰 값 — 밝은 면 매도 1.57 · 매수 1.53, 어두운 면 매도 1.51 · 매수 1.50.
+   * 두 쪽이 서로 맞고 두 면도 비슷합니다. **올릴 일이 생기면 한쪽이 아니라
+   * 두 면·두 쪽을 함께 움직이세요** — 한쪽만 올리면 그 방향의 잔량이 더 많아
+   * 보입니다. */
+  --up-bar: #ffc2c2;
+  --down-bar: #b3d0ff;
+
+  /* 브랜드 초록 — 버튼·탭 선택·링크·배지에만 씁니다.
+   * 채움과 글자가 값이 다릅니다. 채움색을 글자로 쓰면 흰 배경에서 대비가 모자랍니다. */
+  --brand: #00a651;
+  --brand-hover: #0fb85c; /* 눌림은 테두리로 냅니다. 채움은 밝은 쪽으로만 움직입니다 */
+  --brand-text: #008541; /* 링크·배지 글자 */
+  --brand-soft: #e6f6ee; /* 초록 배지 바탕 */
+  --on-brand: #181f29; /* 초록 채움 위에 얹는 글자 */
+
+  /* 상태 */
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --error: #8c1d18;
+  --error-bg: #fceeee;
+
+  /* 그림 전용 색 — 예탁자산 그림(도넛·흐름 막대·유지선)에만 씁니다. 여유는 녹색,
+   * 묶임은 옅은 빨강, 유지선은 짙은 빨강, 모자람은 가장 짙은 빨강으로 「안전 → 위험」
+   * 한 방향입니다. 주요 단추의 녹색과 상승의 빨강을 빌리지 않습니다 — 같은 색이면
+   * 그림의 뜻이 단추·등락과 섞입니다. 칠한 자리마다 곁에 낱말을 둡니다. */
+  --chart-free: #1f9d5c;
+  --chart-held: #d4606b;
+  --chart-line: #9f2a36;
+  --chart-short: #c62828;
+  --hatch: rgb(var(--ink) / 0.18); /* 빗금(받지 않은 날) — 잉크 알파라 두 테마가 함께 씁니다 */
+
+  /* 층을 쌓아 올리는 잉크. 색은 공유하고 알파는 쓰임마다 따로 둡니다 —
+   * 같은 알파라도 넓은 면과 얇은 선은 다르게 보이기 때문입니다.
+   *
+   * 반투명으로 두는 이유는, 층이 자동으로 합성되어 어느 바탕 위에서나 같은
+   * 단차가 나기 때문입니다. 불투명 값으로 잡으면 「가장 어두운 이웃」 기준으로
+   * 정해야 하는데, 이웃이 여럿이면 한 자리를 맞추는 순간 다른 자리가 어긋납니다. */
+  --ink: 15 27 46;
+
+  /* 주문 대상 표시. 두 차트 중 어느 것이 호가·주문 폼과 이어졌는지를 말합니다.
+   * 브랜드 초록의 얇은 테두리와 세로 바로만 표시하고 채우지 않습니다 — 이 앱에서
+   * 초록 채움은 「눌러도 되는 단추」라, 채우면 배지가 단추로 읽힙니다.
+   * `--inactive` 는 대상이 아닌 쪽 배지의 테두리입니다. */
+  --target: var(--brand);
+  --inactive: #c9ced6;
+  /* 행 줄무늬 — 자리만 잡아두고 켜지 않습니다. 줄무늬와 행 선(--row-line)은
+   * 「어느 행인가」라는 **같은 질문에 답합니다.** 둘 다 켜면 한 답에 층이
+   * 둘이라, 값을 읽기 전에 바탕부터 읽게 됩니다. */
+  --tbl-stripe: 0.03;
+  --tbl-wash: 0.055; /* 내가격 구간 */
+  --tbl-hover: 0.042;
+  --tbl-picked: 0.075;
+  /* 미결제·거래량의 비례 막대. 셀을 채우는 바탕이 아니라 숫자 아래 얇은
+   * 선이라, 열이 넓어져도 무게가 덜 변하고 숫자와 자리를 다투지 않습니다.
+   * 얇은 것은 진해야 보입니다 — 넓은 면에 쓰는 알파와 값이 다릅니다.
+   * 미결제는 맥락이라 거래량보다 한 단 옅습니다. */
+  --tbl-bar: 0.32;
+  --tbl-bar-2: 0.14;
+
+  /* 차트 위에 겹치는 선의 색. UI 색과 다른 이름 공간입니다 — 브랜드 색을
+   * 바꿨다고 차트 선이 따라 바뀌면 안 됩니다.
+   *
+   * 빨강·파랑은 못 씁니다. 봉이 이미 그 두 색이라 얇은 선으로 겹치면 어느
+   * 것이 봉이고 어느 것이 지표인지 안 갈립니다.
+   *
+   * 순서에 뜻이 있습니다 — 앞쪽일수록 눈에 띕니다. 이동평균은 짧은 기간이
+   * 앞에 오므로, 자주 움직이고 자주 보는 선이 제일 튀는 색을 받습니다. */
+  --ma-1: #e8901a;
+  --ma-2: #7b5cd6;
+  --ma-3: #12a150;
+  --ma-4: #7a828c;
+
+  /* 알약 탭의 트랙. 흰 카드 위에도 서고 페이지 배경 위에도 서므로 반투명입니다. */
+  --tab-track: 0.06;
+
+  /* 예탁자산 도넛의 두 조각. 색상이 아니라 농도로 가릅니다 — 둘은 다른
+   * 종류가 아니라 같은 돈의 두 상태라, 색상을 다르게 주면 다른 종류처럼
+   * 읽힙니다. 진한 쪽이 묶인 것, 옅은 쪽이 자유로운 것입니다.
+   * 남는 색상도 없습니다 — 빨강·파랑은 방향, 초록은 「눌러도 되는 것」입니다.
+   * 모의/실전 계좌는 색이 아니라 채움·테두리·글자 무게로 가릅니다(.env-live/.env-sim). */
+  --alloc-locked: 0.62;
+  --alloc-free: 0.18;
+
+  /* 고정되는 것은 불투명, 고정 안 되는 것은 반투명입니다.
+   * 행사가 열은 가로로 스크롤해도 남으므로 반투명이면 밑을 지나가는 열이 비칩니다. */
+  --strike-bg: #dce1e8;
+  --strike-near: #cfd6df;
+
+  /* 입력칸 테두리. 입력은 흰 바탕으로 두고 테두리로 경계를 냅니다 —
+   * 평상시를 회색으로 채우면 비활성을 나타낼 색이 남지 않습니다. */
+  --border: #d7dbe0;
+
+  /* 반응 */
+  --hover: #f4f5f9;
+  --active: #edf1f4;
+  --focus: #181f29;
+}
+
+/* 스크롤 막대는 얇게 둡니다. 기본 두께는 이 앱에서 가장 좁은 열(호가 200)에서
+ * 값이 설 자리를 먹고, 위아래 화살표 단추까지 붙으면 두세 줄짜리 목록이
+ * 단추에 가려집니다. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--ink) / 0.22) transparent;
+}
+
+/* ── 다크 ─────────────────────────────────────────────── */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #101012;
+  --surface: #18171c;
+  --surface-muted: #27262e;
+  --divider: #2a2930;
+  /* 알파를 낮춥니다. 잉크가 흰색으로 바뀌어 밝은 면과 같은 0.11 을 주면 선이
+   * 너무 셉니다 — 0.08 에서 표면 대비가 밝은 면과 같은 1.25 가 됩니다.
+   * 어두운 면에서는 잔선이 이미 1.24 라 밝은 면에서 벌어지던 두 선이 여기서는
+   * 거의 붙습니다. */
+  --row-line: rgb(var(--ink) / 0.08);
+  /* 어두운 표면에서는 잔선이 이미 충분히 떨어져 보입니다 — 같은 값을 씁니다. */
+  --card-divider: #2a2930;
+  --wash: #201f26;
+
+  --text: #eeeef0;
+  --text-label: #a0a3ad;
+  --text-dim: #74767e;
+
+  --up: #d8253d;
+  --up-text: #ff6b7a;
+  --up-soft: #3c1f21;
+  --down: #236dd7;
+  --down-text: #7b98f6;
+  /* 어두운 표면에서는 같은 밝기라도 파랑이 빨강보다 무겁게 옵니다. 두 방향의
+   * 옅은 바탕은 무게가 같아야 합니다 — 한쪽이 진하면 화면이 그쪽을 더 중요한
+   * 결과라고 말하게 됩니다. */
+  --down-soft: #1a2540;
+
+  /* 밝은 면과 같은 세기로 맞춘 값입니다 — 어두운 면 대비 매도 1.51 · 매수 1.50.
+     근거는 밝은 면 토큰 옆에 있습니다. */
+  --up-bar: #5a2730;
+  --down-bar: #2b3659;
+
+  /* 다크는 잉크가 흰색이라 같은 알파가 더 밝게 옵니다. 어두운 표면에서
+   * 묶인 조각 대비와 조각끼리 대비를 다시 맞춘 값입니다. */
+  --alloc-locked: 0.47;
+  --alloc-free: 0.16;
+
+  --brand: #00a651;
+  --brand-hover: #0fb85c;
+  --brand-text: #19b466;
+  --brand-soft: #12301f;
+  --on-brand: #181f29;
+
+  --warn: #fbbf24;
+  --warn-bg: #3a2e10;
+  --error: #f19a94;
+  --error-bg: #3a211f;
+
+  --chart-free: #3fbf7f;
+  --chart-held: #e0707a;
+  --chart-line: #d9515f;
+  --chart-short: #ff4d4f;
+
+  --ink: 255 255 255;
+  --target: var(--brand);
+  --inactive: #4a4d57;
+  --tbl-stripe: 0.03;
+  --tbl-wash: 0.055;
+  --tbl-hover: 0.042;
+  --tbl-picked: 0.062;
+  --tbl-bar: 0.22;
+  --tbl-bar-2: 0.1;
+
+  --tab-track: 0.06;
+
+  --strike-bg: #333238;
+  --strike-near: #393840;
+
+  --border: #3a3942;
+
+  --hover: #201f26;
+  --active: #27262e;
+  --focus: #eeeef0;
+}
+
+/* ── 리셋 ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  /* 표에서 숫자 폭이 예측 가능해야 하므로 고정폭 숫자를 지원하는 글꼴을 먼저 찾습니다. */
+  font-family: Pretendard, -apple-system, 'Segoe UI Variable', 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ── 숫자 ─────────────────────────────────────────────── */
+
+/* 모든 수치는 고정폭 숫자로 그립니다. */
+.num,
+.num-dec {
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+/* 소수점 위치를 열의 기준선으로 잡습니다.
+ * 정수부는 기준선 왼쪽에 오른쪽 정렬로, 소수부는 오른쪽에 왼쪽 정렬로 붙습니다.
+ * 소수부 칸 너비(--frac-w)는 열이 정하므로, 자릿수가 다른 종목이 한 열에
+ * 섞여도 소수점이 세로로 맞습니다. */
+.num-dec {
+  display: inline-grid;
+  grid-template-columns: 1fr var(--frac-w, 3ch);
+  align-items: baseline;
+}
+
+.num-int {
+  text-align: right;
+}
+
+.num-frac {
+  text-align: left;
+}
+
+/* 표 안의 수치는 글자보다 한 단계 굵습니다. 크기가 같아도 무게로 갈립니다. */
+.data-table td .num,
+.data-table td .num-dec {
+  font-weight: 600;
+}
+
+/* 방향 값. 색만으로 구분하지 않으므로 부호나 라벨이 항상 함께 있습니다. */
+.up {
+  color: var(--up-text);
+  font-weight: 600;
+}
+
+.down {
+  color: var(--down-text);
+  font-weight: 600;
+}
+
+/* ── 글자 급 ──────────────────────────────────────────── */
+.t-label {
+  font-size: 12px;
+  color: var(--text-label);
+}
+
+.t-dense {
+  font-size: 13px;
+}
+
+.t-screen {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.t-price {
+  font-size: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.t-dim {
+  color: var(--text-dim);
+}
+
+/* 값 옆에 붙는 기준 시점. 「지금 값이 아님」은 어디서나 이 방식으로 씁니다. */
+.as-of {
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+/* ── 버튼 ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: background-color 120ms ease-out;
+}
+
+.btn:hover {
+  background: var(--hover);
+}
+
+/* 진행 중이거나 지금 할 수 없는 동작.
+ * 초록은 「누를 것」에만 쓰므로, 못 누르는 동안에는 초록을 벗습니다. */
+.btn:disabled {
+  background-color: var(--surface-muted);
+  color: var(--text-dim);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn:active {
+  background: var(--active);
+}
+
+/* 되돌릴 수 없는 동작만 채운 버튼입니다. 한 화면에 하나만 보입니다.
+ * 되돌릴 수 있는 동작(이동·조회)은 아래 테두리 버튼을 씁니다. */
+.btn-primary {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+}
+
+/* 채움을 어둡게 하면 위에 얹은 진한 글자가 대비 기준 아래로 떨어집니다.
+ * 그래서 눌림은 밝기가 아니라 안쪽 테두리로 나타냅니다. */
+.btn-primary:active {
+  background: var(--brand-hover);
+  box-shadow: inset 0 0 0 2px var(--brand-text);
+}
+
+/* 위험한 쪽으로 가는 확인 버튼. 눈에 띄지만 권하지는 않는 무게입니다.
+ *
+ * 초록을 안 씁니다 — 이 앱에서 초록은 「눌러도 되는 것」이라, 되돌릴 수 없는
+ * 것으로 가는 문에 붙으면 권유로 읽힙니다.
+ * 빨강도 못 씁니다 — 국내에서 빨강은 매수라, 경고에 쓰면 매수 버튼과 같은
+ * 색이 됩니다. 위험은 색이 아니라 무게로 나타냅니다. */
+.btn-heavy {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.btn-heavy:hover {
+  background: var(--text);
+  opacity: 0.88;
+}
+
+/* 되돌릴 수 있는 동작(이동·조회)은 한 급 낮춰 테두리로 그립니다.
+ * 채운 버튼의 무게는 매수·매도처럼 되돌릴 수 없는 자리에 남겨둡니다. */
+.btn-outline {
+  color: var(--brand-text);
+  box-shadow: inset 0 0 0 1px var(--surface-muted);
+}
+
+.btn-outline:hover {
+  background: var(--hover);
+}
+
+/* 초록을 쓰지 않는 테두리 버튼.
+ * 위험을 키우는 쪽(주문 수량을 한도까지 채우는 「최대」 등)에는 눈에 띄는
+ * 색을 붙이지 않습니다. 색이 붙으면 그 선택이 권장으로 읽힙니다. */
+.btn-quiet {
+  color: var(--text-label);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.btn-quiet:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+/* ── 입력 ─────────────────────────────────────────────── */
+
+/* 입력은 흰 바탕 + 얇은 테두리입니다. 평상시를 회색으로 채우면 비활성을
+ * 나타낼 색이 남지 않습니다 — 회색 두 단계는 나란히 놓이지 않으면 구별되지
+ * 않으므로, 회색 채움은 「지금 못 쓰는 칸」에만 씁니다. */
+.control {
+  height: 34px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--border);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+select.control {
+  text-align: left;
+  cursor: pointer;
+}
+
+.control:disabled {
+  background: var(--surface-muted);
+  box-shadow: none;
+  color: var(--text-dim);
+  cursor: not-allowed;
+}
+
+/* 받지 못한 값. 테두리가 어느 칸인지 가리키고, 왜 못 받았는지는 칸 아래
+ * 한 줄이 말합니다. 색만으로는 이유를 전하지 못합니다. */
+.control.is-bad {
+  box-shadow: inset 0 0 0 1px var(--error);
+}
+
+/* ── 세그먼트 ─────────────────────────────────────────── */
+.seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+/* 「둘 중 하나」인 세그먼트는 반반으로 트랙을 채웁니다 — 선택지가 몇 개인지
+ * 모양이 말해줍니다. 「여럿 중 하나」인 탭은 글자만큼만 차지해서, 개수가
+ * 늘어도 이미 있던 것이 안 움직입니다. */
+.seg-even {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(56px, 1fr);
+}
+
+.seg-item {
+  height: 26px;
+  white-space: nowrap;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-label);
+  transition: background-color 120ms ease-out, color 120ms ease-out;
+}
+
+.seg-item:hover {
+  color: var(--text);
+}
+
+.seg-item[aria-pressed='true'] {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ── 배지 ─────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--surface-muted);
+  color: var(--text-label);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 기본으로 고를 값을 가리키는 배지. 회색은 보조·비활성 뜻이라 여기 쓰지 않습니다.
+ * 글자는 본문색입니다 — 옅은 바탕 위에 색 글자를 얹으면 대비가 모자랍니다.
+ * 색은 바탕이 나르고 글자는 읽히는 데만 씁니다. */
+.badge-brand {
+  background: var(--brand-soft);
+  color: var(--text);
+}
+
+/* 정정처럼 「지금 보통 때와 다른 상태」를 나타내는 배지.
+ * 회색 배지를 호박색 배너에 얹으면 배지가 바탕에 묻힙니다. */
+.badge-warn {
+  background: var(--warn);
+  color: var(--surface);
+}
+
+/* 지금 어느 계좌에 붙어 있는지. 두 값밖에 없어 색 대신 무게로 가릅니다 —
+ * 빨강은 하락·매도와 부딪히고 초록은 「지금 여기」의 뜻이 흐려집니다.
+ *
+ * 실전이 채운 쪽입니다. 실전인데 모의인 줄 알면 실제 계좌에 주문이
+ * 들어가고, 반대는 손해가 없습니다. 위험이 쏠린 쪽이 무겁습니다. */
+.env-live {
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.env-sim {
+  background: none;
+  box-shadow: inset 0 0 0 1px var(--border);
+  color: var(--text-label);
+}
+
+/* 서버가 아직 답하기 전의 자리. 배지와 같은 상자(높이·반경)에 글자만 없습니다 —
+ * 값이 오는 순간 오른쪽 덩어리가 움직이지 않도록 폭은 두 글자 배지가 실제로
+ * 서는 폭(34px)입니다. 「확인 중」 같은 낱말을 새로 만들지 않습니다. */
+.env-skeleton {
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--surface-muted);
+}
+
+.badge-pill {
+  border-radius: 999px;
+}
+
+/* 컨트롤 옆에 붙는 이름. 주문 폼에서는 입력 왼쪽 열에 섭니다. */
+.control-label {
+  font-size: 12px;
+  color: var(--text-label);
+}
+
+/* ── 표 ───────────────────────────────────────────────── */
+
+/* 표만 세로로 스크롤하고 머리는 남습니다. 영역 전체가 스크롤하면
+ * 무슨 열인지 모르는 채로 값을 보게 됩니다. */
+.table-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  /* 고정된 머리 뒤로 값이 지나가므로 불투명해야 합니다. 카드와 같은 표면색이라
+   * 새로 보이는 것은 없고 겹침만 사라집니다 — 머리에 띠를 두지 않는다는
+   * 규칙과 부딪히지 않습니다. 불투명은 보이게 하는 게 아니라 밑을 가리는 것입니다. */
+  background-color: var(--surface);
+}
+
+/* **가로 행 선은 긋고 세로 열 선은 안 긋습니다.**
+ *
+ * 행 사이에는 1px 선(--row-line)을 둡니다 — 같은 모양의 줄이 여럿 쌓인 목록은
+ * 가로로 훑을 때 어느 값이 어느 줄 것인지 눈이 미끄러지고, 그 자리에서 잘못
+ * 읽은 값으로 주문이 나갑니다. 열 사이에는 안 긋습니다: 열은 정렬과 여백으로
+ * 이미 갈리고, 세로선까지 그으면 표가 격자가 되어 값보다 선이 먼저 보입니다.
+ *
+ * 셀은 붙여 그립니다. 기본값(separate)은 셀 둘레에 2px 틈을 두는데, 머리글을
+ * 고정해 둔 표에서는 그 틈으로 밑을 지나가는 행이 비쳐서 머리글 위에 잘린
+ * 글자가 겹쳐 보입니다. 붙여 그리면 행 선도 위아래 셀이 나눠 갖습니다. */
+.data-table {
+  /* 칸의 좌우 여백. 칸을 옮겨 붙이는 표가 이 값에서 여백을 셈합니다. */
+  --cell-pad-x: 8px;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+/* 머리는 한 줄이고 배경 띠를 두지 않습니다. 띠가 있으면 값보다 머리가
+ * 먼저 보입니다 — 표를 읽는 눈은 값에 가야 합니다. */
+.data-table th {
+  height: 36px;
+  padding: 0 var(--cell-pad-x);
+  color: var(--text-label);
+  font-size: 12px;
+  font-weight: 400;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-table th.col-text,
+.data-table td.col-text {
+  text-align: left;
+}
+
+.data-table td {
+  padding: 0 var(--cell-pad-x);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 행 사이의 선. 표 폭 전체를 지나고 첫 열 밑으로 들여쓰지 않습니다 — 선이
+ * 값보다 안쪽에서 시작하면 그 열만 다른 묶음처럼 보입니다.
+ *
+ * **마지막 행 아래는 안 긋습니다** — 목록이 카드 안이라 카드 가장자리가 이미
+ * 닫습니다. 바닥까지 내리면 안쪽 여백에 잔선 하나가 뜹니다.
+ *
+ * **옵션 체인은 뺍니다.** 거기는 행을 가르는 층이 이미 셋(행사가 열·내가격
+ * 음영·마우스)이라, 가로선을 더하면 표가 격자가 되고 900px 넘는 가로선이
+ * 층 사이의 대비를 눌러 기준선이 오히려 약해집니다. */
+.data-table:not(.chain-table) tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--row-line);
+}
+
+/* 머리글 아래도 **행 선과 같은 세기**입니다. 머리가 고정돼 값이 그 밑을
+ * 지나가므로, 그 경계가 자기가 붙잡는 행 선보다 약하면 안 됩니다.
+ *
+ * 테두리가 아니라 그림자입니다 — 위(`border-collapse: collapse`)에서 셀을
+ * 붙여 그리기로 했고, 붙여 그린 테두리는 셀이 아니라 표가 그립니다. 머리만
+ * 고정된 표에서는 그 선이 머리를 따라오지 않고 제자리에 남아, 스크롤하면
+ * 머리와 선이 떨어집니다. 안쪽 그림자는 셀이 직접 그리므로 함께 움직입니다. */
+.data-table:not(.chain-table) thead th {
+  box-shadow: inset 0 -1px 0 var(--row-line);
+}
+
+/* 표 안에서 「아직 안 골랐음」을 말하는 자리. 값이 아니라 할 일이라 본문보다
+ * 한 급 낮추고 흐림색을 씁니다. 값이 아니므로 값의 굵기(600)를 쓰지 않습니다. */
+.catalog-pending {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* 밀도 두 단계 — 조밀은 옵션 체인·호가·체결, 기본은 목록.
+ * 표 아래 합계 줄(`tfoot`)도 같은 높이를 받습니다 — 합계도 한 줄의 값이라
+ * 위 줄들과 키가 다르면 다른 종류의 칸으로 읽힙니다. */
+.rows-dense tbody tr,
+.rows-dense tfoot tr {
+  height: 32px;
+}
+
+.rows-base tbody tr,
+.rows-base tfoot tr {
+  height: 40px;
+}
+
+/* 한 칸에 두 줄이 들어가는 목록 */
+.rows-stacked tbody tr,
+.rows-stacked tfoot tr {
+  height: 56px;
+}
+
+/* 표 안에서 속성이 셋으로 갈립니다.
+ *   바탕   background-color  (행사가 열·내가격 구간)
+ *   상태   background-image  (hover·고른 행)
+ *   테두리 box-shadow
+ * 같은 속성을 두 규칙이 다투면 밑에 깔린 색이 생기는 순간 뒤집히므로,
+ * 상태는 바탕을 갈아치우지 않고 잉크 한 겹을 덮습니다. 흰 칸에서도
+ * 내가격 음영 위에서도 불투명한 행사가 열 위에서도 같은 만큼 어두워집니다. */
+/* 못 누르는 행은 밝아지지 않습니다 — 밝아지는 것이 「누를 수 있다」는 말이라,
+ * 눌러도 아무 일이 없는 행에 그 말을 붙이면 조작이 안 먹은 것으로 읽힙니다.
+ * `:not()` 은 인자의 특이도를 그대로 가져오므로 `:where()` 로 감싸 hover 를
+ * 아래 「고른 행」 규칙보다 한 단 낮게 유지합니다. */
+:where(.data-table) tbody tr:where(:not([aria-disabled='true'])):hover td {
+  background-image: linear-gradient(rgb(var(--ink) / var(--tbl-hover)) 0 0);
+}
+
+/* 고른 행은 hover보다 진합니다. hover 쪽을 :where() 로 한 단 낮춰 두었으므로
+ * 둘이 동시에 걸려도 진한 쪽 하나만 그려집니다 — 겹치면 정한 적 없는 단이 생깁니다.
+ * 표 아래 합계 줄(`tfoot`)도 고를 수 있는 표에서는 같은 강조를 받습니다. */
+.data-table tbody tr[aria-selected='true'] td,
+.data-table tfoot tr[aria-selected='true'] td,
+.data-table tbody tr td.chain-picked {
+  background-image: linear-gradient(rgb(var(--ink) / var(--tbl-picked)) 0 0);
+}
+
+.row-click {
+  cursor: pointer;
+}
+
+/* 못 누르는 단추. `disabled` 가 아니라 `aria-disabled` 인 것은 초점을 받아야
+ * 왜 못 누르는지 적어 둔 말에 키보드로도 닿기 때문입니다.
+ *
+ * **보이는 꼴은 `disabled` 단추와 하나입니다** — 옅은 바탕, 흐린 글자, 테두리
+ * 없음. 글자만 흐리면 테두리 단추는 누를 수 있는 단추와 테두리·바탕이 같아
+ * 갈리지 않고, 채운 단추는 초록·본문색 채움을 두른 채 「지금 누를 것」으로
+ * 보입니다. 단추 종류마다 따로 벗기지 않고 여기 한 자리에서 벗깁니다.
+ * 손을 올리거나 눌러도 바뀌지 않습니다 — 바뀌면 눌리는 것으로 읽힙니다. */
+.btn[aria-disabled='true'],
+.btn[aria-disabled='true']:hover,
+.btn[aria-disabled='true']:active {
+  background: var(--surface-muted);
+  color: var(--text-dim);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* 무거운 단추는 손을 올리면 옅어지는데, 못 누르는 동안에는 그것도 없습니다. */
+.btn-heavy[aria-disabled='true']:hover {
+  opacity: 1;
+}
+
+/* 눈으로는 안 보이고 화면을 읽어 주는 도구에만 닿는 한 줄. **폭을 1px 도 먹지
+ * 않으므로** 좁은 칸에도 이유를 붙일 수 있습니다. `display: none` 은 안 됩니다 —
+ * 그러면 읽어 주는 도구에서도 사라집니다. */
+.hidden-note {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── 최근 흐름 ───────────────────────────────────────── */
+
+.spark {
+  width: 56px;
+  height: 24px;
+  /* 끝 점과 가리키는 점이 상자 모서리에서 반쯤 잘리지 않게 합니다. */
+  overflow: visible;
+}
+
+/* 선. 기준(전일 종가)을 모르면 무채입니다 — 무엇 대비인지 모르는 색은 지어낸
+ * 방향입니다. 끝을 둥글게 두어 봉이 하나뿐인 종목은 점 하나로 섭니다. */
+.spark-line {
+  fill: none;
+  stroke: var(--text-label);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* 기준선보다 위는 상승색, 아래는 하락색입니다. 이 앱에서 방향값에는 색이 붙고,
+ * 색이 없으면 오른 구간과 내린 구간을 숫자로 하나씩 읽어야 합니다. */
+.spark-line.up {
+  stroke: var(--up-text);
+}
+
+.spark-line.down {
+  stroke: var(--down-text);
+}
+
+/* 봉이 하나뿐인 종목의 점(반지름 2.5). */
+.spark-point {
+  stroke-width: 5;
+}
+
+/* 선과 기준선 사이 면. 선과 같은 색을 옅게 깝니다 — 면은 「기준에서 얼마나
+ * 떨어져 있나」를 넓이로 말하고, 진하면 선보다 먼저 읽혀 선을 가립니다. */
+.spark-fill {
+  stroke: none;
+  fill-opacity: 0.16;
+}
+
+.spark-fill.up {
+  fill: var(--up-text);
+}
+
+.spark-fill.down {
+  fill: var(--down-text);
+}
+
+/* 기준선(전일 종가). 값이 아니라 눈금이라 선보다 한참 낮춥니다. */
+.spark-base {
+  stroke: var(--text-dim);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* 마우스를 올린 자리. 선 위에서만 나타나고 자리를 안 씁니다. */
+.spark-cross {
+  stroke: var(--text-dim);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+/* 가리키는 점. 길이 0 선의 둥근 끝이라 가로로 늘어나는 상자에서도 둥급니다. */
+.spark-dot {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* 선과 그 아래 기준값 한 줄을 묶습니다. */
+.spark-frame {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.spark-frame-stretch {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+}
+
+/* 기준선이 무엇인지 말하는 한 줄. 선 아래 오른쪽입니다. */
+.spark-base-label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 기준을 모를 때 자리만 잡는 줄. */
+.spark-base-label.is-blank {
+  visibility: hidden;
+}
+
+/* 조회 전에는 회색 블록으로 선이 설 자리를 잡습니다. 같은 화면의 다른 칸이
+ * 「받는 중」이라고 말하는데 한 칸만 아무 말이 없으면, 그 칸은 「아직 안
+ * 받음」이 아니라 「원래 없음」으로 읽힙니다. */
+.spark-empty {
+  display: inline-block;
+  width: 56px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: var(--surface-muted);
+}
+
+/* 봉이 하나도 없는 종목. 선을 그리지 않고 이유를 적습니다. */
+.spark-none {
+  display: inline-block;
+  width: 56px;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ── 값이 없는 자리 ──────────────────────────────────── */
+
+/* 아직 안 받은 값. 폭을 그 열의 자릿수만큼 잡아두어 값이 들어올 때
+ * 표가 흔들리지 않게 합니다. */
+.skeleton {
+  display: inline-block;
+  height: 12px;
+  min-width: 3ch;
+  border-radius: 4px;
+  background: var(--surface-muted);
+  vertical-align: middle;
+}
+
+/* 원래 오지 않는 값. 기다릴 것이 없다는 뜻이라 skeleton과 다르게 씁니다. */
+.absent {
+  color: var(--text-dim);
+}
+
+/* 값이 0이거나 움직이지 않은 칸. 살아 있는 값과 무게를 가릅니다. */
+.dead {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* ── 비어 있음 / 비활성 안내 ─────────────────────────── */
+
+/* 회색으로 둔 곳에는 이유 한 줄이 같이 붙습니다. */
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.notice-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-label);
+}
+
+/* 기다려서는 안 끝나고 사람이 손을 써야 끝나는 일. 제목에만 씁니다 — 이유
+ * 줄과 단추까지 물들이면 화면 전체가 위험해 보입니다. */
+.notice-title.is-warn {
+  color: var(--warn);
+}
+
+.notice-reason {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* 다시 해볼 길. 「없다」에는 붙지 않습니다 — 다시 눌러도 없습니다. */
+.notice-action {
+  margin-top: 12px;
+}
+
+/* 값은 이미 있는데 다시 받기가 안 된 목록 위에 서는 한 줄.
+ *
+ * 문장과 단추를 줄바꿈되는 가로 상자에 둡니다 — 폭이 모자라 단추가 다음 줄로
+ * 내려가도 문장 첫 글자와 같은 x 에서 시작합니다(글자 흐름 안의 여백이면 내려간
+ * 단추가 그 여백만큼 안쪽에 섭니다). 이어진 글자는 한 덩어리로 묶이므로 낱말
+ * 사이가 벌어지지 않습니다. **문장 안에 글자 아닌 요소(굵은 글씨 등)를 섞지
+ * 마세요** — 그 요소 앞뒤로 간격이 들어갑니다. */
+.list-stale {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+  row-gap: 4px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* 문장 안쪽에 든 단추(한 줄 안에 여러 조각을 두는 자리)는 글자 흐름 그대로라
+ * 여백을 답니다. 줄 바로 아래 단추는 위 간격이 맡습니다. */
+.list-stale .btn {
+  margin-left: 6px;
+}
+
+.list-stale > .btn {
+  margin-left: 0;
+}
+
+/* 계좌 표의 머리 줄(`ListHead`). 왼쪽은 무엇의 값인지, 오른쪽 끝은 받은 줄 수와
+ * 받는 상태입니다. 둘 다 표의 값보다 한 급 낮습니다. */
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  /* 단추(32)가 서는 얼굴에 높이를 맞춥니다. 「N줄」만 남는 얼굴로 바뀔 때
+     줄이 낮아지면 아래 표가 움찔합니다. */
+  min-height: 32px;
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.list-head-label {
+  color: var(--text-label);
+}
+
+.list-head-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 「멈추기」·「더 받기」와 「다시 받기」를 가르는 세로 선. */
+.list-head-rule {
+  width: 1px;
+  height: 16px;
+  background: var(--divider);
+}
