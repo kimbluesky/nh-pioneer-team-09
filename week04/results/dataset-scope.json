@@ -1,0 +1,99 @@
+{
+  "presentation": {
+    "research_period_described_by_user": {
+      "from": "2026-11-09",
+      "through": "2026-11-11",
+      "weekdays": "Monday to Wednesday"
+    },
+    "performance_table_scope": "Selected 180-minute historical-bar calculation, not the total of all research days",
+    "verified_table_window": {
+      "date": "2026-11-10",
+      "start": "15:00:00",
+      "end": "18:00:00",
+      "minutes": 180
+    },
+    "verified_table_values": {
+      "spread": {
+        "completed": 4,
+        "net": 1263.0,
+        "return_pct": 1.263,
+        "mdd": 1188.5,
+        "fees": 368.0,
+        "wins": 3,
+        "losses": 1,
+        "trade_net": [
+          -727.0,
+          646.5,
+          603.0,
+          740.5
+        ]
+      },
+      "nasdaq_only": {
+        "completed": 5,
+        "net": 651.0,
+        "return_pct": 0.651,
+        "mdd": 1501.5,
+        "fees": 420.0,
+        "wins": 3,
+        "losses": 2,
+        "trade_net": [
+          -924.0,
+          651.0,
+          882.0,
+          693.0,
+          -651.0
+        ]
+      },
+      "sp500_only": {
+        "completed": 2,
+        "net": 251.5,
+        "return_pct": 0.2515,
+        "mdd": 387.5,
+        "fees": 56.0,
+        "wins": 1,
+        "losses": 1,
+        "trade_net": [
+          -121.0,
+          372.5
+        ]
+      }
+    },
+    "used_as_today_account_fills": false
+  },
+  "submitted_mock_run": {
+    "date_kst": "2026-11-13",
+    "run_id": "162af87f66b34423bb33921df296e22f",
+    "started_at_ms": 1794549521555,
+    "last_fill_at_ms": 1794559204391,
+    "duration_to_last_fill_seconds": 9682.836,
+    "completed_pair_trades": 7,
+    "completed_leg_trades": 14,
+    "fill_records": 28,
+    "filled_contracts_including_exits": 322,
+    "manual_pair_trades": 3,
+    "single_instrument_mock_account_orders": 0
+  },
+  "same_day_app_comparison": {
+    "date_kst": "2026-11-13",
+    "run_id": "162af87f66b34423bb33921df296e22f",
+    "execution": "App simulation, separate from NH account fills",
+    "completed_trades": {
+      "spread": 6,
+      "nasdaq_only": 8,
+      "sp500_only": 5
+    }
+  },
+  "organizer_scoreboard": {
+    "date_kst": "2026-11-13",
+    "baseline_time": "15:00:00",
+    "end_screen_time": "18:00:00",
+    "rank": 2,
+    "profit_usd": 128,
+    "displayed_return_pct": 0.13,
+    "trade_count_shown": false
+  },
+  "submitted_code_matches_current_run": {
+    "source_files_checked": 8,
+    "all_hashes_match": true
+  }
+}

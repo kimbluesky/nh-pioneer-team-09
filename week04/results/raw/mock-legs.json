@@ -1,0 +1,136 @@
+{
+ "origin": "live",
+ "runs": [
+  {
+   "approved_at": 1794549532037,
+   "cash": 100000.0,
+   "code": "MNQZ26",
+   "controller": "spread",
+   "currency": "USD",
+   "currency_unknown": false,
+   "daily_loss": null,
+   "draft": {
+    "aux": {
+     "addWhileOpen": false,
+     "dailyLoss": "",
+     "fillCond": "",
+     "lossStreak": "",
+     "marginBudget": "100000.0",
+     "maxHold": "17",
+     "orderType": "시장가",
+     "perOrder": "17",
+     "priceBasis": "신호가",
+     "session": "해외 CME",
+     "sessionEndFlat": false,
+     "stopTicks": "1"
+    },
+    "baseBar": "1분봉",
+    "evalMode": "마감",
+    "memo": "스프레드 전략의 관리 레그",
+    "rules": {
+     "buyEntry": {
+      "on": false,
+      "steps": []
+     },
+     "buyExit": {
+      "on": false,
+      "steps": []
+     },
+     "sellEntry": {
+      "on": false,
+      "steps": []
+     },
+     "sellExit": {
+      "on": false,
+      "steps": []
+     }
+    }
+   },
+   "environment": "paper",
+   "exchange": "FCME",
+   "fee_per_contract": 2.0,
+   "group_id": "",
+   "id": "blend-162af87f66b34423bb33921df296e22f-a",
+   "kind": "futures",
+   "margin": null,
+   "margin_budget": 100000.0,
+   "market": "overseas",
+   "mode": "sim",
+   "model": "sim-v1",
+   "multiplier": 2.0,
+   "qty": 17,
+   "session": "overseas",
+   "started_at": 0,
+   "state": "holding",
+   "stop_reason": "",
+   "stopped_at": 0,
+   "version_id": "162af87f66b34423bb33921df296e22f"
+  },
+  {
+   "approved_at": 1794549532685,
+   "cash": 100000.0,
+   "code": "MESZ26",
+   "controller": "spread",
+   "currency": "USD",
+   "currency_unknown": false,
+   "daily_loss": null,
+   "draft": {
+    "aux": {
+     "addWhileOpen": false,
+     "dailyLoss": "",
+     "fillCond": "",
+     "lossStreak": "",
+     "marginBudget": "100000.0",
+     "maxHold": "6",
+     "orderType": "시장가",
+     "perOrder": "6",
+     "priceBasis": "신호가",
+     "session": "해외 CME",
+     "sessionEndFlat": false,
+     "stopTicks": "1"
+    },
+    "baseBar": "1분봉",
+    "evalMode": "마감",
+    "memo": "스프레드 전략의 관리 레그",
+    "rules": {
+     "buyEntry": {
+      "on": false,
+      "steps": []
+     },
+     "buyExit": {
+      "on": false,
+      "steps": []
+     },
+     "sellEntry": {
+      "on": false,
+      "steps": []
+     },
+     "sellExit": {
+      "on": false,
+      "steps": []
+     }
+    }
+   },
+   "environment": "paper",
+   "exchange": "FCME",
+   "fee_per_contract": 2.0,
+   "group_id": "",
+   "id": "blend-162af87f66b34423bb33921df296e22f-b",
+   "kind": "futures",
+   "margin": null,
+   "margin_budget": 100000.0,
+   "market": "overseas",
+   "mode": "sim",
+   "model": "sim-v1",
+   "multiplier": 5.0,
+   "qty": 6,
+   "session": "overseas",
+   "started_at": 0,
+   "state": "holding",
+   "stop_reason": "",
+   "stopped_at": 0,
+   "version_id": "162af87f66b34423bb33921df296e22f"
+  }
+ ],
+ "version": 1
+}

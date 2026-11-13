@@ -1,0 +1,18 @@
+{
+  "fixed_strategy_hashes_match": true,
+  "fixed_strategy_hashes_checked": 8,
+  "source_file_hashes_checked": 394,
+  "offline_tests_passed": 33,
+  "offline_tests_failed": 0,
+  "raw_files_unchanged": 6,
+  "raw_summary_rebuild_matched": true,
+  "rebuilt_files_matched": 12,
+  "readme_local_links_valid": true,
+  "external_bug_report_links_http_200": 3,
+  "setup_copy_flow_checked_without_installing_dependencies": true,
+  "setup_preserves_existing_runtime": true,
+  "trading_restarted_during_packaging": false,
+  "readme_local_link_count": 56,
+  "readme_tables_valid": true,
+  "additional_analysis_matches_original_records": true
+}

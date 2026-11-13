@@ -1,0 +1,9 @@
+{
+  "execution": "App simulated fills using live real-environment quotes",
+  "capital_per_strategy_usd": 100000,
+  "extra_ticks_per_side": 1,
+  "fee_per_contract_side_usd": 2,
+  "same_execution_model_for_all_three": true,
+  "not_nh_mock_account": true,
+  "manual_close_actions_apply_only_to_nh_mock": true
+}

@@ -1,0 +1,624 @@
+{
+  "run_id": "162af87f66b34423bb33921df296e22f",
+  "scope": "Post-run descriptive analysis of original 2026-11-13 records. Trading rules and original records are unchanged.",
+  "source_sha256": {
+    "raw/events.jsonl.gz": "93bdda5d7129960f6dc4cd3f76390551cfd597f62d26834edfa56088b7b30ae5",
+    "raw/market-data.jsonl.gz": "0c8f3a1977ba8c918ac04aa76532cc55b36f9366e6dc1b3f7e7e74857d55e443",
+    "raw/mock-events.jsonl": "d572aecc7001a1ae52f9231af4a8fca49127764a8ceab38e4d00c64647f487d8",
+    "raw/state.json.gz": "e84cd28312de0c7e89814da0250be3af9f3e85be673f17d5129a3ff643d8376b",
+    "raw/mock-intent.json": "271dc3389a81b33faa2f388885910f1740e236811d4b9eea0e370803705a9a02",
+    "nh-mock/trades.csv": "358521e1d4ed7aa440e3da4874f1724424f3b4bc017c770d20045cd59cca2511"
+  },
+  "trade_statistics": {
+    "net_usd": -28.5,
+    "mean_net_usd": -4.071428571428571,
+    "winning_net_usd": 1340.5,
+    "losing_net_usd": -1369.0,
+    "mean_win_usd": 446.8333333333333,
+    "mean_loss_abs_usd": 342.25,
+    "profit_factor": 0.9791818845872899,
+    "realized_payoff_ratio": 1.3055758461163867,
+    "breakeven_win_rate_from_sample_pct": 43.37311226106242,
+    "hold_seconds": {
+      "count": 7,
+      "min": 31.23,
+      "median": 170.972,
+      "mean": 331.4204285714286,
+      "max": 980.647
+    },
+    "holding_time_pct": 23.9593338150104,
+    "waits_between_trades": [
+      {
+        "previous_trade": 1,
+        "next_trade": 2,
+        "seconds": 148.659
+      },
+      {
+        "previous_trade": 2,
+        "next_trade": 3,
+        "seconds": 3039.213
+      },
+      {
+        "previous_trade": 3,
+        "next_trade": 4,
+        "seconds": 129.168
+      },
+      {
+        "previous_trade": 4,
+        "next_trade": 5,
+        "seconds": 38.368
+      },
+      {
+        "previous_trade": 5,
+        "next_trade": 6,
+        "seconds": 28.323
+      },
+      {
+        "previous_trade": 6,
+        "next_trade": 7,
+        "seconds": 3899.909
+      }
+    ],
+    "legs": {
+      "MNQZ26": {
+        "gross_usd": 705.5,
+        "modeled_fees_usd": 476.0,
+        "net_usd": 229.5,
+        "fill_records": 14
+      },
+      "MESZ26": {
+        "gross_usd": -90.0,
+        "modeled_fees_usd": 168.0,
+        "net_usd": -258.0,
+        "fill_records": 14
+      }
+    }
+  },
+  "execution": {
+    "orders": 28,
+    "outcomes": {
+      "filled": 28
+    },
+    "fill_records": 28,
+    "total_contracts": 322,
+    "orders_with_multiple_fill_records": 0,
+    "send_to_fill_ms": {
+      "count": 28,
+      "min": 299,
+      "median": 465.0,
+      "mean": 462.42857142857144,
+      "max": 635
+    },
+    "latency_scope": "Client order timestamp to client-observed final fill; not exchange matching latency.",
+    "order_timings": [
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001207",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T15:00:00.356+09:00",
+        "last_fill_at_kst": "2026-11-13T15:00:00.808+09:00",
+        "elapsed_ms": 452,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001208",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T15:00:00.356+09:00",
+        "last_fill_at_kst": "2026-11-13T15:00:00.918+09:00",
+        "elapsed_ms": 562,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001210",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T15:00:31.514+09:00",
+        "last_fill_at_kst": "2026-11-13T15:00:31.829+09:00",
+        "elapsed_ms": 315,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001211",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T15:00:31.514+09:00",
+        "last_fill_at_kst": "2026-11-13T15:00:32.038+09:00",
+        "elapsed_ms": 524,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001216",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T15:03:00.353+09:00",
+        "last_fill_at_kst": "2026-11-13T15:03:00.697+09:00",
+        "elapsed_ms": 344,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001217",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T15:03:00.353+09:00",
+        "last_fill_at_kst": "2026-11-13T15:03:00.887+09:00",
+        "elapsed_ms": 534,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001230",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T15:19:20.732+09:00",
+        "last_fill_at_kst": "2026-11-13T15:19:21.037+09:00",
+        "elapsed_ms": 305,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001231",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T15:19:20.732+09:00",
+        "last_fill_at_kst": "2026-11-13T15:19:21.344+09:00",
+        "elapsed_ms": 612,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001297",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:10:00.226+09:00",
+        "last_fill_at_kst": "2026-11-13T16:10:00.557+09:00",
+        "elapsed_ms": 331,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001298",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:10:00.226+09:00",
+        "last_fill_at_kst": "2026-11-13T16:10:00.760+09:00",
+        "elapsed_ms": 534,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001303",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:12:49.039+09:00",
+        "last_fill_at_kst": "2026-11-13T16:12:49.428+09:00",
+        "elapsed_ms": 389,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001304",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:12:51.230+09:00",
+        "last_fill_at_kst": "2026-11-13T16:12:51.529+09:00",
+        "elapsed_ms": 299,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001309",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:15:00.247+09:00",
+        "last_fill_at_kst": "2026-11-13T16:15:00.697+09:00",
+        "elapsed_ms": 450,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001310",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:15:00.247+09:00",
+        "last_fill_at_kst": "2026-11-13T16:15:00.882+09:00",
+        "elapsed_ms": 635,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001313",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:18:21.712+09:00",
+        "last_fill_at_kst": "2026-11-13T16:18:22.135+09:00",
+        "elapsed_ms": 423,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001314",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:18:21.712+09:00",
+        "last_fill_at_kst": "2026-11-13T16:18:22.243+09:00",
+        "elapsed_ms": 531,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001315",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:19:00.142+09:00",
+        "last_fill_at_kst": "2026-11-13T16:19:00.611+09:00",
+        "elapsed_ms": 469,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001316",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:19:00.142+09:00",
+        "last_fill_at_kst": "2026-11-13T16:19:00.721+09:00",
+        "elapsed_ms": 579,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001317",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:19:32.934+09:00",
+        "last_fill_at_kst": "2026-11-13T16:19:33.271+09:00",
+        "elapsed_ms": 337,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001318",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:19:32.934+09:00",
+        "last_fill_at_kst": "2026-11-13T16:19:33.365+09:00",
+        "elapsed_ms": 431,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001319",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:20:01.199+09:00",
+        "last_fill_at_kst": "2026-11-13T16:20:01.688+09:00",
+        "elapsed_ms": 489,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001320",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:20:01.199+09:00",
+        "last_fill_at_kst": "2026-11-13T16:20:01.798+09:00",
+        "elapsed_ms": 599,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001321",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T16:21:00.108+09:00",
+        "last_fill_at_kst": "2026-11-13T16:21:00.442+09:00",
+        "elapsed_ms": 334,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001322",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T16:21:00.108+09:00",
+        "last_fill_at_kst": "2026-11-13T16:21:00.643+09:00",
+        "elapsed_ms": 535,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "entry",
+        "order_no": "0000001384",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T17:26:00.091+09:00",
+        "last_fill_at_kst": "2026-11-13T17:26:00.552+09:00",
+        "elapsed_ms": 461,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "entry",
+        "order_no": "0000001385",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T17:26:00.091+09:00",
+        "last_fill_at_kst": "2026-11-13T17:26:00.649+09:00",
+        "elapsed_ms": 558,
+        "fill_records": 1
+      },
+      {
+        "code": "MNQZ26",
+        "intent": "exit",
+        "order_no": "0000001388",
+        "quantity": 17,
+        "placed_at_kst": "2026-11-13T17:40:03.886+09:00",
+        "last_fill_at_kst": "2026-11-13T17:40:04.297+09:00",
+        "elapsed_ms": 411,
+        "fill_records": 1
+      },
+      {
+        "code": "MESZ26",
+        "intent": "exit",
+        "order_no": "0000001389",
+        "quantity": 6,
+        "placed_at_kst": "2026-11-13T17:40:03.886+09:00",
+        "last_fill_at_kst": "2026-11-13T17:40:04.391+09:00",
+        "elapsed_ms": 505,
+        "fill_records": 1
+      }
+    ],
+    "pair_fill_time_difference_ms": {
+      "entry": {
+        "count": 7,
+        "min": 97,
+        "median": 110,
+        "mean": 143.57142857142858,
+        "max": 203
+      },
+      "exit": {
+        "count": 7,
+        "min": 94,
+        "median": 201,
+        "mean": 444.85714285714283,
+        "max": 2101
+      }
+    },
+    "pair_fill_times": [
+      {
+        "trade_no": 1,
+        "intent": "entry",
+        "fill_time_difference_ms": 110
+      },
+      {
+        "trade_no": 1,
+        "intent": "exit",
+        "fill_time_difference_ms": 209
+      },
+      {
+        "trade_no": 2,
+        "intent": "entry",
+        "fill_time_difference_ms": 190
+      },
+      {
+        "trade_no": 2,
+        "intent": "exit",
+        "fill_time_difference_ms": 307
+      },
+      {
+        "trade_no": 3,
+        "intent": "entry",
+        "fill_time_difference_ms": 203
+      },
+      {
+        "trade_no": 3,
+        "intent": "exit",
+        "fill_time_difference_ms": 2101
+      },
+      {
+        "trade_no": 4,
+        "intent": "entry",
+        "fill_time_difference_ms": 185
+      },
+      {
+        "trade_no": 4,
+        "intent": "exit",
+        "fill_time_difference_ms": 108
+      },
+      {
+        "trade_no": 5,
+        "intent": "entry",
+        "fill_time_difference_ms": 110
+      },
+      {
+        "trade_no": 5,
+        "intent": "exit",
+        "fill_time_difference_ms": 94
+      },
+      {
+        "trade_no": 6,
+        "intent": "entry",
+        "fill_time_difference_ms": 110
+      },
+      {
+        "trade_no": 6,
+        "intent": "exit",
+        "fill_time_difference_ms": 201
+      },
+      {
+        "trade_no": 7,
+        "intent": "entry",
+        "fill_time_difference_ms": 97
+      },
+      {
+        "trade_no": 7,
+        "intent": "exit",
+        "fill_time_difference_ms": 94
+      }
+    ],
+    "gap_messages": [
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:12:29.489+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 16:11:59)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:12:30.572+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 16:12:00)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:12:48.550+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:12:50.759+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:41:16.032+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 16:40:45)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:41:16.140+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 16:40:46)"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:16.083+09:00",
+        "text": "시세 연결이 끊긴 것 같습니다 — 실행을 멈췄다 재개해 주세요"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:16.303+09:00",
+        "text": "시세 연결이 끊긴 것 같습니다 — 실행을 멈췄다 재개해 주세요"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:20.465+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:20.468+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:42.713+09:00",
+        "text": "데이터 공백 — 연결이 끊겼습니다(마지막 수신 16:42:41)"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:42.713+09:00",
+        "text": "데이터 공백 — 연결이 끊겼습니다(마지막 수신 16:42:39)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:50.127+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:50.127+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T17:32:12.660+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 17:31:42)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T17:32:13.023+09:00",
+        "text": "데이터 공백 — 체결이 오지 않습니다(마지막 수신 17:31:42)"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T17:40:03.507+09:00",
+        "text": "시세가 다시 들어옵니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T17:40:03.510+09:00",
+        "text": "시세가 다시 들어옵니다"
+      }
+    ],
+    "reconnect_matches": [
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:12:47.625+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:12:48.156+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:19.294+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:20.142+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T16:42:50.505+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T16:42:50.941+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MNQZ26",
+        "time_kst": "2026-11-13T17:40:02.645+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      },
+      {
+        "code": "MESZ26",
+        "time_kst": "2026-11-13T17:40:03.037+09:00",
+        "text": "재접속 뒤 대사 일치 — 감시를 이어 갑니다"
+      }
+    ]
+  },
+  "market_data": {
+    "record_counts": {
+      "books": 8111,
+      "public_margins": 1,
+      "mock_NEW_capacity": 455,
+      "minute_bars": 717
+    },
+    "record_count_scope": "Saved snapshots, not a count of all HTTP calls or websocket messages.",
+    "first_history_after_start_seconds": 1.549,
+    "first_history_rows": 494,
+    "first_mock_fill_after_start_seconds": 79.253
+  },
+  "first_trade_notional_at_fill": {
+    "MNQ_usd": 961817.5,
+    "MES_usd": 228315.0,
+    "MES_over_MNQ_pct": 23.737871269757516,
+    "gross_usd": 1190132.5,
+    "net_long_usd": 733502.5
+  },
+  "last_trade_frozen_exit": {
+    "entry_requested_at_kst": "2026-11-13T17:26:00.091+09:00",
+    "target_net_usd": 600.0,
+    "risk_usd": 600,
+    "estimated_round_trip_cost_usd": 180.25000000008185,
+    "cost_over_risk_pct": 30.04166666668031
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "run_id": "162af87f66b34423bb33921df296e22f",
+  "source": "http://127.0.0.1:47104/?view=rotation&present=1",
+  "screenshots": [
+    {
+      "file": "01-stopped-dashboard.jpg",
+      "description": "중지된 프로그램. 상단 NH 모의계좌는 실제 모의 주문 집계(-28.50 USD), 아래 주 전략 카드는 앱 가상 체결(-13.50 USD). 화면 잔여 시간은 예약 종료까지 남은 시간이며 자동매매는 중지 상태."
+    },
+    {
+      "file": "02-paper-comparison.jpg",
+      "description": "세 전략의 앱 가상 체결 비교. NH 모의계좌 수익률 그래프가 아님."
+    },
+    {
+      "file": "03-paper-leg-charts.jpg",
+      "description": "앱 가상 체결의 최근 청산 거래와 종목별 진입·청산 타점. NH 모의계좌의 실제 체결 가격은 results/nh-mock/fills.csv 참조."
+    },
+    {
+      "file": "04-competition-final.png",
+      "description": "사용자가 제공한 18:00:00 대회 종료 화면. 9팀 2위, 수익 +128.00 USD, 표시 수익률 +0.13%. 기준 시각 15:00:00, 원금 100,000 USD. 마지막 화면 갱신 17:59:59.",
+      "source": "user-provided original screenshot",
+      "sha256": "af44aeca681c56fa7ca4aa666fdf69722fea3a097abb988ae6c46075427882bf",
+      "image_modified": false
+    }
+  ]
+}

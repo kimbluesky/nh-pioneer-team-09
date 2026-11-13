@@ -1,0 +1,38 @@
+{
+  "run_id": "162af87f66b34423bb33921df296e22f",
+  "files": {
+    "events.jsonl.gz": {
+      "original_name": "events.jsonl",
+      "original_bytes": 172246,
+      "original_sha256": "363dbef8fbb536b6eaad9508bd4017e4b62436bcfc5cbfda718c8fcf995bbd5c"
+    },
+    "market-data.jsonl.gz": {
+      "original_name": "market-data.jsonl",
+      "original_bytes": 36205255,
+      "original_sha256": "d128276de40fea0f2f9a82028575d967e11581966dd30eaff8bd35482312b1ed"
+    },
+    "mock-events.jsonl": {
+      "original_name": "mock-events.jsonl",
+      "original_bytes": 93516,
+      "original_sha256": "d572aecc7001a1ae52f9231af4a8fca49127764a8ceab38e4d00c64647f487d8"
+    },
+    "mock-intent.json": {
+      "original_name": "mock-intent.json",
+      "original_bytes": 179,
+      "original_sha256": "271dc3389a81b33faa2f388885910f1740e236811d4b9eea0e370803705a9a02"
+    },
+    "mock-legs.json": {
+      "original_name": "mock-legs.json",
+      "original_bytes": 2864,
+      "original_sha256": "b6b118728c68d18f8eb5ce2d650d8b63eb34cc253fc6fb20f0b3a9950feee9f9"
+    },
+    "state.json.gz": {
+      "original_name": "state.json",
+      "original_bytes": 959165,
+      "original_sha256": "92a7b11dedf3fca3460ad42fccd9d2812a12fc66bda05e87e841cec65ba8b279"
+    }
+  },
+  "raw_files_unmodified": true,
+  "state_mode_paper_explanation": "state arms are app simulation; mock_summary and mock-events are NH mock orders",
+  "leg_snapshot_caveat": "mock-legs.json and mock-intent.json are restart metadata, not a final broker balance. Final holdings are reconciled from fills and mock_summary."
+}

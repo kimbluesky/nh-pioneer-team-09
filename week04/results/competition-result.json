@@ -1,0 +1,19 @@
+{
+  "team": "team-09",
+  "rank": 2,
+  "ranked_teams": 10,
+  "result_source": "user-provided organizer scoreboard screenshot",
+  "evidence": "../screenshots/04-competition-final.png",
+  "session_date": "2026-11-13",
+  "timezone": "Asia/Seoul",
+  "baseline_time": "15:00:00",
+  "screen_time": "18:00:00",
+  "last_screen_update": "17:59:59",
+  "capital_usd": 100000,
+  "profit_usd": 128,
+  "displayed_return_pct": 0.13,
+  "return_pct_from_profit_and_capital": 0.128,
+  "broker_environment": "NH overseas mock",
+  "basis": "Organizer account-equity change from the 15:00 baseline, not the app run-start P&L",
+  "image_sha256": "af44aeca681c56fa7ca4aa666fdf69722fea3a097abb988ae6c46075427882bf"
+}

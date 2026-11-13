@@ -1,0 +1,46 @@
+{
+  "team": "team-09",
+  "strategy": "partial-hedge-blend-v15 / cost-buffer-v5",
+  "format": "directory",
+  "readme": "README.md",
+  "complete_application": "code/application/",
+  "execution_evidence": "results/raw/",
+  "dataset_scope": "results/dataset-scope.json",
+  "submitted_execution_date_kst": "2026-11-13",
+  "submitted_mock_run_id": "162af87f66b34423bb33921df296e22f",
+  "submitted_mock_completed_pair_trades": 7,
+  "final_scoreboard": {
+    "rank": 2,
+    "ranked_teams": 10,
+    "profit_usd": 128,
+    "displayed_return_pct": 0.13
+  },
+  "external_bug_reports": [
+    {
+      "url": "https://github.com/kimbluesky/nh-pioneer-team-09/tree/main/error_reports/R05_%EC%A4%91%EB%B3%B5%EC%B2%AD%EC%82%B0_%EB%B0%98%EB%8C%80%ED%8F%AC%EC%A7%80%EC%85%98",
+      "http_status_verified": 200
+    },
+    {
+      "url": "https://github.com/kimbluesky/nh-pioneer-team-09/tree/main/error_reports/R03_FOK%EC%B7%A8%EC%86%8C_%ED%98%B8%EA%B0%80%EC%9E%94%EB%9F%89",
+      "http_status_verified": 200
+    },
+    {
+      "url": "https://github.com/kimbluesky/nh-pioneer-team-09/tree/main/error_reports/R01_%EB%B6%80%EB%B6%84%EC%B2%B4%EA%B2%B0_%EC%86%90%EC%A0%88%EB%88%84%EB%9D%BD",
+      "http_status_verified": 200
+    }
+  ],
+  "bug_report_files_included": false,
+  "screenshots": 4,
+  "raw_logs_changed": false,
+  "trading_restarted": false,
+  "source_hashes_match_run_start": true,
+  "offline_tests_passed": 33,
+  "secret_scan": {
+    "file_payloads_checked": 434,
+    "configured_values_checked": 4,
+    "credential_matches": 0
+  },
+  "github_published": false,
+  "readme_style": "Detailed assignment report; existing GitHub error reports linked only",
+  "additional_run_analysis": "results/run-analysis.json"
+}

@@ -1,0 +1,7 @@
+{
+  "source": "User-provided description and R01 posting-time reply",
+  "manual_intervention_reason_reported_by_operator": "네트워크 상황에 대응하여 수동으로 포지션을 정리했다",
+  "early_stop_reason_reported_by_operator": "노트북 배터리 부족으로 충전이 필요해 운용을 종료했다",
+  "verification_scope": "Logs confirm three manual-close requests and the early stop. They do not independently establish the reason for each request or battery status.",
+  "R01_discord_posted_at_kst": "2026-11-12T21:20:00+09:00"
+}

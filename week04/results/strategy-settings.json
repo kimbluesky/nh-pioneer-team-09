@@ -1,0 +1,67 @@
+{
+  "model": "partial-hedge-blend-v15",
+  "strategy_rules": {
+    "version": "partial-hedge-blend-v15",
+    "revision": "cost-buffer-v5",
+    "lookback": 120,
+    "hedge_fraction": 0.25,
+    "entry_z": 1.5,
+    "entry_style": "turn",
+    "require_common_move": true,
+    "target_sigma": 1.5,
+    "stop_sigma": 0.75,
+    "failed_breakout_bars": 6,
+    "common_move_bars": 5,
+    "minimum_target_cost": 1.25,
+    "max_trade_loss": 600,
+    "max_trade_profit": 600,
+    "session_loss": null,
+    "loss_streak_pause": false,
+    "max_cost_fraction_of_risk": 0.4,
+    "history_source": "completed API minutes",
+    "selection": "observed_quote_replay_development",
+    "max_hold_seconds": 0,
+    "cash": 100000,
+    "margin_budget": "combined_pair",
+    "cost_ticks_per_side": 1,
+    "fee_per_contract_side": 2
+  },
+  "execution": {
+    "duration_seconds": 10800,
+    "warmup_seconds": 0,
+    "entry_cutoff_before_end": 60,
+    "flatten_before_end": 60,
+    "max_hold_seconds": 0,
+    "leg_timeout_seconds": 10,
+    "cooldown_seconds": 5,
+    "trail_start_r": 1,
+    "trail_distance_r": 0.5,
+    "quote_max_age_ms": 5000,
+    "quote_max_skew_ms": 2000,
+    "feed_gap_exit_seconds": 30
+  },
+  "execution_policy": {
+    "version": "micro-only-v1",
+    "allowed_codes": [
+      "MESZ26",
+      "MNQZ26"
+    ],
+    "cash_per_portfolio": 100000,
+    "pair_budget_is_combined": true
+  },
+  "inactive_legacy_parameters": [
+    "strategy_rules.failed_breakout_bars (entry_style=turn)",
+    "execution.trail_start_r",
+    "execution.trail_distance_r"
+  ],
+  "source_sha256_at_start": {
+    "spread_blend.py": "da7a7d04b7217e0b2aff9d8e8ccf4ce97f1dba91230dd282c6a939351def38c4",
+    "blend_engine.py": "fe172cc92520e5d5493c6a2956487a2afcd201d67e37ac994c24b214f6849001",
+    "blend_runtime.py": "e5efbc49b9d8145aeeb68b2dd744c30b999542ef9df42e1ff7e4d030b4c9adb2",
+    "blend_mock.py": "143b94f9b6cf69fcdded84c89d4b23d416a4d0af4830850ff07b4b074a807310",
+    "blend_recovery.py": "e9c9eb7816d63418a4c45d65f54fc2f054e3a175ed1f6880658e51dff8ba20a5",
+    "blend_app.py": "77a0cc5e7ef1467cf5ec029c613a354157e8b78717308b97da5878aa04adad48",
+    "rotation_engine.py": "0c9f5ddf3a3a67d94d33a09d9bc3b00d547884e8652085c5c88fccd869a27dda",
+    "paper.py": "76cca9acf22db90bc4938fccf09295ef9184eb138a2690085f0ca3996af983ff"
+  }
+}

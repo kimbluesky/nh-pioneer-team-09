@@ -1,0 +1,4 @@
+﻿strategy,execution,capital_usd,completed_trades,net_usd,return_pct,modeled_fees_usd,max_drawdown_usd,drawdown_pct_initial_capital
+spread,"app simulation, no account order",100000,6,-13.5,-0.0135,552.0,1609.0,1.609
+nasdaq_only,"app simulation, no account order",100000,8,-254.0,-0.254,672.0,2571.0,2.571
+sp500_only,"app simulation, no account order",100000,5,224.75,0.22475,284.0,1020.75,1.02075
