@@ -516,8 +516,3 @@ week04/
 | [screenshots/](screenshots/) | 실제 프로그램 화면과 대회 종료 순위 화면 |
 
 대용량 시세·이벤트·상태 파일은 gzip 형식으로 보관했다. 전략, 수량, 주문 복구, 수동 청산, 초기화에 관한 [자동 검사 33개](code/application/tests/)를 통과했다. 주문 처리 코드와 실제 운용에 사용한 코드의 일치 여부도 확인했다.
-
-## 참고
-
-- 기반 프로그램: [PetterChanHyuk/nh-futures-open-api](https://github.com/PetterChanHyuk/nh-futures-open-api). API·계좌·실시간 처리 공통 코드를 사용하고 전략과 운용 화면을 수정했다.
-- 보고서 구성: [4팀 week04](https://github.com/sejeans/nh-futures-team4/tree/main/week04). 전략 설명, 실행 근거, 오류 제보와 코드 위치를 연결하는 구성을 참고했다.
