@@ -1,0 +1,1703 @@
+{
+  "report_id": "R20_overseas_cancel_pagination",
+  "result": "DEFECT_AND_CONTROLS_REPRODUCED",
+  "tested_at_kst": "2026-11-16T11:26:34+09:00",
+  "environment": {
+    "platform": "Windows",
+    "python": "3.12.10",
+    "node": "v24.22.1",
+    "packages": {
+      "fastapi": "0.141.1",
+      "pydantic": "2.13.4",
+      "httpx": "0.28.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "source": {
+    "repository": "https://github.com/PetterChanHyuk/nh-futures-open-api",
+    "commit": "3311fb4e82aad59ef176599a67f21666b07e926c",
+    "compiler": {
+      "name": "TypeScript",
+      "version": "5.9.3",
+      "module": "CommonJS",
+      "target": "ES2022",
+      "jsx": "ReactJSX"
+    },
+    "files": [
+      {
+        "archive_path": "original/backend/__init__.py",
+        "source_path": "backend/__init__.py",
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/auth/__init__.py",
+        "source_path": "backend/auth/__init__.py",
+        "sha256": "592147f9b76c06a84a7d871705cfb7cdac43a142b09d1f264581c720725b9c3e",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/auth/auth_functions.py",
+        "source_path": "backend/auth/auth_functions.py",
+        "sha256": "170e5be7e169536c93b21c7aebba7f6fc465f7a16c19f5c64fbf1792603f9d85",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/auth/token_store.py",
+        "source_path": "backend/auth/token_store.py",
+        "sha256": "1075864b16936724b10fae49b159124d38b3698efd063a3f951eb7f7e6456826",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/config.py",
+        "source_path": "backend/config.py",
+        "sha256": "8110f16d39c004bb5ada81f6dbc04c87edf750c770ca92094d824fb9a9bffff7",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/deposit_history.py",
+        "source_path": "backend/deposit_history.py",
+        "sha256": "1c3ae329db056b355d103499863d117f2228466ee4b3ab58003cd7fdf6de37e7",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/__init__.py",
+        "source_path": "backend/domestic_futureoption/__init__.py",
+        "sha256": "e33801db56da42100f286743246fcdee6b295f454a0769a0f57b1144cab7c057",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/domestic_account.py",
+        "source_path": "backend/domestic_futureoption/domestic_account.py",
+        "sha256": "f3c69707ac574b2d6488322fc155741f77071b4302e7591c3a88c58157cd3b83",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/domestic_futureoption_functions.py",
+        "source_path": "backend/domestic_futureoption/domestic_futureoption_functions.py",
+        "sha256": "fb771b7afae967ef148a521caa62faf7618d0e1f7cfbc6b2ad1f43bba31db714",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/domestic_hours.py",
+        "source_path": "backend/domestic_futureoption/domestic_hours.py",
+        "sha256": "4df7b8be907548e9f3b655a8f2788693cd5595cbeae4daaf0924ba22a29056c3",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/master/__init__.py",
+        "source_path": "backend/domestic_futureoption/master/__init__.py",
+        "sha256": "03bc2b9a349b27629dd96ee7ef35b5fc7a59c968e4178fa3bc56f3bf55482174",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/master/fut_opt/__init__.py",
+        "source_path": "backend/domestic_futureoption/master/fut_opt/__init__.py",
+        "sha256": "c32bcabe1fb204bff1a0d419e362d61a1e3ba51362af5c7a844ef8deed46594d",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/master/idx_fut_opt/__init__.py",
+        "source_path": "backend/domestic_futureoption/master/idx_fut_opt/__init__.py",
+        "sha256": "3a11df2b0f55b2e520cd8c47cd25b8d66128bd54bb512500cb4c8681729afff0",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/domestic_futureoption/master/stk_fut_opt/__init__.py",
+        "source_path": "backend/domestic_futureoption/master/stk_fut_opt/__init__.py",
+        "sha256": "e61b8930187727f592370a93aedf7cdb17b489be89fb76cca1af25eadc8b50cc",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/market_values.py",
+        "source_path": "backend/market_values.py",
+        "sha256": "5a6ca202abbdead6488f6f94b5e2cd72ee81b89bf4808e6a58c7ca751de353f2",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/__init__.py",
+        "source_path": "backend/master/__init__.py",
+        "sha256": "1a6e6b9329200f47005b079f6f50b316a44c4a2afbba6f2e8d911ece6f0d7bf4",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_download.py",
+        "source_path": "backend/master/master_download.py",
+        "sha256": "4538c172c46acde22736e7210659e479e79bc319a7a920930464d63d6a95ce99",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_files.py",
+        "source_path": "backend/master/master_files.py",
+        "sha256": "208764bb9d0f824b74bf87c6239cd735c1f6157b4d5e7c6cdfd2ed50040c81b0",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_index.py",
+        "source_path": "backend/master/master_index.py",
+        "sha256": "39abfdc568124af73f55d2ffbfa99532de2d25545cdf2d3d4b02d89c91f16cf5",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_parser.py",
+        "source_path": "backend/master/master_parser.py",
+        "sha256": "73c5251e2ddf282cf1e07b8e89691971b46fcfff17b966da411ff995f87a548d",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_service.py",
+        "source_path": "backend/master/master_service.py",
+        "sha256": "e9473fb8d1b965876b7f30c9dde8da337582b02d6206b610a15c18d8ecef9583",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_store.py",
+        "source_path": "backend/master/master_store.py",
+        "sha256": "875f3afd87e73a22512d62555445c00a67159bea0850e709771454acb7d644ec",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/master/master_widths.py",
+        "source_path": "backend/master/master_widths.py",
+        "sha256": "3ecffc6e9ef27b6377267c50b4fdf7a136e7ec9e2cf68cdef16c0804063efe07",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/net_failure.py",
+        "source_path": "backend/net_failure.py",
+        "sha256": "8e11cf56d3686368d845cf53eb32852d5cc6b3c3d1b98d346e7c4e438e06ef8a",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/__init__.py",
+        "source_path": "backend/nh_api/__init__.py",
+        "sha256": "3845502c106652b191f85e2f37aed39bd0762a2c19b4eb5cb4b389a36cfa7d0a",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/catalog.py",
+        "source_path": "backend/nh_api/catalog.py",
+        "sha256": "711ccfd78ab9a69f1caed1d9fe31ac6cc40fbf8c3938620c31c1ba6e33727bf4",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/client.py",
+        "source_path": "backend/nh_api/client.py",
+        "sha256": "0b7d356b237891f5efbc61acae7bd05e8559331d2db7694ada08048281dcf3a5",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/error_codes.py",
+        "source_path": "backend/nh_api/error_codes.py",
+        "sha256": "f4bc43e2da75437a5f72476852d7bb9eb100d48f2ec3c0d3240e38d0d7dfa6d2",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/errors.py",
+        "source_path": "backend/nh_api/errors.py",
+        "sha256": "0e60f70bf87d7546496b0fc4ba93f1d0694c6c5d488d5300b9985dbecf5b75c7",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/fixtures.py",
+        "source_path": "backend/nh_api/fixtures.py",
+        "sha256": "d4da22eeb434ed1a813bdf87367432857542b7f48e6b27b6bc6a96e6ad19beb5",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/rate_limit.py",
+        "source_path": "backend/nh_api/rate_limit.py",
+        "sha256": "c742a43dca5afb4b37641e972593eff449738ecf3dfff61db89b15ae7740ed7c",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/reference.py",
+        "source_path": "backend/nh_api/reference.py",
+        "sha256": "c95856570974224338fae771df60863bcb18a66e0414120d4732cad5e922dfc1",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/replay.py",
+        "source_path": "backend/nh_api/replay.py",
+        "sha256": "d5d71604fff38f93a4d47aa409802c637569be29673d8aaa283831b21db2e345",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/runtime.py",
+        "source_path": "backend/nh_api/runtime.py",
+        "sha256": "ea9f24cf45e0fef44cf377650843687ee848be6248a7c4efe1a3409a01f98590",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/nh_api/session.py",
+        "source_path": "backend/nh_api/session.py",
+        "sha256": "0c6fc57b5abadec05ed0f69a73d5602d25d1baf9a8680b1708d184754846e0d6",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/order_error_days.py",
+        "source_path": "backend/order_error_days.py",
+        "sha256": "3b0e7abb0fb6c91b0fe74bee1171fd426489c46e11faa77d864ddab36f7d26af",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/order_outcome.py",
+        "source_path": "backend/order_outcome.py",
+        "sha256": "f1f86f30954b2555bb39e1932013820024720f2a7b37598d6f2960db459afcd9",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/orders.py",
+        "source_path": "backend/orders.py",
+        "sha256": "07be9fe2df5d1d0a9bb38c821568ac82d956a71133730c43e74f37de446d641e",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/__init__.py",
+        "source_path": "backend/overseas_futureoption/__init__.py",
+        "sha256": "da02d8d8290f02a9468161dbd17b326115794c9fce374c03e8a7b62b713d2981",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/master/__init__.py",
+        "source_path": "backend/overseas_futureoption/master/__init__.py",
+        "sha256": "11129a1619792144454773addd57919b6d732695907b075f0937a1ab7e7ed4ca",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/master/cme/__init__.py",
+        "source_path": "backend/overseas_futureoption/master/cme/__init__.py",
+        "sha256": "3c3f1cabdeb9157e209361eb3d8167570d6f7c2fcb63c51a5a517524ef038a64",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/master/etc/__init__.py",
+        "source_path": "backend/overseas_futureoption/master/etc/__init__.py",
+        "sha256": "e1df16b9aa3ebcb99c2d05df646f007c05767f890ed92c2de8074db2927d8332",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/master/opra/__init__.py",
+        "source_path": "backend/overseas_futureoption/master/opra/__init__.py",
+        "sha256": "9c57a7d7baab9f49e99b4dd0f0c9f2a2871636c9a2eb23b0b719f91bf796df90",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_account.py",
+        "source_path": "backend/overseas_futureoption/overseas_account.py",
+        "sha256": "868f4f2aeed5a0f48886f8150dd85be932ea8cbf415139cb29e6b9842b3036e0",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_chain.py",
+        "source_path": "backend/overseas_futureoption/overseas_chain.py",
+        "sha256": "a31a3ab2cf97e95b7e9afef0d823dec6203bcfa3bc264da39191f7aecbe7186f",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_futureoption_functions.py",
+        "source_path": "backend/overseas_futureoption/overseas_futureoption_functions.py",
+        "sha256": "fa04de344e38d404eaa7ba0718f6e07a5bf4e2a98b109158a838e8f3bee50870",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_history.py",
+        "source_path": "backend/overseas_futureoption/overseas_history.py",
+        "sha256": "2c1502c6f428ae74faa9c198b900eea6546ab23263f107a25339aeed563c940b",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_hours.py",
+        "source_path": "backend/overseas_futureoption/overseas_hours.py",
+        "sha256": "a5d0175f3cd8195c817bfc0a8ca67aa3707451184ac113ebb81e21c39ba06075",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_product_service.py",
+        "source_path": "backend/overseas_futureoption/overseas_product_service.py",
+        "sha256": "d3af1472b1e8a08dc83b46787183fc4a51605abcd2866497c1ff021f33db5f29",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_products.py",
+        "source_path": "backend/overseas_futureoption/overseas_products.py",
+        "sha256": "4f9222a9524dcc1400cf7fc818bcb57031a98a0bdd05d85fe30f7abf457539e4",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_quotes.py",
+        "source_path": "backend/overseas_futureoption/overseas_quotes.py",
+        "sha256": "6116fdf0475c492b738d92cc99622f09579ebfd1a1d7b9e8c6a1a4283fbfacc9",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/overseas_futureoption/overseas_routes.py",
+        "source_path": "backend/overseas_futureoption/overseas_routes.py",
+        "sha256": "7177d81f2e7cd28455dbe06f24e0c1a7f783f0252b53c9c88925c702c4fd144d",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/quotes.py",
+        "source_path": "backend/quotes.py",
+        "sha256": "dc25207df2d53157e3b854f3629ee0a99cc1df01eb4fa943fc9ab8b999e1bec3",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/sessions/__init__.py",
+        "source_path": "backend/sessions/__init__.py",
+        "sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/sessions/hours.py",
+        "source_path": "backend/sessions/hours.py",
+        "sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/sessions/service.py",
+        "source_path": "backend/sessions/service.py",
+        "sha256": "9c64b6bf5d8c4d7c19464b82eddf5f407b7c75559e245e7217f598ebc29e3a33",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/backend/storage.py",
+        "source_path": "backend/storage.py",
+        "sha256": "38b5e686fe8d422bf1ebee5d5a6038bd78bbc4dd8b9f6dbc6adf56982af9a41d",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/frontend/src/data/orders.ts",
+        "source_path": "frontend/src/data/orders.ts",
+        "sha256": "52127d7a1f62c57b01e9ce452d38c2d7ccf24e73a734bc97424fb89935e972c4",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/frontend/src/data/orderable.ts",
+        "source_path": "frontend/src/data/orderable.ts",
+        "sha256": "96a18e2af95e2998ce2a9668bdcb4e76be711c040a2040455fcbf0e31509310b",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "original/frontend/src/screens/trade/OrderFormResult.tsx",
+        "source_path": "frontend/src/screens/trade/OrderFormResult.tsx",
+        "sha256": "b4d36cf6f5f2fc825a66dca227bffd4b91ca71a992d83f8008a9de52711fb809",
+        "unchanged_public_source": true
+      },
+      {
+        "archive_path": "compiled/orders.cjs",
+        "source_path": "frontend/src/data/orders.ts",
+        "transformation": "CommonJS",
+        "sha256": "2c0f441120fe7a2223a709299cc8b17c0252545f4ffee12892f87ccb44ad9e45"
+      },
+      {
+        "archive_path": "compiled/orderable.cjs",
+        "source_path": "frontend/src/data/orderable.ts",
+        "transformation": "CommonJS; import.meta.env.DEV=false",
+        "sha256": "caba2eb7e958bf4cfe5fb69b16d602873eed4c496667f89862901a5ba8c016c0"
+      },
+      {
+        "archive_path": "compiled/OrderFormResult.cjs",
+        "source_path": "frontend/src/screens/trade/OrderFormResult.tsx",
+        "transformation": "CommonJS",
+        "sha256": "fd87d651302aef92ca98e98b314f01e98ed507c55e4eaad0d932b1fd99aa801e"
+      }
+    ]
+  },
+  "scope": {
+    "nh_server_requests": 0,
+    "actual_orders_sent": 0,
+    "credentials_used": false,
+    "browser_ui_tested": false,
+    "original_business_functions_changed": false,
+    "network_attempts": 0,
+    "method": "Pinned original route, schemas, API wrappers and normalizers; synthetic client responses; original frontend sendOrder and OrderResultLine with fetch/environment/JSX boundaries replaced.",
+    "pagination": "Two synthetic pages with explicit nxt_key; this does not measure the provider's page size or reproduce an actual exchange cancellation failure."
+  },
+  "cases": [
+    {
+      "case": "buy_page2",
+      "side": "buy",
+      "original_location": "page2",
+      "original_remaining": 1,
+      "expected_outcome": "unknown",
+      "actual_outcome": "accepted",
+      "original_history_query_keys": [
+        ""
+      ],
+      "independent_history_query_keys": [
+        "",
+        "PAGE_2"
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "buy",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "buy",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "accepted",
+          "source": "order-history"
+        }
+      },
+      "normalized_original_order": {
+        "id": "80",
+        "code": "ZNZ26",
+        "market": "overseas",
+        "sideCode": "1",
+        "side": "buy",
+        "statusCode": "1",
+        "status": "accepted",
+        "orderKindCode": "1",
+        "orderKind": "new",
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "sourceCode": "R",
+        "source": "REST API",
+        "quantity": 1,
+        "filled": 0,
+        "remaining": 1,
+        "price": 100.0,
+        "editable": true
+      },
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "1",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": "PAGE_2"
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": "PAGE_2"
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": "PAGE_2"
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "buy_page2",
+        "confirmed": true,
+        "text": "취소됨 · 주문번호 100",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "buy",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    },
+    {
+      "case": "buy_page1",
+      "side": "buy",
+      "original_location": "page1",
+      "original_remaining": 1,
+      "expected_outcome": "unknown",
+      "actual_outcome": "unknown",
+      "original_history_query_keys": [
+        "",
+        ""
+      ],
+      "independent_history_query_keys": [
+        ""
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "buy",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "buy",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "unknown"
+        }
+      },
+      "normalized_original_order": {
+        "id": "80",
+        "code": "ZNZ26",
+        "market": "overseas",
+        "sideCode": "1",
+        "side": "buy",
+        "statusCode": "1",
+        "status": "accepted",
+        "orderKindCode": "1",
+        "orderKind": "new",
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "sourceCode": "R",
+        "source": "REST API",
+        "quantity": 1,
+        "filled": 0,
+        "remaining": 1,
+        "price": 100.0,
+        "editable": true
+      },
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "1",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "buy_page1",
+        "confirmed": false,
+        "text": "취소 접수됨 · 주문번호 100 · 결과 미확인 — 주문체결상세에서 확인하세요",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "buy",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    },
+    {
+      "case": "buy_removed",
+      "side": "buy",
+      "original_location": "removed",
+      "original_remaining": 0,
+      "expected_outcome": "accepted",
+      "actual_outcome": "accepted",
+      "original_history_query_keys": [
+        ""
+      ],
+      "independent_history_query_keys": [
+        ""
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "buy",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "buy",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "accepted",
+          "source": "order-history"
+        }
+      },
+      "normalized_original_order": null,
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "1",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "1",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "buy_removed",
+        "confirmed": true,
+        "text": "취소됨 · 주문번호 100",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "buy",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    },
+    {
+      "case": "sell_page2",
+      "side": "sell",
+      "original_location": "page2",
+      "original_remaining": 1,
+      "expected_outcome": "unknown",
+      "actual_outcome": "accepted",
+      "original_history_query_keys": [
+        ""
+      ],
+      "independent_history_query_keys": [
+        "",
+        "PAGE_2"
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "sell",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "sell",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "accepted",
+          "source": "order-history"
+        }
+      },
+      "normalized_original_order": {
+        "id": "80",
+        "code": "ZNZ26",
+        "market": "overseas",
+        "sideCode": "2",
+        "side": "sell",
+        "statusCode": "1",
+        "status": "accepted",
+        "orderKindCode": "1",
+        "orderKind": "new",
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "sourceCode": "R",
+        "source": "REST API",
+        "quantity": 1,
+        "filled": 0,
+        "remaining": 1,
+        "price": 100.0,
+        "editable": true
+      },
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "2",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": "PAGE_2"
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": "PAGE_2"
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": "PAGE_2"
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "sell_page2",
+        "confirmed": true,
+        "text": "취소됨 · 주문번호 100",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "sell",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    },
+    {
+      "case": "sell_page1",
+      "side": "sell",
+      "original_location": "page1",
+      "original_remaining": 1,
+      "expected_outcome": "unknown",
+      "actual_outcome": "unknown",
+      "original_history_query_keys": [
+        "",
+        ""
+      ],
+      "independent_history_query_keys": [
+        ""
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "sell",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "sell",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "unknown"
+        }
+      },
+      "normalized_original_order": {
+        "id": "80",
+        "code": "ZNZ26",
+        "market": "overseas",
+        "sideCode": "2",
+        "side": "sell",
+        "statusCode": "1",
+        "status": "accepted",
+        "orderKindCode": "1",
+        "orderKind": "new",
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "sourceCode": "R",
+        "source": "REST API",
+        "quantity": 1,
+        "filled": 0,
+        "remaining": 1,
+        "price": 100.0,
+        "editable": true
+      },
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "2",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              },
+              {
+                "occurs1_ord_no": "80",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "2",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "sell_page1",
+        "confirmed": false,
+        "text": "취소 접수됨 · 주문번호 100 · 결과 미확인 — 주문체결상세에서 확인하세요",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "sell",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    },
+    {
+      "case": "sell_removed",
+      "side": "sell",
+      "original_location": "removed",
+      "original_remaining": 0,
+      "expected_outcome": "accepted",
+      "actual_outcome": "accepted",
+      "original_history_query_keys": [
+        ""
+      ],
+      "independent_history_query_keys": [
+        ""
+      ],
+      "request_to_original_route": {
+        "environment": "paper",
+        "sym": "ZNZ26",
+        "side": "sell",
+        "qt_div_cd": "3",
+        "glb_ord_tp_cd": "2",
+        "ord_qty": 1,
+        "ord_pric": "100",
+        "stop_pric": "",
+        "org_ord_no": "80"
+      },
+      "original_route_response": {
+        "accepted": true,
+        "id": "100",
+        "market": "overseas",
+        "environment": "paper",
+        "code": "ZNZ26",
+        "side": "sell",
+        "quantity": 1,
+        "orderKind": "cancel",
+        "acceptedAt": "2026-11-16T11:26:34+09:00",
+        "date": "2026-11-16",
+        "time": "11:26:34",
+        "filled": 0,
+        "status": "cancelled",
+        "remaining": 0,
+        "orderTypeCode": "2",
+        "orderType": "지정가",
+        "originalOrderNo": "80",
+        "price": 100.0,
+        "sourceCode": "R",
+        "source": "REST API",
+        "editable": false,
+        "outcome": {
+          "state": "accepted",
+          "source": "order-history"
+        }
+      },
+      "normalized_original_order": null,
+      "synthetic_call_log": [
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order",
+          "request": {
+            "qt_div_cd": "3",
+            "sym": "ZNZ26",
+            "trd_div_cd": "2",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": "1",
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "0000000080"
+          },
+          "response": {
+            "ord_no": "100",
+            "err_cd": "00000",
+            "org_ord_no": "80",
+            "ord_qty": "1",
+            "sym": "ZNZ26",
+            "ord_pric": "100"
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-error",
+          "request": {
+            "inq_dt": "20261116",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [],
+            "nrec": "0",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "original_outcome_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        },
+        {
+          "phase": "independent_full_history_check",
+          "api": "overseas_order-history",
+          "request": {
+            "inq_div": "0",
+            "trd_div_cd": "0",
+            "nxt_key": ""
+          },
+          "response": {
+            "Occurs1": [
+              {
+                "occurs1_ord_no": "90",
+                "occurs1_sym": "ZNZ26",
+                "occurs1_ord_sts": "1",
+                "occurs1_qt_tp": "1",
+                "occurs1_trd_tp": "2",
+                "occurs1_ord_tp": "2",
+                "occurs1_ord_qty": "1",
+                "occurs1_exec_qty": "0",
+                "occurs1_ord_rem_qty": "1",
+                "occurs1_ord_pric": "100",
+                "occurs1_med_div": "R"
+              }
+            ],
+            "nrec": "1",
+            "nxt_key": ""
+          }
+        }
+      ],
+      "frontend": {
+        "case": "sell_removed",
+        "confirmed": true,
+        "text": "취소됨 · 주문번호 100",
+        "request": {
+          "url": "/api/overseas/order",
+          "body": {
+            "environment": "paper",
+            "sym": "ZNZ26",
+            "side": "sell",
+            "qt_div_cd": "3",
+            "glb_ord_tp_cd": "2",
+            "ord_qty": 1,
+            "ord_pric": "100",
+            "stop_pric": "",
+            "org_ord_no": "80"
+          }
+        }
+      }
+    }
+  ]
+}
