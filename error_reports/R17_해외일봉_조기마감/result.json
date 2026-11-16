@@ -1,0 +1,94 @@
+{
+  "test_name": "R17: overseas daily closes at KST midnight",
+  "source": "Original RunEngine + BarBuilder; 2 synthetic daily seed bars; synthetic fills",
+  "case_type": "offline deterministic regression test (no API calls)",
+  "expected_correct_behavior": "same trading day -> no new closed bar and no order at midnight",
+  "checks": {
+    "control_ok": true,
+    "same_trade_day": true,
+    "wrong_midnight_close": true,
+    "premature_order": true
+  },
+  "bug_reproduced": true,
+  "control": {
+    "case": "control_before_midnight",
+    "first": {
+      "at": "2026-11-05T23:59:57+09:00",
+      "trading_day": "2026-11-05",
+      "closed_bars": 2,
+      "open_bar_start": "2026-11-05T00:00:00+09:00",
+      "order_count": 0,
+      "engine_day_key": "2026-11-05T00:00:00+09:00"
+    },
+    "second": {
+      "at": "2026-11-05T23:59:59+09:00",
+      "trading_day": "2026-11-05",
+      "closed_bars": 2,
+      "last_closed_bar": null,
+      "open_bar_start": "2026-11-05T00:00:00+09:00",
+      "open_bar_price": 0.67,
+      "order_count": 0,
+      "signal_count": 0,
+      "engine_day_key": "2026-11-05T00:00:00+09:00",
+      "order_details": [],
+      "events_after_first_trade": [],
+      "condition_table_present": false
+    }
+  },
+  "crossing": {
+    "case": "cross_midnight",
+    "first": {
+      "at": "2026-11-05T23:59:59+09:00",
+      "trading_day": "2026-11-05",
+      "closed_bars": 2,
+      "open_bar_start": "2026-11-05T00:00:00+09:00",
+      "order_count": 0,
+      "engine_day_key": "2026-11-05T00:00:00+09:00"
+    },
+    "second": {
+      "at": "2026-11-06T00:00:01+09:00",
+      "trading_day": "2026-11-05",
+      "closed_bars": 3,
+      "last_closed_bar": {
+        "start": "2026-11-05T00:00:00+09:00",
+        "close": 0.66,
+        "volume": 1.0
+      },
+      "open_bar_start": "2026-11-06T00:00:00+09:00",
+      "open_bar_price": 0.67,
+      "order_count": 1,
+      "signal_count": 1,
+      "engine_day_key": "2026-11-04T00:00:00+09:00",
+      "order_details": [
+        {
+          "id": "r17-cross_midnight-1",
+          "side": "buy",
+          "quantity": 1,
+          "type": "시장가",
+          "price": null
+        }
+      ],
+      "events_after_first_trade": [
+        {
+          "time": "2026-11-06T00:00:01+09:00",
+          "kind": "signal",
+          "text": "매수 진입 규칙이 걸렸습니다"
+        },
+        {
+          "time": "2026-11-06T00:00:01+09:00",
+          "kind": "state",
+          "text": "진입 주문 중"
+        },
+        {
+          "time": "2026-11-06T00:00:01+09:00",
+          "kind": "order",
+          "text": "buy 1계약 시장가 시장가"
+        }
+      ],
+      "condition_table_present": true
+    }
+  },
+  "repository": "PetterChanHyuk/nh-futures-open-api",
+  "commit": "3311fb4e82aad59ef176599a67f21666b07e926c",
+  "error_id": "R17"
+}
