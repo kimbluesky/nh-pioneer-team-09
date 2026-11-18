@@ -1,0 +1,489 @@
+{
+  "report_id": "R21",
+  "title": "동일 체결 1계약이 같은 가격의 지정가 주문 두 건에 중복 배분됨",
+  "source": "nh-futures-open-api-main.zip; bundled original paper.py",
+  "simulation": "offline, synthetic quotes/trades; no broker or API requests",
+  "comparison": "after 1 share of public queue consumed, 1 more trade of qty=1 must fill at most 1 contract across waiting orders",
+  "expected_correct_behavior": "동일 가격·방향으로 대기하는 두 주문은 시간 우선순위에 따라 체결 수량을 나눠야 함 (체결 1계약 -> 합계 최대 1계약)",
+  "actual_observation": "체결 수량 1계약이 각 주문에 전부 전달되어 합계 2계약 가상 체결",
+  "source_integrity": {
+    "passed": true,
+    "files": [
+      {
+        "path": "backend/__init__.py",
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/__init__.py",
+        "sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/paper.py",
+        "sha256": "00f11473be7d4ca5c04124daa669c15433fc5c1f6fbce97f6e96fef16f3ae691",
+        "matched": true
+      }
+    ],
+    "archive_source_sha256": "67a9a11613f1710e673952e314cd5aba2404fc964a4bf1611ed610b77717c75a"
+  },
+  "checks": {
+    "buy_controls_pass": true,
+    "buy_same_price_double_fill": true,
+    "sell_controls_pass": true,
+    "sell_same_price_double_fill": true
+  },
+  "bug_reproduced": true,
+  "cases": {
+    "buy": {
+      "one_order_control": {
+        "case": "one_order",
+        "side": "buy",
+        "order_prices": [
+          100.0
+        ],
+        "order_created_ms": [
+          1000000000
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            }
+          ],
+          "bids": [
+            {
+              "price": 100.0,
+              "quantity": 1
+            },
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "buy",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 1,
+        "second_trade_volume_overcount": 0,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          }
+        ]
+      },
+      "same_price_reproduction": {
+        "case": "two_orders_same_price",
+        "side": "buy",
+        "order_prices": [
+          100.0,
+          100.0
+        ],
+        "order_created_ms": [
+          1000000000,
+          1000000001
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            }
+          ],
+          "bids": [
+            {
+              "price": 100.0,
+              "quantity": 1
+            },
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1,
+          "second": 1
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "buy",
+              "time": 1000000320
+            },
+            {
+              "orderId": "second",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "buy",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 2,
+        "second_trade_volume_overcount": 1,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          },
+          {
+            "id": "second",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          }
+        ]
+      },
+      "different_price_control": {
+        "case": "two_orders_different_price",
+        "side": "buy",
+        "order_prices": [
+          100.0,
+          99.5
+        ],
+        "order_created_ms": [
+          1000000000,
+          1000000001
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            }
+          ],
+          "bids": [
+            {
+              "price": 100.0,
+              "quantity": 1
+            },
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1,
+          "second": 0
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "buy",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 1,
+        "second_trade_volume_overcount": 0,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          },
+          {
+            "id": "second",
+            "price": 99.5,
+            "status": "waiting",
+            "filled": 0,
+            "remaining": 1,
+            "queue_ahead": 0,
+            "queue_done": 0
+          }
+        ]
+      }
+    },
+    "sell": {
+      "one_order_control": {
+        "case": "one_order",
+        "side": "sell",
+        "order_prices": [
+          100.0
+        ],
+        "order_created_ms": [
+          1000000000
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            },
+            {
+              "price": 100.0,
+              "quantity": 1
+            }
+          ],
+          "bids": [
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "sell",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 1,
+        "second_trade_volume_overcount": 0,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          }
+        ]
+      },
+      "same_price_reproduction": {
+        "case": "two_orders_same_price",
+        "side": "sell",
+        "order_prices": [
+          100.0,
+          100.0
+        ],
+        "order_created_ms": [
+          1000000000,
+          1000000001
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            },
+            {
+              "price": 100.0,
+              "quantity": 1
+            }
+          ],
+          "bids": [
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1,
+          "second": 1
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "sell",
+              "time": 1000000320
+            },
+            {
+              "orderId": "second",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "sell",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 2,
+        "second_trade_volume_overcount": 1,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          },
+          {
+            "id": "second",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          }
+        ]
+      },
+      "different_price_control": {
+        "case": "two_orders_different_price",
+        "side": "sell",
+        "order_prices": [
+          100.0,
+          100.5
+        ],
+        "order_created_ms": [
+          1000000000,
+          1000000001
+        ],
+        "arrival_book": {
+          "asks": [
+            {
+              "price": 101.0,
+              "quantity": 10
+            },
+            {
+              "price": 100.0,
+              "quantity": 1
+            }
+          ],
+          "bids": [
+            {
+              "price": 99.0,
+              "quantity": 10
+            }
+          ]
+        },
+        "queue_ahead_at_arrival": {
+          "first": 1,
+          "second": 0
+        },
+        "arrival_fills": [],
+        "first_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": []
+        },
+        "second_trade": {
+          "price": 100.0,
+          "quantity": 1,
+          "fills": [
+            {
+              "orderId": "first",
+              "quantity": 1,
+              "price": 100.0,
+              "side": "sell",
+              "time": 1000000320
+            }
+          ]
+        },
+        "second_trade_input_volume": 1,
+        "second_trade_output_filled": 1,
+        "second_trade_volume_overcount": 0,
+        "final_orders": [
+          {
+            "id": "first",
+            "price": 100.0,
+            "status": "filled",
+            "filled": 1,
+            "remaining": 0,
+            "queue_ahead": 2,
+            "queue_done": 2
+          },
+          {
+            "id": "second",
+            "price": 100.5,
+            "status": "waiting",
+            "filled": 0,
+            "remaining": 1,
+            "queue_ahead": 0,
+            "queue_done": 0
+          }
+        ]
+      }
+    }
+  }
+}
