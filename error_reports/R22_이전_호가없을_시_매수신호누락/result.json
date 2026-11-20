@@ -1,0 +1,511 @@
+{
+  "report_id": "R22",
+  "title": "OR 조건 중 다른 조건의 직전 호가 데이터가 없으면 참인 가격 전이 신호까지 누락",
+  "environment": "offline synthetic bar/quote marks; no NH API, websocket, or account",
+  "python_runtime": "3.13.5",
+  "test_uses_original_functions": [
+    "backend.strategy.rules.series_of",
+    "backend.strategy.rules.step_at",
+    "backend.strategy.rules._unknown_before",
+    "backend.strategy.rules.advance",
+    "backend.strategy.rules.fired_bars",
+    "backend.strategy.rules.evaluate"
+  ],
+  "source_integrity": {
+    "passed": true,
+    "count": 7,
+    "files": [
+      {
+        "path": "backend/__init__.py",
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "expected_sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "bytes": 45,
+        "matched": true
+      },
+      {
+        "path": "backend/sessions/__init__.py",
+        "sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "expected_sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "bytes": 613,
+        "matched": true
+      },
+      {
+        "path": "backend/sessions/hours.py",
+        "sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "expected_sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "bytes": 4512,
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/__init__.py",
+        "sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "expected_sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "bytes": 1679,
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/bars.py",
+        "sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "expected_sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "bytes": 14996,
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/indicators.py",
+        "sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "expected_sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "bytes": 11433,
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/rules.py",
+        "sha256": "230f1d68bea95e21d52847b9883dd4be23ce731ff79ba1313b1c833d7589ec87",
+        "expected_sha256": "230f1d68bea95e21d52847b9883dd4be23ce731ff79ba1313b1c833d7589ec87",
+        "bytes": 40115,
+        "matched": true
+      }
+    ],
+    "source_archive_sha256": "67a9a11613f1710e673952e314cd5aba2404fc964a4bf1611ed610b77717c75a",
+    "commit": "not independently verified; do not assume same as R17"
+  },
+  "expected_correct_behavior": "OR = 하나라도 참이면 충족; 이전 호가 미수신은 가격 조건이 거짓->참으로 전환한 사실을 무효화하지 않아야 함",
+  "actual_observation": "가격 조건만 적용하면 buyEntry 신호 발생, OR에 이전 값이 비어 있는 bid1Qty 조건을 추가하면 신호 0건",
+  "checks": {
+    "price_only_fires": true,
+    "or_step_true_but_missing_quote_blocks_signal": true,
+    "or_with_known_previous_quote_fires": true,
+    "quote_only_false_does_not_fire": true,
+    "and_false_does_not_fire": true,
+    "or_without_true_condition_does_not_fire": true,
+    "only_missing_previous_quote_changes_or_result": true
+  },
+  "bug_reproduced": true,
+  "cases": {
+    "price_only_control": {
+      "case": "가격 조건만 / 직전 호가 미수신",
+      "join": "any",
+      "closes": [
+        99.0,
+        101.0,
+        101.5
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        null,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "close gt 100"
+      ],
+      "price_cond_now": true,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": true,
+      "or_step_before": false,
+      "unknown_before": false,
+      "signal_at_target": true,
+      "fired_bars": [
+        1
+      ],
+      "engine_rule_keys_at_target": [
+        "buyEntry"
+      ],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": true,
+        "stepsDetail": [
+          {
+            "join": "any",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "close",
+                "op": "gt",
+                "right": "100",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 101.0,
+                "rightValue": 100.0,
+                "now": true,
+                "before": false
+              }
+            ],
+            "stepNow": true,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      }
+    },
+    "or_missing_previous_quote": {
+      "case": "OR 조건 / 직전 호가 데이터 없음",
+      "join": "any",
+      "closes": [
+        99.0,
+        101.0,
+        101.5
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        null,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "close gt 100",
+        "bid1Qty gte 10"
+      ],
+      "price_cond_now": true,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": true,
+      "or_step_before": false,
+      "unknown_before": true,
+      "signal_at_target": false,
+      "fired_bars": [],
+      "engine_rule_keys_at_target": [],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "any",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "close",
+                "op": "gt",
+                "right": "100",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 101.0,
+                "rightValue": 100.0,
+                "now": true,
+                "before": false
+              },
+              {
+                "left": "bid1Qty",
+                "op": "gte",
+                "right": "10",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 1.0,
+                "rightValue": 10.0,
+                "now": false,
+                "before": null
+              }
+            ],
+            "stepNow": true,
+            "stepBefore": false,
+            "beforeUnknown": true
+          }
+        ]
+      }
+    },
+    "or_with_previous_quote_control": {
+      "case": "OR 조건 / 직전 호가 데이터 있음",
+      "join": "any",
+      "closes": [
+        99.0,
+        101.0,
+        101.5
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "close gt 100",
+        "bid1Qty gte 10"
+      ],
+      "price_cond_now": true,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": true,
+      "or_step_before": false,
+      "unknown_before": false,
+      "signal_at_target": true,
+      "fired_bars": [
+        1
+      ],
+      "engine_rule_keys_at_target": [
+        "buyEntry"
+      ],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": true,
+        "stepsDetail": [
+          {
+            "join": "any",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "close",
+                "op": "gt",
+                "right": "100",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 101.0,
+                "rightValue": 100.0,
+                "now": true,
+                "before": false
+              },
+              {
+                "left": "bid1Qty",
+                "op": "gte",
+                "right": "10",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 1.0,
+                "rightValue": 10.0,
+                "now": false,
+                "before": false
+              }
+            ],
+            "stepNow": true,
+            "stepBefore": false,
+            "beforeUnknown": false
+          }
+        ]
+      }
+    },
+    "quote_only_control": {
+      "case": "호가 조건만 / 직전 호가 미수신",
+      "join": "any",
+      "closes": [
+        99.0,
+        101.0,
+        101.5
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        null,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "bid1Qty gte 10"
+      ],
+      "price_cond_now": true,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": false,
+      "or_step_before": false,
+      "unknown_before": true,
+      "signal_at_target": false,
+      "fired_bars": [],
+      "engine_rule_keys_at_target": [],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "any",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "bid1Qty",
+                "op": "gte",
+                "right": "10",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 1.0,
+                "rightValue": 10.0,
+                "now": false,
+                "before": null
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": true
+          }
+        ]
+      }
+    },
+    "and_control": {
+      "case": "AND 조건 / 조건 B가 거짓",
+      "join": "all",
+      "closes": [
+        99.0,
+        101.0,
+        101.5
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        null,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "close gt 100",
+        "bid1Qty gte 10"
+      ],
+      "price_cond_now": true,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": false,
+      "or_step_before": false,
+      "unknown_before": true,
+      "signal_at_target": false,
+      "fired_bars": [],
+      "engine_rule_keys_at_target": [],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "all",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "close",
+                "op": "gt",
+                "right": "100",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 101.0,
+                "rightValue": 100.0,
+                "now": true,
+                "before": false
+              },
+              {
+                "left": "bid1Qty",
+                "op": "gte",
+                "right": "10",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 1.0,
+                "rightValue": 10.0,
+                "now": false,
+                "before": null
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": true
+          }
+        ]
+      }
+    },
+    "or_no_price_cross_control": {
+      "case": "OR 조건 / 가격도 호가도 거짓",
+      "join": "any",
+      "closes": [
+        99.0,
+        99.5,
+        99.8
+      ],
+      "timestamps_kst": [
+        "2026-11-18T10:00:00+09:00",
+        "2026-11-18T10:01:00+09:00",
+        "2026-11-18T10:02:00+09:00"
+      ],
+      "bid1Qty": [
+        null,
+        1.0,
+        1.0
+      ],
+      "condition_descriptions": [
+        "close gt 100",
+        "bid1Qty gte 10"
+      ],
+      "price_cond_now": false,
+      "price_cond_before": false,
+      "quote_cond_now": false,
+      "or_step_at_target": false,
+      "or_step_before": false,
+      "unknown_before": true,
+      "signal_at_target": false,
+      "fired_bars": [],
+      "engine_rule_keys_at_target": [],
+      "condition_table_at_target": {
+        "waitingStep": 1,
+        "steps": 1,
+        "barsLeft": null,
+        "resetLeft": null,
+        "fired": false,
+        "stepsDetail": [
+          {
+            "join": "any",
+            "withinBars": 0,
+            "conds": [
+              {
+                "left": "close",
+                "op": "gt",
+                "right": "100",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 99.5,
+                "rightValue": 100.0,
+                "now": false,
+                "before": false
+              },
+              {
+                "left": "bid1Qty",
+                "op": "gte",
+                "right": "10",
+                "rightKind": "number",
+                "leftParams": null,
+                "rightParams": null,
+                "leftValue": 1.0,
+                "rightValue": 10.0,
+                "now": false,
+                "before": null
+              }
+            ],
+            "stepNow": false,
+            "stepBefore": false,
+            "beforeUnknown": true
+          }
+        ]
+      }
+    }
+  }
+}
