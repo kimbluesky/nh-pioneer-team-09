@@ -1,0 +1,269 @@
+{
+  "report_id": "R23",
+  "description": "overlapping historical 5-minute bar and realtime open bar yield duplicate timestamps",
+  "integrity": {
+    "passed": true,
+    "count": 6,
+    "checked": [
+      {
+        "path": "backend/__init__.py",
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "expected_sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "bytes": 45,
+        "passed": true
+      },
+      {
+        "path": "backend/sessions/__init__.py",
+        "sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "expected_sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "bytes": 613,
+        "passed": true
+      },
+      {
+        "path": "backend/sessions/hours.py",
+        "sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "expected_sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "bytes": 4512,
+        "passed": true
+      },
+      {
+        "path": "backend/strategy/__init__.py",
+        "sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "expected_sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "bytes": 1679,
+        "passed": true
+      },
+      {
+        "path": "backend/strategy/bars.py",
+        "sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "expected_sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "bytes": 14996,
+        "passed": true
+      },
+      {
+        "path": "backend/strategy/indicators.py",
+        "sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "expected_sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "bytes": 11433,
+        "passed": true
+      }
+    ],
+    "reference_archive_sha256": "67a9a11613f1710e673952e314cd5aba2404fc964a4bf1611ed610b77717c75a",
+    "commit": "not independently verified"
+  },
+  "python_version": "3.12.10",
+  "network_used": false,
+  "synthetic_data": true,
+  "scenarios": {
+    "control_without_refill": {
+      "name": "control_without_refill",
+      "history_mode": "none",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 2,
+      "distinct_time_count": 2,
+      "duplicate_times_kst": [],
+      "duplicate_bar_count": 0,
+      "ready_3_bars": false,
+      "sma_period_3_last": null,
+      "closed_by_session": false
+    },
+    "control_past_only_refill": {
+      "name": "control_past_only_refill",
+      "history_mode": "while_open_past_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 09:55",
+          "close": 98.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 3,
+      "distinct_time_count": 3,
+      "duplicate_times_kst": [],
+      "duplicate_bar_count": 0,
+      "ready_3_bars": true,
+      "sma_period_3_last": 99.66666666666667,
+      "closed_by_session": false
+    },
+    "control_refill_after_close": {
+      "name": "control_refill_after_close",
+      "history_mode": "after_close_same_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 99.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 2,
+      "distinct_time_count": 2,
+      "duplicate_times_kst": [],
+      "duplicate_bar_count": 0,
+      "ready_3_bars": false,
+      "sma_period_3_last": null,
+      "closed_by_session": false
+    },
+    "bug_refill_while_open": {
+      "name": "bug_refill_while_open",
+      "history_mode": "while_open_same_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 99.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 3,
+      "distinct_time_count": 2,
+      "duplicate_times_kst": [
+        "2026-11-20 10:00"
+      ],
+      "duplicate_bar_count": 1,
+      "ready_3_bars": true,
+      "sma_period_3_last": 100.0,
+      "closed_by_session": false
+    },
+    "bug_even_if_same_price": {
+      "name": "bug_even_if_same_price",
+      "history_mode": "while_open_same_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 3,
+      "distinct_time_count": 2,
+      "duplicate_times_kst": [
+        "2026-11-20 10:00"
+      ],
+      "duplicate_bar_count": 1,
+      "ready_3_bars": true,
+      "sma_period_3_last": 100.33333333333333,
+      "closed_by_session": false
+    },
+    "bug_initial_seed_then_live": {
+      "name": "bug_initial_seed_then_live",
+      "history_mode": "initial_same_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 99.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        },
+        {
+          "time_kst": "2026-11-20 10:05",
+          "close": 101.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 3,
+      "distinct_time_count": 2,
+      "duplicate_times_kst": [
+        "2026-11-20 10:00"
+      ],
+      "duplicate_bar_count": 1,
+      "ready_3_bars": true,
+      "sma_period_3_last": 100.0,
+      "closed_by_session": false
+    },
+    "bug_refill_then_session_close": {
+      "name": "bug_refill_then_session_close",
+      "history_mode": "while_open_same_slot",
+      "source_ohlcv": "synthetic",
+      "bars": [
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 99.0,
+          "volume": 2.0
+        },
+        {
+          "time_kst": "2026-11-20 10:00",
+          "close": 100.0,
+          "volume": 1.0
+        }
+      ],
+      "bar_count": 2,
+      "distinct_time_count": 1,
+      "duplicate_times_kst": [
+        "2026-11-20 10:00"
+      ],
+      "duplicate_bar_count": 1,
+      "ready_3_bars": false,
+      "sma_period_3_last": null,
+      "closed_by_session": true
+    }
+  },
+  "checks": {
+    "control_without_refill_unique": true,
+    "control_past_only_unique": true,
+    "control_refill_after_close_unique": true,
+    "bug_open_refill_duplicates_1000": true,
+    "bug_premature_ready_and_sma": true,
+    "bug_even_same_closing_price": true,
+    "bug_initial_seed_then_realtime": true,
+    "bug_overlap_on_session_close": true
+  },
+  "check_count": 8,
+  "check_passed": 8,
+  "bug_reproduced": true,
+  "cause": "BarBuilder.seed inserts a historical row into closed bars even when _open occupies the same timestamp. When _open closes, close() appends without de-duplicating the timestamp."
+}
