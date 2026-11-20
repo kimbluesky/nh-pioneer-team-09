@@ -1,0 +1,4679 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "id": "2026-11-20-A506C000-paper",
+      "date": "2026-11-20",
+      "environment": "paper",
+      "code": "A506C000",
+      "currency": "KRW",
+      "quantity": 1,
+      "entry_model": "4y_32_drift",
+      "exit_model": "3y_se0",
+      "release_sha256": "6cc361506b1206a593ed5c428e7170d285fa28ecd127dab3571f94f171baf70f",
+      "observed_kst": "2026-11-20T16:18:03.904454+09:00",
+      "phase": "postclose",
+      "last_journal_id": 393,
+      "coverage": {
+        "heartbeat_slots_expected": 85,
+        "heartbeat_slots_seen": 74,
+        "missing_heartbeat_kst": [
+          "08:45",
+          "08:50",
+          "08:55",
+          "09:00",
+          "09:05",
+          "09:10",
+          "09:15",
+          "09:20",
+          "09:25",
+          "09:30",
+          "09:35"
+        ],
+        "trading_slots_without_account_or_quotes": [
+          "09:00",
+          "09:05",
+          "09:10",
+          "09:15",
+          "09:20",
+          "09:25",
+          "09:30",
+          "09:35",
+          "09:40",
+          "09:45",
+          "09:50",
+          "09:55",
+          "10:00",
+          "10:05",
+          "10:10",
+          "10:15",
+          "10:20",
+          "10:25",
+          "10:30",
+          "10:35",
+          "10:40",
+          "10:45",
+          "10:50",
+          "10:55",
+          "11:00",
+          "11:05",
+          "11:10",
+          "11:15",
+          "11:20",
+          "11:25",
+          "11:30",
+          "11:35",
+          "11:40",
+          "11:45",
+          "11:50",
+          "11:55",
+          "12:00",
+          "12:05",
+          "12:25",
+          "12:30",
+          "12:50",
+          "12:55"
+        ],
+        "distinct_closed_bars": 82
+      },
+      "order_intents": 2,
+      "confirmed_fills": 2,
+      "closed_round_trips": 1,
+      "unresolved_order": false,
+      "local_position": 0,
+      "broker_final_flat": true,
+      "outcome": "paper_round_trip_confirmed_monitoring_gap",
+      "realized_gross_krw": 0.0,
+      "estimated_fees_krw": 1868.3000000000002,
+      "estimated_net_from_closed_trades_krw": -1868.3000000000002,
+      "trade_log_rows": 6,
+      "trade_log_sha256": "e3077046a362511ae14778db03f5d38f3313740af6f467580c63381a6a97eca7",
+      "quote_runtime_sha256": "69c6d85e53a6fd65b64df596d08cc2faab826fc62397d683f392b7a74548da49"
+    }
+  ],
+  "events": [
+    {
+      "id": 23,
+      "time": "2026-11-20T09:42:52.989+09:00",
+      "kind": "worker_started",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "mode": "official_paper",
+        "resumed": false,
+        "symbol": "A506C000"
+      }
+    },
+    {
+      "id": 25,
+      "time": "2026-11-20T09:43:13.003+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 26,
+      "time": "2026-11-20T09:43:15.124+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 27,
+      "time": "2026-11-20T09:43:17.249+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 28,
+      "time": "2026-11-20T09:43:17.279+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 580,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 29,
+      "time": "2026-11-20T09:45:00.142+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 585,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 30,
+      "time": "2026-11-20T09:45:37.459+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 31,
+      "time": "2026-11-20T09:45:39.956+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 32,
+      "time": "2026-11-20T09:45:56.054+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 33,
+      "time": "2026-11-20T09:47:57.090+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 34,
+      "time": "2026-11-20T09:47:59.196+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 35,
+      "time": "2026-11-20T09:48:03.277+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 36,
+      "time": "2026-11-20T09:50:01.128+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 590,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 37,
+      "time": "2026-11-20T09:50:09.323+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 38,
+      "time": "2026-11-20T09:50:19.441+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 39,
+      "time": "2026-11-20T09:50:22.909+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 40,
+      "time": "2026-11-20T09:52:09.925+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 41,
+      "time": "2026-11-20T09:52:42.332+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 42,
+      "time": "2026-11-20T09:52:44.416+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 43,
+      "time": "2026-11-20T09:54:13.409+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 44,
+      "time": "2026-11-20T09:55:03.803+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 45,
+      "time": "2026-11-20T09:55:05.994+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 46,
+      "time": "2026-11-20T09:55:06.008+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 595,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 47,
+      "time": "2026-11-20T09:56:18.734+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 48,
+      "time": "2026-11-20T09:57:25.513+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 49,
+      "time": "2026-11-20T09:57:27.597+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 50,
+      "time": "2026-11-20T09:58:28.283+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 51,
+      "time": "2026-11-20T09:59:46.997+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 52,
+      "time": "2026-11-20T09:59:49.185+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 53,
+      "time": "2026-11-20T10:00:01.325+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 600,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 54,
+      "time": "2026-11-20T10:00:33.707+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 55,
+      "time": "2026-11-20T10:02:08.793+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 56,
+      "time": "2026-11-20T10:02:10.967+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 57,
+      "time": "2026-11-20T10:02:43.371+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 58,
+      "time": "2026-11-20T10:04:31.480+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 59,
+      "time": "2026-11-20T10:04:33.636+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 60,
+      "time": "2026-11-20T10:04:49.783+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 61,
+      "time": "2026-11-20T10:05:02.035+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 605,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 62,
+      "time": "2026-11-20T10:06:53.093+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 63,
+      "time": "2026-11-20T10:06:55.184+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 64,
+      "time": "2026-11-20T10:06:59.281+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 65,
+      "time": "2026-11-20T10:09:04.375+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 66,
+      "time": "2026-11-20T10:09:14.482+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 67,
+      "time": "2026-11-20T10:09:16.572+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 68,
+      "time": "2026-11-20T10:10:00.982+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 610,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 69,
+      "time": "2026-11-20T10:11:13.837+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 70,
+      "time": "2026-11-20T10:11:35.968+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 71,
+      "time": "2026-11-20T10:11:38.052+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 72,
+      "time": "2026-11-20T10:13:18.948+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 73,
+      "time": "2026-11-20T10:13:57.327+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 74,
+      "time": "2026-11-20T10:13:59.491+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 75,
+      "time": "2026-11-20T10:15:00.227+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 615,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 76,
+      "time": "2026-11-20T10:15:28.501+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 77,
+      "time": "2026-11-20T10:16:18.820+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 78,
+      "time": "2026-11-20T10:16:20.955+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 79,
+      "time": "2026-11-20T10:17:33.563+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 80,
+      "time": "2026-11-20T10:18:40.265+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 81,
+      "time": "2026-11-20T10:18:42.388+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 82,
+      "time": "2026-11-20T10:19:42.950+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 83,
+      "time": "2026-11-20T10:20:00.979+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 620,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 84,
+      "time": "2026-11-20T10:21:01.523+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 85,
+      "time": "2026-11-20T10:21:03.685+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 86,
+      "time": "2026-11-20T10:21:48.128+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 87,
+      "time": "2026-11-20T10:23:24.592+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 88,
+      "time": "2026-11-20T10:23:26.692+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 89,
+      "time": "2026-11-20T10:23:58.990+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 90,
+      "time": "2026-11-20T10:25:01.432+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 625,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 91,
+      "time": "2026-11-20T10:25:45.890+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 92,
+      "time": "2026-11-20T10:25:48.026+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 93,
+      "time": "2026-11-20T10:26:04.223+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 94,
+      "time": "2026-11-20T10:28:07.233+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 95,
+      "time": "2026-11-20T10:28:09.337+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 96,
+      "time": "2026-11-20T10:28:13.455+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 97,
+      "time": "2026-11-20T10:30:02.384+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 630,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 98,
+      "time": "2026-11-20T10:30:18.511+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 99,
+      "time": "2026-11-20T10:30:28.597+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 100,
+      "time": "2026-11-20T10:30:30.697+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 101,
+      "time": "2026-11-20T10:32:27.688+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 102,
+      "time": "2026-11-20T10:32:49.800+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 103,
+      "time": "2026-11-20T10:32:51.892+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 104,
+      "time": "2026-11-20T10:34:32.770+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 105,
+      "time": "2026-11-20T10:35:00.970+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 635,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 106,
+      "time": "2026-11-20T10:35:11.084+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 107,
+      "time": "2026-11-20T10:35:13.184+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 108,
+      "time": "2026-11-20T10:36:42.023+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 109,
+      "time": "2026-11-20T10:37:32.403+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 110,
+      "time": "2026-11-20T10:37:34.518+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 111,
+      "time": "2026-11-20T10:38:47.153+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 112,
+      "time": "2026-11-20T10:39:53.670+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 113,
+      "time": "2026-11-20T10:39:55.777+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 114,
+      "time": "2026-11-20T10:40:01.812+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 640,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 115,
+      "time": "2026-11-20T10:40:56.372+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 116,
+      "time": "2026-11-20T10:42:14.983+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 117,
+      "time": "2026-11-20T10:42:17.081+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 118,
+      "time": "2026-11-20T10:43:01.501+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 119,
+      "time": "2026-11-20T10:44:37.376+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 120,
+      "time": "2026-11-20T10:44:39.500+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 121,
+      "time": "2026-11-20T10:45:01.529+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 645,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 122,
+      "time": "2026-11-20T10:45:11.856+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 123,
+      "time": "2026-11-20T10:46:59.629+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 124,
+      "time": "2026-11-20T10:47:01.756+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 125,
+      "time": "2026-11-20T10:47:17.875+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 126,
+      "time": "2026-11-20T10:49:20.971+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 127,
+      "time": "2026-11-20T10:49:23.070+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 128,
+      "time": "2026-11-20T10:49:27.170+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 129,
+      "time": "2026-11-20T10:50:01.355+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 650,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 130,
+      "time": "2026-11-20T10:51:32.184+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 131,
+      "time": "2026-11-20T10:51:42.335+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 132,
+      "time": "2026-11-20T10:51:44.439+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 133,
+      "time": "2026-11-20T10:53:41.410+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 134,
+      "time": "2026-11-20T10:54:03.521+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 135,
+      "time": "2026-11-20T10:54:05.617+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 136,
+      "time": "2026-11-20T10:55:02.053+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 655,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 137,
+      "time": "2026-11-20T10:55:46.431+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 138,
+      "time": "2026-11-20T10:56:24.717+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 139,
+      "time": "2026-11-20T10:56:26.815+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 140,
+      "time": "2026-11-20T10:57:58.758+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 141,
+      "time": "2026-11-20T10:58:47.154+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 142,
+      "time": "2026-11-20T10:58:49.276+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 143,
+      "time": "2026-11-20T11:00:01.936+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 144,
+      "time": "2026-11-20T11:00:01.957+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 660,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 145,
+      "time": "2026-11-20T11:01:08.500+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 146,
+      "time": "2026-11-20T11:01:10.609+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 147,
+      "time": "2026-11-20T11:02:12.090+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 148,
+      "time": "2026-11-20T11:03:30.725+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 149,
+      "time": "2026-11-20T11:03:32.821+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 150,
+      "time": "2026-11-20T11:04:17.295+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 151,
+      "time": "2026-11-20T11:05:01.893+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 665,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 152,
+      "time": "2026-11-20T11:05:52.388+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 153,
+      "time": "2026-11-20T11:05:54.499+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 154,
+      "time": "2026-11-20T11:06:26.927+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 155,
+      "time": "2026-11-20T11:08:13.834+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 156,
+      "time": "2026-11-20T11:08:15.987+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 157,
+      "time": "2026-11-20T11:08:32.067+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 158,
+      "time": "2026-11-20T11:10:00.858+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 670,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 159,
+      "time": "2026-11-20T11:10:35.255+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 160,
+      "time": "2026-11-20T11:10:37.347+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 161,
+      "time": "2026-11-20T11:10:41.439+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 162,
+      "time": "2026-11-20T11:12:46.921+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 163,
+      "time": "2026-11-20T11:12:57.038+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 164,
+      "time": "2026-11-20T11:12:59.140+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 165,
+      "time": "2026-11-20T11:14:56.111+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 166,
+      "time": "2026-11-20T11:15:00.131+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 675,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 167,
+      "time": "2026-11-20T11:15:18.261+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 168,
+      "time": "2026-11-20T11:15:20.371+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 169,
+      "time": "2026-11-20T11:17:01.257+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 170,
+      "time": "2026-11-20T11:17:39.552+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 171,
+      "time": "2026-11-20T11:17:41.646+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 172,
+      "time": "2026-11-20T11:19:10.519+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 173,
+      "time": "2026-11-20T11:20:00.853+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 174,
+      "time": "2026-11-20T11:20:02.951+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 175,
+      "time": "2026-11-20T11:20:02.967+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 680,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 176,
+      "time": "2026-11-20T11:21:15.502+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 177,
+      "time": "2026-11-20T11:22:22.095+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 178,
+      "time": "2026-11-20T11:22:24.187+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 179,
+      "time": "2026-11-20T11:23:24.841+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 180,
+      "time": "2026-11-20T11:24:43.458+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 181,
+      "time": "2026-11-20T11:24:45.560+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 182,
+      "time": "2026-11-20T11:25:01.664+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 685,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 183,
+      "time": "2026-11-20T11:25:29.946+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 184,
+      "time": "2026-11-20T11:27:04.907+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 185,
+      "time": "2026-11-20T11:27:07.018+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 186,
+      "time": "2026-11-20T11:27:39.333+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 187,
+      "time": "2026-11-20T11:29:27.200+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 188,
+      "time": "2026-11-20T11:29:29.274+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 189,
+      "time": "2026-11-20T11:29:45.441+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 190,
+      "time": "2026-11-20T11:30:01.728+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 690,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 191,
+      "time": "2026-11-20T11:31:48.815+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 192,
+      "time": "2026-11-20T11:31:51.448+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 193,
+      "time": "2026-11-20T11:31:55.541+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 194,
+      "time": "2026-11-20T11:34:00.711+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 195,
+      "time": "2026-11-20T11:34:10.834+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 196,
+      "time": "2026-11-20T11:34:12.930+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 197,
+      "time": "2026-11-20T11:35:01.252+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 695,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 198,
+      "time": "2026-11-20T11:36:09.926+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 199,
+      "time": "2026-11-20T11:36:32.040+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 200,
+      "time": "2026-11-20T11:36:34.156+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 201,
+      "time": "2026-11-20T11:38:14.952+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 202,
+      "time": "2026-11-20T11:38:53.325+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 203,
+      "time": "2026-11-20T11:38:55.424+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 204,
+      "time": "2026-11-20T11:40:01.988+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 700,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 205,
+      "time": "2026-11-20T11:40:24.255+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 206,
+      "time": "2026-11-20T11:41:14.669+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 207,
+      "time": "2026-11-20T11:41:16.744+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 208,
+      "time": "2026-11-20T11:42:29.293+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 209,
+      "time": "2026-11-20T11:43:35.941+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 210,
+      "time": "2026-11-20T11:43:38.057+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 211,
+      "time": "2026-11-20T11:44:38.721+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 212,
+      "time": "2026-11-20T11:45:02.932+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 705,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 213,
+      "time": "2026-11-20T11:45:57.332+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 214,
+      "time": "2026-11-20T11:45:59.433+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 215,
+      "time": "2026-11-20T11:46:43.842+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 216,
+      "time": "2026-11-20T11:48:18.765+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 217,
+      "time": "2026-11-20T11:48:20.879+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 218,
+      "time": "2026-11-20T11:48:53.160+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 219,
+      "time": "2026-11-20T11:50:01.640+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 710,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 220,
+      "time": "2026-11-20T11:50:40.020+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 221,
+      "time": "2026-11-20T11:50:42.156+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 222,
+      "time": "2026-11-20T11:50:58.289+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 223,
+      "time": "2026-11-20T11:53:01.248+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 224,
+      "time": "2026-11-20T11:53:03.343+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 225,
+      "time": "2026-11-20T11:53:07.416+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 226,
+      "time": "2026-11-20T11:55:00.388+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 715,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 227,
+      "time": "2026-11-20T11:55:12.496+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 228,
+      "time": "2026-11-20T11:55:22.610+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 229,
+      "time": "2026-11-20T11:55:24.713+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 230,
+      "time": "2026-11-20T11:57:21.756+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 231,
+      "time": "2026-11-20T11:57:43.873+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 232,
+      "time": "2026-11-20T11:57:45.998+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 233,
+      "time": "2026-11-20T11:59:27.810+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 234,
+      "time": "2026-11-20T12:00:01.995+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": false,
+        "history_mode": "complete_through_19",
+        "last_candle": null,
+        "minute": 720,
+        "quote_source": "pending",
+        "quotes_ok": false
+      }
+    },
+    {
+      "id": 235,
+      "time": "2026-11-20T12:00:06.103+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 236,
+      "time": "2026-11-20T12:00:08.203+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 237,
+      "time": "2026-11-20T12:01:39.883+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_account",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 238,
+      "time": "2026-11-20T12:02:29.205+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 239,
+      "time": "2026-11-20T12:02:31.302+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "real_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 240,
+      "time": "2026-11-20T12:03:42.587+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 241,
+      "time": "2026-11-20T12:04:23.251+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 242,
+      "time": "2026-11-20T12:05:01.461+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 585,
+        "minute": 725,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 243,
+      "time": "2026-11-20T12:07:25.071+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 244,
+      "time": "2026-11-20T12:10:00.579+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 725,
+        "minute": 730,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 245,
+      "time": "2026-11-20T12:10:26.957+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 246,
+      "time": "2026-11-20T12:13:27.118+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 247,
+      "time": "2026-11-20T12:15:01.882+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 725,
+        "minute": 735,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 248,
+      "time": "2026-11-20T12:16:27.250+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 249,
+      "time": "2026-11-20T12:19:27.499+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 250,
+      "time": "2026-11-20T12:20:01.741+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 725,
+        "minute": 740,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 251,
+      "time": "2026-11-20T12:22:29.288+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 252,
+      "time": "2026-11-20T12:25:00.434+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 725,
+        "minute": 745,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 253,
+      "time": "2026-11-20T12:25:30.948+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 254,
+      "time": "2026-11-20T12:28:32.790+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 255,
+      "time": "2026-11-20T12:30:01.505+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 725,
+        "minute": 750,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 256,
+      "time": "2026-11-20T12:31:34.625+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 257,
+      "time": "2026-11-20T12:34:35.454+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 258,
+      "time": "2026-11-20T12:35:01.724+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 750,
+        "minute": 755,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 259,
+      "time": "2026-11-20T12:37:37.257+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 260,
+      "time": "2026-11-20T12:40:01.907+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 750,
+        "minute": 760,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 261,
+      "time": "2026-11-20T12:40:38.465+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 262,
+      "time": "2026-11-20T12:43:40.240+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 263,
+      "time": "2026-11-20T12:45:00.927+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 750,
+        "minute": 765,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 264,
+      "time": "2026-11-20T12:46:42.235+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 265,
+      "time": "2026-11-20T12:49:43.389+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 266,
+      "time": "2026-11-20T12:50:01.433+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 750,
+        "minute": 770,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 267,
+      "time": "2026-11-20T12:52:45.473+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 268,
+      "time": "2026-11-20T12:55:01.062+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 750,
+        "minute": 775,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 269,
+      "time": "2026-11-20T12:55:45.749+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 270,
+      "time": "2026-11-20T12:57:12.693+09:00",
+      "kind": "quote_gap_backfilled",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "environment": "paper",
+        "last_closed_start": 770,
+        "missed_decision_minute": 750,
+        "new_closed_bars": 33,
+        "observed_kst": "2026-11-20T12:57:10.204634+09:00",
+        "reason": "NH demo response omitted completed candles; actual receipt time retained",
+        "source": "real"
+      }
+    },
+    {
+      "id": 271,
+      "time": "2026-11-20T12:57:15.134+09:00",
+      "kind": "worker_started",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "mode": "official_paper",
+        "resumed": false,
+        "symbol": "A506C000"
+      }
+    },
+    {
+      "id": 272,
+      "time": "2026-11-20T12:57:19.093+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 273,
+      "time": "2026-11-20T12:57:59.668+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 274,
+      "time": "2026-11-20T12:58:50.181+09:00",
+      "kind": "signal",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "action": 3,
+        "history_mode": "complete_through_19",
+        "last_input_end": 775,
+        "minute": 780,
+        "paper_eligible": true,
+        "scale": 717011.3052638606,
+        "scores": [
+          -0.053354179222287794,
+          -0.033521283377928895,
+          -0.027481938857045,
+          0.034950832451721744,
+          -0.09595405468669564
+        ],
+        "weights": "6cc361506b1206a593ed5c428e7170d285fa28ecd127dab3571f94f171baf70f",
+        "decision": "short_to_close"
+      }
+    },
+    {
+      "id": 277,
+      "time": "2026-11-20T13:00:02.321+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 770,
+        "minute": 780,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 279,
+      "time": "2026-11-20T13:01:01.523+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 280,
+      "time": "2026-11-20T13:04:01.841+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 281,
+      "time": "2026-11-20T13:04:34.039+09:00",
+      "kind": "quote_source_revision",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "base_release_sha256": "6cc361506b1206a593ed5c428e7170d285fa28ecd127dab3571f94f171baf70f",
+        "reason": "Compare official same-contract read-only quotes when NH paper omits closed bars",
+        "revision_sha256": "fd11347554bb8102e9e07aaa642b365d9390cf235385de6d9bb9f56662ace2f2",
+        "runtime_sha256": "69c6d85e53a6fd65b64df596d08cc2faab826fc62397d683f392b7a74548da49"
+      }
+    },
+    {
+      "id": 282,
+      "time": "2026-11-20T13:04:34.039+09:00",
+      "kind": "worker_started",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "mode": "official_paper",
+        "resumed": true,
+        "symbol": "A506C000"
+      }
+    },
+    {
+      "id": 283,
+      "time": "2026-11-20T13:04:38.537+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 284,
+      "time": "2026-11-20T13:05:00.561+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 775,
+        "minute": 785,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 286,
+      "time": "2026-11-20T13:05:19.668+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 287,
+      "time": "2026-11-20T13:08:21.381+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 288,
+      "time": "2026-11-20T13:10:00.441+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 780,
+        "minute": 790,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 289,
+      "time": "2026-11-20T13:11:22.567+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 290,
+      "time": "2026-11-20T13:14:22.807+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 291,
+      "time": "2026-11-20T13:15:01.382+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 785,
+        "minute": 795,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 292,
+      "time": "2026-11-20T13:17:24.584+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 293,
+      "time": "2026-11-20T13:20:01.888+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 790,
+        "minute": 800,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 294,
+      "time": "2026-11-20T13:20:26.817+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 295,
+      "time": "2026-11-20T13:23:27.426+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 296,
+      "time": "2026-11-20T13:23:50.070+09:00",
+      "kind": "paper_exit_signal",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "exit": false,
+        "incremental_hold_value": 0.007813440267114467,
+        "last_input_end": 800,
+        "minute": 805
+      }
+    },
+    {
+      "id": 297,
+      "time": "2026-11-20T13:25:01.573+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 795,
+        "minute": 805,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 298,
+      "time": "2026-11-20T13:26:27.656+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 300,
+      "time": "2026-11-20T13:29:28.457+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 301,
+      "time": "2026-11-20T13:30:01.299+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 800,
+        "minute": 810,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 302,
+      "time": "2026-11-20T13:32:28.767+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 303,
+      "time": "2026-11-20T13:35:01.932+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 805,
+        "minute": 815,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 304,
+      "time": "2026-11-20T13:35:28.874+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 305,
+      "time": "2026-11-20T13:38:29.008+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 306,
+      "time": "2026-11-20T13:40:01.809+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 815,
+        "minute": 820,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 307,
+      "time": "2026-11-20T13:41:29.821+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 308,
+      "time": "2026-11-20T13:44:30.071+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 309,
+      "time": "2026-11-20T13:45:00.635+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 815,
+        "minute": 825,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 310,
+      "time": "2026-11-20T13:47:30.678+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 311,
+      "time": "2026-11-20T13:50:01.293+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 820,
+        "minute": 830,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 312,
+      "time": "2026-11-20T13:50:31.949+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 313,
+      "time": "2026-11-20T13:53:32.875+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 314,
+      "time": "2026-11-20T13:53:50.896+09:00",
+      "kind": "paper_exit_signal",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "exit": false,
+        "incremental_hold_value": 0.008381718233690265,
+        "last_input_end": 830,
+        "minute": 835
+      }
+    },
+    {
+      "id": 315,
+      "time": "2026-11-20T13:55:01.643+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 825,
+        "minute": 835,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 316,
+      "time": "2026-11-20T13:56:34.696+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 318,
+      "time": "2026-11-20T13:59:34.833+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 319,
+      "time": "2026-11-20T14:00:01.681+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 830,
+        "minute": 840,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 320,
+      "time": "2026-11-20T14:02:36.623+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 321,
+      "time": "2026-11-20T14:05:01.213+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 835,
+        "minute": 845,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 322,
+      "time": "2026-11-20T14:05:37.367+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 323,
+      "time": "2026-11-20T14:08:37.755+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 324,
+      "time": "2026-11-20T14:10:01.551+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 840,
+        "minute": 850,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 325,
+      "time": "2026-11-20T14:11:24.453+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 326,
+      "time": "2026-11-20T14:11:39.147+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 327,
+      "time": "2026-11-20T14:14:39.803+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 328,
+      "time": "2026-11-20T14:15:01.691+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 845,
+        "minute": 855,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 329,
+      "time": "2026-11-20T14:15:46.814+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 330,
+      "time": "2026-11-20T14:17:43.737+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 331,
+      "time": "2026-11-20T14:20:00.566+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 850,
+        "minute": 860,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 332,
+      "time": "2026-11-20T14:20:44.275+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 333,
+      "time": "2026-11-20T14:23:44.483+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 334,
+      "time": "2026-11-20T14:23:50.498+09:00",
+      "kind": "paper_exit_signal",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "exit": false,
+        "incremental_hold_value": 0.00869869854902245,
+        "last_input_end": 860,
+        "minute": 865
+      }
+    },
+    {
+      "id": 335,
+      "time": "2026-11-20T14:25:01.254+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 855,
+        "minute": 865,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 336,
+      "time": "2026-11-20T14:26:45.129+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 338,
+      "time": "2026-11-20T14:29:46.877+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 339,
+      "time": "2026-11-20T14:30:00.910+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 860,
+        "minute": 870,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 340,
+      "time": "2026-11-20T14:32:48.073+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 341,
+      "time": "2026-11-20T14:35:03.100+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 870,
+        "minute": 875,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 342,
+      "time": "2026-11-20T14:35:48.862+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 343,
+      "time": "2026-11-20T14:38:50.690+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 344,
+      "time": "2026-11-20T14:40:01.158+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 870,
+        "minute": 880,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 345,
+      "time": "2026-11-20T14:41:52.206+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 346,
+      "time": "2026-11-20T14:44:53.315+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 347,
+      "time": "2026-11-20T14:45:01.348+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 875,
+        "minute": 885,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 348,
+      "time": "2026-11-20T14:47:54.537+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 349,
+      "time": "2026-11-20T14:50:00.899+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 880,
+        "minute": 890,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 350,
+      "time": "2026-11-20T14:50:56.390+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 351,
+      "time": "2026-11-20T14:53:51.726+09:00",
+      "kind": "paper_exit_signal",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "exit": false,
+        "incremental_hold_value": 0.005533740987163736,
+        "last_input_end": 890,
+        "minute": 895
+      }
+    },
+    {
+      "id": 352,
+      "time": "2026-11-20T14:53:58.734+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 353,
+      "time": "2026-11-20T14:55:01.038+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 885,
+        "minute": 895,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 354,
+      "time": "2026-11-20T14:56:59.765+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 356,
+      "time": "2026-11-20T15:00:00.809+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 357,
+      "time": "2026-11-20T15:00:00.843+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 890,
+        "minute": 900,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 358,
+      "time": "2026-11-20T15:03:01.440+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 359,
+      "time": "2026-11-20T15:05:00.238+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 895,
+        "minute": 905,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 360,
+      "time": "2026-11-20T15:06:02.711+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 361,
+      "time": "2026-11-20T15:09:03.315+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 362,
+      "time": "2026-11-20T15:10:01.057+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 900,
+        "minute": 910,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 363,
+      "time": "2026-11-20T15:12:03.687+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 364,
+      "time": "2026-11-20T15:15:00.239+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 905,
+        "minute": 915,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 365,
+      "time": "2026-11-20T15:15:04.638+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 366,
+      "time": "2026-11-20T15:18:05.536+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 367,
+      "time": "2026-11-20T15:20:00.681+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 910,
+        "minute": 920,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 368,
+      "time": "2026-11-20T15:21:05.454+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 369,
+      "time": "2026-11-20T15:24:06.860+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": [
+          -1
+        ]
+      }
+    },
+    {
+      "id": 372,
+      "time": "2026-11-20T15:25:02.310+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 915,
+        "minute": 925,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 374,
+      "time": "2026-11-20T15:27:07.570+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 375,
+      "time": "2026-11-20T15:30:01.539+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 920,
+        "minute": 930,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 376,
+      "time": "2026-11-20T15:30:07.922+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 378,
+      "time": "2026-11-20T15:33:09.784+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 379,
+      "time": "2026-11-20T15:35:01.682+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 925,
+        "minute": 935,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 380,
+      "time": "2026-11-20T15:35:39.815+09:00",
+      "kind": "unavailable",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "code": "",
+        "component": "paper_chart",
+        "error_type": "TransportError",
+        "reason": "",
+        "status": null
+      }
+    },
+    {
+      "id": 381,
+      "time": "2026-11-20T15:36:10.358+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 382,
+      "time": "2026-11-20T15:39:11.229+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 383,
+      "time": "2026-11-20T15:40:00.363+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 930,
+        "minute": 940,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 384,
+      "time": "2026-11-20T15:42:11.955+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 385,
+      "time": "2026-11-20T15:45:01.265+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 930,
+        "minute": 945,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 386,
+      "time": "2026-11-20T15:45:14.550+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 387,
+      "time": "2026-11-20T15:48:15.465+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 388,
+      "time": "2026-11-20T15:50:01.841+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 930,
+        "minute": 950,
+        "quote_source": "real",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 389,
+      "time": "2026-11-20T15:51:16.139+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 390,
+      "time": "2026-11-20T15:54:17.434+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 391,
+      "time": "2026-11-20T15:55:01.007+09:00",
+      "kind": "five_minute_heartbeat",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "account_ok": true,
+        "history_mode": "complete_through_19",
+        "last_candle": 930,
+        "minute": 955,
+        "quote_source": "paper",
+        "quotes_ok": true
+      }
+    },
+    {
+      "id": 392,
+      "time": "2026-11-20T15:57:18.022+09:00",
+      "kind": "broker_snapshot",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "open_order_count": 0,
+        "position": []
+      }
+    },
+    {
+      "id": 393,
+      "time": "2026-11-20T16:00:01.634+09:00",
+      "kind": "session_end",
+      "runId": "2026-11-20-A506C000-paper",
+      "event": {
+        "final_position": [],
+        "pending_count": 0,
+        "phase": "finished_flat"
+      }
+    }
+  ]
+}

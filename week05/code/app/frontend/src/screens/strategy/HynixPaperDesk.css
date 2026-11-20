@@ -1,0 +1,36 @@
+.hp-desk { overflow: auto; min-height: 0; display: flex; flex-direction: column; gap: 12px; padding-bottom: 4px; }
+.hp-desk > *, .hp-grid > * { flex-shrink: 0; }
+.stg .hp-desk .hp-head { flex-direction: row; justify-content: space-between; align-items: center; gap: 14px; }
+.hp-identity { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+.hp-paper { color: var(--brand-text); background: var(--brand-soft); border-radius: 5px; padding: 3px 7px; font-size: 12px; font-weight: 650; }
+.hp-head h2 { margin: 0; font-size: 20px; }
+.hp-head p, .hp-foot, .hp-empty, .hp-loading { color: var(--text-label); }
+.hp-head p { margin: 5px 0 0; }
+.hp-buttons { display: flex; align-items: center; gap: 8px; }
+.hp-desk h3 { font-size: 15px; margin: 0 0 9px; }
+.hp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.hp-list, .hp-tiles { margin: 0; font-variant-numeric: tabular-nums; }
+.hp-list > div { display: flex; justify-content: space-between; line-height: 1.7; gap: 12px; }
+.hp-list dt, .hp-tiles dt { color: var(--text-label); }
+.hp-list dd, .hp-tiles dd { margin: 0; font-weight: 600; }
+.hp-stage { font-weight: 650; margin: 0 0 5px; }
+.hp-stage span { color: var(--brand-text); margin-left: 6px; }
+.hp-foot { font-size: 12px; line-height: 1.5; margin: 9px 0 0; }
+.hp-warn { color: var(--warn); }
+.hp-tiles { display: grid; grid-template-columns: repeat(4,1fr) 1.4fr; gap: 10px; }
+.hp-tiles dd { margin-top: 5px; font-size: 18px; }
+.hp-message, .hp-empty { margin: 0; padding: 10px 12px; border-radius: 6px; background: var(--surface-muted); }
+.hp-empty { margin-top: 8px; }
+.hp-table-wrap { overflow: auto; max-height: 205px; }
+.hp-desk table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.hp-desk th, .hp-desk td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--row-line); white-space: nowrap; }
+.hp-desk th { color: var(--text-label); font-weight: 600; }
+.hp-desk th:first-child, .hp-desk td:first-child { text-align: left; }
+.hp-policy p { line-height: 1.55; margin: 3px 0; }
+.hp-policy b { margin-right: 6px; }
+.hp-policy .hp-foot { margin-top: 8px; }
+.hp-loading { align-items: flex-start; gap: 16px; }
+@container stg (max-width: 790px) {
+  .hp-grid { grid-template-columns: 1fr; }
+  .stg .hp-desk .hp-head { align-items: flex-start; flex-wrap: wrap; }
+}
