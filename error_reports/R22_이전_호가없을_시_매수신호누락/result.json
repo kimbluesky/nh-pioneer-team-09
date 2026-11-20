@@ -2,7 +2,7 @@
   "report_id": "R22",
   "title": "OR 조건 중 다른 조건의 직전 호가 데이터가 없으면 참인 가격 전이 신호까지 누락",
   "environment": "offline synthetic bar/quote marks; no NH API, websocket, or account",
-  "python_runtime": "3.13.5",
+  "python_runtime": "3.12.10",
   "test_uses_original_functions": [
     "backend.strategy.rules.series_of",
     "backend.strategy.rules.step_at",
