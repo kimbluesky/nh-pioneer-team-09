@@ -2,7 +2,8 @@
 
 팀: team-09
 환경: Python 3.13.5, 오프라인 재현(NH 서버 호출 없음), 2026-11-20 KST
-대상: 공개 저장소 NH FUTURES API의 전략 검증 조건식 판정 (backend/strategy/rules.py, 사용자 제공 소스: nh-futures-open-api-main
+대상: 공개 저장소 NH FUTURES API의 전략 검증 분봉 생성·재조회 병합 
+(backend/strategy/bars.py의 BarBuilder.seed/add/close, nh-futures-open-api-main.zip)
 
 재현 절차
 1. reproduce_R22.zip을 준비한 폴더에서 아래 명령을 실행합니다. 압축을 풀 필요는 없습니다.
