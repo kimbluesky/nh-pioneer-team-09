@@ -1,0 +1,443 @@
+{
+  "id": "R25",
+  "title": "RateLimiter oversleep permits zero-gap consecutive API dispatch",
+  "environment": {
+    "python": "3.12.10",
+    "operating_system": "Windows",
+    "no_network": true,
+    "original_functions": [
+      "backend.nh_api.rate_limit.RateLimiter.wait",
+      "backend.nh_api.rate_limit.RateLimiter.interval"
+    ],
+    "clock": "deterministic synthetic monotonic/sleep"
+  },
+  "cases": [
+    {
+      "case": "control_quote_exact_sleep",
+      "rate_class": "quote",
+      "allowed_requests_per_second": 10,
+      "required_min_gap_seconds": 0.1,
+      "virtual_oversleep_seconds": 0.0,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 0.1
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 0.2
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.1,
+        0.1
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.1,
+          "overrun_seconds": 0.0
+        },
+        {
+          "at": 0.1,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.1,
+          "overrun_seconds": 0.0
+        }
+      ],
+      "last_pair_violates_gap": false
+    },
+    {
+      "case": "bug_quote_oversleep_0_30",
+      "rate_class": "quote",
+      "allowed_requests_per_second": 10,
+      "required_min_gap_seconds": 0.1,
+      "virtual_oversleep_seconds": 0.3,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 0.4
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.4
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.4,
+        0.0
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.4,
+          "overrun_seconds": 0.3
+        }
+      ],
+      "last_pair_violates_gap": true
+    },
+    {
+      "case": "control_order_exact_sleep",
+      "rate_class": "order",
+      "allowed_requests_per_second": 5,
+      "required_min_gap_seconds": 0.2,
+      "virtual_oversleep_seconds": 0.0,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.2,
+          "dispatch_second": 0.2
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.2,
+          "dispatch_second": 0.4
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.2,
+        0.2
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.2,
+          "actual_seconds": 0.2,
+          "overrun_seconds": 0.0
+        },
+        {
+          "at": 0.2,
+          "requested_seconds": 0.2,
+          "actual_seconds": 0.2,
+          "overrun_seconds": 0.0
+        }
+      ],
+      "last_pair_violates_gap": false
+    },
+    {
+      "case": "bug_order_oversleep_0_30",
+      "rate_class": "order",
+      "allowed_requests_per_second": 5,
+      "required_min_gap_seconds": 0.2,
+      "virtual_oversleep_seconds": 0.3,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.2,
+          "dispatch_second": 0.5
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.5
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.5,
+        0.0
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.2,
+          "actual_seconds": 0.5,
+          "overrun_seconds": 0.3
+        }
+      ],
+      "last_pair_violates_gap": true
+    },
+    {
+      "case": "control_quote_idle_0_90",
+      "rate_class": "quote",
+      "allowed_requests_per_second": 10,
+      "required_min_gap_seconds": 0.1,
+      "virtual_oversleep_seconds": 0.0,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.9
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 1.0
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.9,
+        0.1
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.9,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.1,
+          "overrun_seconds": 0.0
+        }
+      ],
+      "last_pair_violates_gap": false
+    },
+    {
+      "case": "control_separate_market",
+      "rate_class": "quote",
+      "allowed_requests_per_second": 10,
+      "required_min_gap_seconds": 0.1,
+      "virtual_oversleep_seconds": 0.0,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "overseas",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 0.1
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.0,
+        0.1
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.1,
+          "overrun_seconds": 0.0
+        }
+      ],
+      "last_pair_violates_gap": false
+    },
+    {
+      "case": "control_separate_environment",
+      "rate_class": "quote",
+      "allowed_requests_per_second": 10,
+      "required_min_gap_seconds": 0.1,
+      "virtual_oversleep_seconds": 0.0,
+      "calls": [
+        {
+          "index": 1,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 2,
+          "market": "domestic",
+          "environment": "real",
+          "wait_reported_seconds": 0.0,
+          "dispatch_second": 0.0
+        },
+        {
+          "index": 3,
+          "market": "domestic",
+          "environment": "paper",
+          "wait_reported_seconds": 0.1,
+          "dispatch_second": 0.1
+        }
+      ],
+      "consecutive_gaps_seconds": [
+        0.0,
+        0.1
+      ],
+      "sleep_calls": [
+        {
+          "at": 0.0,
+          "requested_seconds": 0.1,
+          "actual_seconds": 0.1,
+          "overrun_seconds": 0.0
+        }
+      ],
+      "last_pair_violates_gap": false
+    }
+  ],
+  "checks_passed": 16,
+  "checks_total": 16,
+  "checks": [
+    {
+      "name": "quote rate limit is 10 calls/sec",
+      "passed": true
+    },
+    {
+      "name": "order rate limit is 5 calls/sec",
+      "passed": true
+    },
+    {
+      "name": "normal quote dispatches at 0/.1/.2",
+      "passed": true
+    },
+    {
+      "name": "normal quote has no gap violation",
+      "passed": true
+    },
+    {
+      "name": "normal order dispatches at 0/.2/.4",
+      "passed": true
+    },
+    {
+      "name": "normal order has no gap violation",
+      "passed": true
+    },
+    {
+      "name": "quote oversleep late 2nd dispatch at .4",
+      "passed": true
+    },
+    {
+      "name": "quote oversleep returns zero wait on third call",
+      "passed": true
+    },
+    {
+      "name": "quote oversleep violates .1 gap",
+      "passed": true
+    },
+    {
+      "name": "order oversleep late 2nd dispatch at .5",
+      "passed": true
+    },
+    {
+      "name": "order oversleep returns zero wait on third call",
+      "passed": true
+    },
+    {
+      "name": "order oversleep violates .2 gap",
+      "passed": true
+    },
+    {
+      "name": "idle control gap is respected",
+      "passed": true
+    },
+    {
+      "name": "separate market key does not share scheduled reservation",
+      "passed": true
+    },
+    {
+      "name": "separate environment key does not share reservation",
+      "passed": true
+    },
+    {
+      "name": "late sleep is explicitly synthetic",
+      "passed": true
+    }
+  ],
+  "bug_reproduced": true,
+  "limitations": "Injected virtual clock simulates scheduler oversleep. Actual HTTP sending/server throttling was not tested.",
+  "source_integrity": {
+    "passed": true,
+    "count": 5,
+    "source_zip_name": "nh-futures-open-api-main(2).zip",
+    "source_archive_sha256": "67a9a11613f1710e673952e314cd5aba2404fc964a4bf1611ed610b77717c75a",
+    "git_commit_independently_verified": false,
+    "files": [
+      {
+        "path": "backend/__init__.py",
+        "bytes": 45,
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "expected_sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "matched": true
+      },
+      {
+        "path": "backend/nh_api/__init__.py",
+        "bytes": 666,
+        "sha256": "3845502c106652b191f85e2f37aed39bd0762a2c19b4eb5cb4b389a36cfa7d0a",
+        "expected_sha256": "3845502c106652b191f85e2f37aed39bd0762a2c19b4eb5cb4b389a36cfa7d0a",
+        "matched": true
+      },
+      {
+        "path": "backend/nh_api/catalog.py",
+        "bytes": 10586,
+        "sha256": "711ccfd78ab9a69f1caed1d9fe31ac6cc40fbf8c3938620c31c1ba6e33727bf4",
+        "expected_sha256": "711ccfd78ab9a69f1caed1d9fe31ac6cc40fbf8c3938620c31c1ba6e33727bf4",
+        "matched": true
+      },
+      {
+        "path": "backend/nh_api/rate_limit.py",
+        "bytes": 3071,
+        "sha256": "c742a43dca5afb4b37641e972593eff449738ecf3dfff61db89b15ae7740ed7c",
+        "expected_sha256": "c742a43dca5afb4b37641e972593eff449738ecf3dfff61db89b15ae7740ed7c",
+        "matched": true
+      },
+      {
+        "path": "backend/nh_api/client.py",
+        "bytes": 11176,
+        "sha256": "0b7d356b237891f5efbc61acae7bd05e8559331d2db7694ada08048281dcf3a5",
+        "expected_sha256": "0b7d356b237891f5efbc61acae7bd05e8559331d2db7694ada08048281dcf3a5",
+        "matched": true
+      }
+    ]
+  }
+}
