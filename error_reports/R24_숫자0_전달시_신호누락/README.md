@@ -36,7 +36,6 @@ CHECKS: 14/14
 ### 근거 (재현 코드·실행 결과)
 - reproduce_R24.zip: 원본 Python 소스, verify_R24.py, source_manifest.json, README_R24.md, REPORT_R24.txt
 - result.json: 총 12개 사례별 입력, 저장 유효성, 조건 판정 및 신호 결과
-- test_log.txt: 실행 로그
 - 원인 코드: backend/strategy/rules.py의 right_at(), cond_at() 및 backend/strategy/validate.py의 _filled()
 - 원본: PetterChanHyuk/nh-futures-open-api
 
