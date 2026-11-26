@@ -1,0 +1,422 @@
+{
+  "report_id": "R24",
+  "title": "유효한 숫자 0 비교값이 None으로 처리돼 거래량 진입 및 평가손익 청산 신호 누락",
+  "environment": "offline synthetic bars and P/L marks; no NH API, websocket, account or order send",
+  "python_runtime": "3.12.10",
+  "source_integrity": {
+    "passed": true,
+    "count": 11,
+    "source_zip_name": "nh-futures-open-api-main(2).zip",
+    "source_archive_sha256": "67a9a11613f1710e673952e314cd5aba2404fc964a4bf1611ed610b77717c75a",
+    "git_commit_independently_verified": false,
+    "files": [
+      {
+        "path": "backend/__init__.py",
+        "bytes": 45,
+        "sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "expected_sha256": "c39b601fad06bdab56100d44639cdc6fa1e0f2f44533a7774c364c3dc13f8cdd",
+        "matched": true
+      },
+      {
+        "path": "backend/market_values.py",
+        "bytes": 8633,
+        "sha256": "5a6ca202abbdead6488f6f94b5e2cd72ee81b89bf4808e6a58c7ca751de353f2",
+        "expected_sha256": "5a6ca202abbdead6488f6f94b5e2cd72ee81b89bf4808e6a58c7ca751de353f2",
+        "matched": true
+      },
+      {
+        "path": "backend/sessions/__init__.py",
+        "bytes": 613,
+        "sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "expected_sha256": "5a0599b9917e5e404f898625feb0ae1d6eb54bd579265d9ae5f1944fba843687",
+        "matched": true
+      },
+      {
+        "path": "backend/sessions/hours.py",
+        "bytes": 4512,
+        "sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "expected_sha256": "7eaa71746d063f5d0e70bf29172ace179dbd9f7f5a592d9eb1e7a07fbd76428c",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/__init__.py",
+        "bytes": 1679,
+        "sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "expected_sha256": "5d8cfb61126ff6fc7d82be0b8c3c605f0396247383f4d862b9e0086fb4adb6d6",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/bars.py",
+        "bytes": 14996,
+        "sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "expected_sha256": "646fcf9c9b7a0eb1af9593d5cac06b14730c140d3402fbd538715ff51a6673df",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/indicators.py",
+        "bytes": 11433,
+        "sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "expected_sha256": "a25a1c97d78f2f5acc80c0e49fa7514934643a4459d06b9d79638d3c25acc344",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/rules.py",
+        "bytes": 40115,
+        "sha256": "230f1d68bea95e21d52847b9883dd4be23ce731ff79ba1313b1c833d7589ec87",
+        "expected_sha256": "230f1d68bea95e21d52847b9883dd4be23ce731ff79ba1313b1c833d7589ec87",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/validate.py",
+        "bytes": 40486,
+        "sha256": "3f5302b99248278c781448b9e4a3bbe94db695ab5ee58515e0630a0e26594f61",
+        "expected_sha256": "3f5302b99248278c781448b9e4a3bbe94db695ab5ee58515e0630a0e26594f61",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/instrument.py",
+        "bytes": 4277,
+        "sha256": "3facd6e2b0b9461bb89eb841f41cb5999888deca04d0f7899ec69088669f1584",
+        "expected_sha256": "3facd6e2b0b9461bb89eb841f41cb5999888deca04d0f7899ec69088669f1584",
+        "matched": true
+      },
+      {
+        "path": "backend/strategy/paper.py",
+        "bytes": 24846,
+        "sha256": "00f11473be7d4ca5c04124daa669c15433fc5c1f6fbce97f6e96fef16f3ae691",
+        "expected_sha256": "00f11473be7d4ca5c04124daa669c15433fc5c1f6fbce97f6e96fef16f3ae691",
+        "matched": true
+      }
+    ]
+  },
+  "original_functions_executed": [
+    "backend.strategy.validate.problems",
+    "backend.strategy.validate.blocked",
+    "backend.strategy.rules.series_of",
+    "backend.strategy.rules.right_at",
+    "backend.strategy.rules.cond_at",
+    "backend.strategy.rules.step_at",
+    "backend.strategy.rules._unknown_before",
+    "backend.strategy.rules.fired_bars",
+    "backend.strategy.rules.evaluate"
+  ],
+  "expected": "JSON number 0 and JSON string '0' must mean the same numeric threshold in an accepted strategy",
+  "observed": "number 0/0.0 yields right_at=None and no signal; string '0'/'0.0' emits the expected signal",
+  "checks": {
+    "volume_number_zero_is_accepted_by_validator": true,
+    "volume_numeric_zero_is_parsed_as_missing": true,
+    "volume_string_zero_control_fires": true,
+    "volume_float_zero_same_bug": true,
+    "volume_nonzero_numeric_and_string_controls_agree": true,
+    "volume_previous_context_present_and_not_R22": true,
+    "openpl_number_zero_is_accepted_by_validator": true,
+    "openpl_numeric_zero_is_parsed_as_missing": true,
+    "openpl_string_zero_control_fires": true,
+    "openpl_float_zero_same_bug": true,
+    "openpl_nonzero_numeric_and_string_controls_agree": true,
+    "openpl_previous_context_present_and_not_R22": true,
+    "all_twelve_cases_validation_passed": true,
+    "only_json_value_type_differs_in_each_zero_pair": true
+  },
+  "checks_passed": 14,
+  "checks_total": 14,
+  "bug_reproduced": true,
+  "cases": {
+    "volume_entry__integer_zero": {
+      "case": "volume_entry__integer_zero",
+      "target_rule": "buyEntry",
+      "input_right": 0,
+      "input_right_type": "int",
+      "comparison": "volume gt 0",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": null,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": false,
+      "step_at_target": false,
+      "unknown_before": false,
+      "fired_bars": [],
+      "fired_rules_at_target": [],
+      "expected_target_signal": true
+    },
+    "volume_entry__string_zero_control": {
+      "case": "volume_entry__string_zero_control",
+      "target_rule": "buyEntry",
+      "input_right": "0",
+      "input_right_type": "str",
+      "comparison": "volume gt '0'",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 0.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyEntry"
+      ],
+      "expected_target_signal": true
+    },
+    "volume_entry__float_zero": {
+      "case": "volume_entry__float_zero",
+      "target_rule": "buyEntry",
+      "input_right": 0.0,
+      "input_right_type": "float",
+      "comparison": "volume gt 0.0",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": null,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": false,
+      "step_at_target": false,
+      "unknown_before": false,
+      "fired_bars": [],
+      "fired_rules_at_target": [],
+      "expected_target_signal": true
+    },
+    "volume_entry__string_float_zero_control": {
+      "case": "volume_entry__string_float_zero_control",
+      "target_rule": "buyEntry",
+      "input_right": "0.0",
+      "input_right_type": "str",
+      "comparison": "volume gt '0.0'",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 0.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyEntry"
+      ],
+      "expected_target_signal": true
+    },
+    "volume_entry__integer_one_control": {
+      "case": "volume_entry__integer_one_control",
+      "target_rule": "buyEntry",
+      "input_right": 1,
+      "input_right_type": "int",
+      "comparison": "volume gt 1",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 1.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyEntry"
+      ],
+      "expected_target_signal": true
+    },
+    "volume_entry__string_one_control": {
+      "case": "volume_entry__string_one_control",
+      "target_rule": "buyEntry",
+      "input_right": "1",
+      "input_right_type": "str",
+      "comparison": "volume gt '1'",
+      "left_values": [
+        0,
+        12,
+        14
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 1.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyEntry"
+      ],
+      "expected_target_signal": true
+    },
+    "openpl_exit__integer_zero": {
+      "case": "openpl_exit__integer_zero",
+      "target_rule": "buyExit",
+      "input_right": 0,
+      "input_right_type": "int",
+      "comparison": "openPl lt 0",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": null,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": false,
+      "step_at_target": false,
+      "unknown_before": false,
+      "fired_bars": [],
+      "fired_rules_at_target": [],
+      "expected_target_signal": true
+    },
+    "openpl_exit__string_zero_control": {
+      "case": "openpl_exit__string_zero_control",
+      "target_rule": "buyExit",
+      "input_right": "0",
+      "input_right_type": "str",
+      "comparison": "openPl lt '0'",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 0.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyExit"
+      ],
+      "expected_target_signal": true
+    },
+    "openpl_exit__float_zero": {
+      "case": "openpl_exit__float_zero",
+      "target_rule": "buyExit",
+      "input_right": 0.0,
+      "input_right_type": "float",
+      "comparison": "openPl lt 0.0",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": null,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": false,
+      "step_at_target": false,
+      "unknown_before": false,
+      "fired_bars": [],
+      "fired_rules_at_target": [],
+      "expected_target_signal": true
+    },
+    "openpl_exit__string_float_zero_control": {
+      "case": "openpl_exit__string_float_zero_control",
+      "target_rule": "buyExit",
+      "input_right": "0.0",
+      "input_right_type": "str",
+      "comparison": "openPl lt '0.0'",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 0.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyExit"
+      ],
+      "expected_target_signal": true
+    },
+    "openpl_exit__integer_one_control": {
+      "case": "openpl_exit__integer_one_control",
+      "target_rule": "buyExit",
+      "input_right": 1,
+      "input_right_type": "int",
+      "comparison": "openPl lt 1",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 1.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyExit"
+      ],
+      "expected_target_signal": true
+    },
+    "openpl_exit__string_one_control": {
+      "case": "openpl_exit__string_one_control",
+      "target_rule": "buyExit",
+      "input_right": "1",
+      "input_right_type": "str",
+      "comparison": "openPl lt '1'",
+      "left_values": [
+        5.0,
+        -5.0,
+        -7.0
+      ],
+      "valid_to_store": true,
+      "validation_problems": [],
+      "parsed_right_at_bar_1": 1.0,
+      "condition_at_previous_bar": false,
+      "condition_at_target_bar": true,
+      "step_at_target": true,
+      "unknown_before": false,
+      "fired_bars": [
+        1
+      ],
+      "fired_rules_at_target": [
+        "buyExit"
+      ],
+      "expected_target_signal": true
+    }
+  }
+}
