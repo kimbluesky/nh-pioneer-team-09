@@ -2,7 +2,7 @@
   "report_id": "R24",
   "title": "유효한 숫자 0 비교값이 None으로 처리돼 거래량 진입 및 평가손익 청산 신호 누락",
   "environment": "offline synthetic bars and P/L marks; no NH API, websocket, account or order send",
-  "python_runtime": "3.13.5",
+  "python_runtime": "3.12.10",
   "source_integrity": {
     "passed": true,
     "count": 11,
