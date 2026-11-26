@@ -1,0 +1,6 @@
+{"event":{"environment":"paper","quantity":1,"role":"entry","side":-1,"symbol":"A506C000"},"id":275,"kind":"order_intent","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T13:00:02.016+09:00"}
+{"event":{"order_ref":"order-1","role":"entry"},"id":276,"kind":"ack","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T13:00:02.016+09:00"}
+{"event":{"broker_fill_time":"12:59:59","estimated_fees_krw":0.0,"gross_krw":0.0,"order_ref":"order-1","price":1099000.0,"quantity":1,"role":"entry"},"id":278,"kind":"confirmed_fill","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T13:00:04.332+09:00"}
+{"event":{"environment":"paper","quantity":1,"role":"exit","side":1,"symbol":"A506C000"},"id":370,"kind":"order_intent","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T15:25:02.178+09:00"}
+{"event":{"order_ref":"order-2","role":"exit"},"id":371,"kind":"ack","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T15:25:02.178+09:00"}
+{"event":{"broker_fill_time":"15:24:59","estimated_fees_krw":1868.3000000000002,"gross_krw":0.0,"order_ref":"order-2","price":1099000.0,"quantity":1,"role":"exit"},"id":373,"kind":"confirmed_fill","runId":"2026-11-20-A506C000-paper","time":"2026-11-20T15:25:04.332+09:00"}

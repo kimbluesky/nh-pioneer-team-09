@@ -1,0 +1,475 @@
+{
+  "collection": {
+    "symbol": "A506C000",
+    "returned_series": "15000000",
+    "environment": "real, read-only",
+    "since": "2022-11-19",
+    "until_exclusive": "2026-11-19",
+    "core_days": 21,
+    "overlap_days": 4,
+    "five_minute_windows": 70,
+    "max_five_minute_page": 1577,
+    "fresh_rows": 99514,
+    "fresh_duplicate_rows": 20855,
+    "archived_rows_already_present": 93750,
+    "unique_5m": 78659,
+    "unique_native_5m": 78659,
+    "unique_days": 969,
+    "daily_reference_days": 975,
+    "verified_outright_overlap": 249,
+    "timestamp_conflicts": 0,
+    "daily_ohlc_differences": {},
+    "daily_volume_differences": [
+      "20240806",
+      "20240903",
+      "20241004",
+      "20241114",
+      "20250122",
+      "20250131",
+      "20250205",
+      "20260306",
+      "20260310",
+      "20260313"
+    ],
+    "missing_vs_index": [
+      "20240412",
+      "20240415",
+      "20240416",
+      "20240417",
+      "20240418",
+      "20240419"
+    ],
+    "recovery": {
+      "2024-04-12": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      },
+      "2024-04-15": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      },
+      "2024-04-16": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      },
+      "2024-04-17": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      },
+      "2024-04-18": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      },
+      "2024-04-19": {
+        "native_rows": 0,
+        "native_status": [
+          "ok"
+        ],
+        "one_minute_rows": 0,
+        "rebuilt_five_minute_rows": 0,
+        "one_minute_status": [
+          "ok"
+        ]
+      }
+    },
+    "csv_sha256": "a068332cb0989008303f6c548080221be354d71f0ce4d8857636e4883a2b661a"
+  },
+  "models": {
+    "entry": {
+      "name": "4y_32_drift",
+      "days": 907,
+      "sha256": "543c14a7083f51b704f1a1959ea288b3d4c0aa8b89164b294e9989845b61dc42",
+      "training_blocks": [
+        {
+          "teacher_last": null,
+          "first_target": "2022-11-21",
+          "last_target": "2023-10-23",
+          "days": 227
+        },
+        {
+          "teacher_last": "2023-10-23",
+          "first_target": "2023-10-24",
+          "last_target": "2024-10-07",
+          "days": 227
+        },
+        {
+          "teacher_last": "2024-10-07",
+          "first_target": "2024-10-08",
+          "last_target": "2025-09-10",
+          "days": 227
+        },
+        {
+          "teacher_last": "2025-09-10",
+          "first_target": "2025-09-11",
+          "last_target": "2026-08-18",
+          "days": 226
+        }
+      ]
+    },
+    "exit": {
+      "name": "3y_se0",
+      "days": 661,
+      "training_hold_states": 100658,
+      "sha256": "e13d9c7bf74e5b31df5f18fcc24edf7fc1cb3cc5d85361ca2818b5d8dba66c08"
+    }
+  },
+  "backtest": {
+    "validation": {
+      "policy": {
+        "days": 39,
+        "trades": 39,
+        "zero_days": 0,
+        "wins": 20,
+        "longs": 0,
+        "early_exits": 18,
+        "gross_krw": 3630000.0,
+        "slippage_krw": 780000.0,
+        "fee_krw": 112845.15,
+        "net_krw": 2737154.85,
+        "drawdown_krw": 1597447.85,
+        "double_cost_krw": 1844309.7
+      },
+      "short": {
+        "days": 39,
+        "trades": 39,
+        "zero_days": 0,
+        "wins": 22,
+        "longs": 0,
+        "early_exits": 0,
+        "gross_krw": 3580000.0,
+        "slippage_krw": 780000.0,
+        "fee_krw": 112849.4,
+        "net_krw": 2687150.6,
+        "drawdown_krw": 1647535.9,
+        "double_cost_krw": 1794301.2
+      },
+      "long": {
+        "days": 39,
+        "trades": 39,
+        "zero_days": 0,
+        "wins": 16,
+        "longs": 39,
+        "early_exits": 0,
+        "gross_krw": -3580000.0,
+        "slippage_krw": 780000.0,
+        "fee_krw": 112849.4,
+        "net_krw": -4472849.4,
+        "drawdown_krw": 5566715.55,
+        "double_cost_krw": -5365698.8
+      },
+      "hold": {
+        "days": 39,
+        "trades": 39,
+        "zero_days": 0,
+        "wins": 22,
+        "longs": 0,
+        "early_exits": 0,
+        "gross_krw": 3580000.0,
+        "slippage_krw": 780000.0,
+        "fee_krw": 112849.4,
+        "net_krw": 2687150.6,
+        "drawdown_krw": 1647535.9,
+        "double_cost_krw": 1794301.2
+      }
+    },
+    "test": {
+      "policy": {
+        "days": 23,
+        "trades": 23,
+        "zero_days": 0,
+        "wins": 11,
+        "longs": 0,
+        "early_exits": 13,
+        "gross_krw": 1150000.0,
+        "slippage_krw": 460000.0,
+        "fee_krw": 50121.95,
+        "net_krw": 639878.05,
+        "drawdown_krw": 1143715.25,
+        "double_cost_krw": 129756.1
+      },
+      "short": {
+        "days": 23,
+        "trades": 23,
+        "zero_days": 0,
+        "wins": 17,
+        "longs": 0,
+        "early_exits": 0,
+        "gross_krw": 1160000.0,
+        "slippage_krw": 460000.0,
+        "fee_krw": 50121.1,
+        "net_krw": 649878.9,
+        "drawdown_krw": 1666553.75,
+        "double_cost_krw": 139757.8
+      },
+      "long": {
+        "days": 23,
+        "trades": 23,
+        "zero_days": 0,
+        "wins": 6,
+        "longs": 23,
+        "early_exits": 0,
+        "gross_krw": -1160000.0,
+        "slippage_krw": 460000.0,
+        "fee_krw": 50121.1,
+        "net_krw": -1670121.1,
+        "drawdown_krw": 2652512.5,
+        "double_cost_krw": -2180242.2
+      },
+      "hold": {
+        "days": 23,
+        "trades": 23,
+        "zero_days": 0,
+        "wins": 17,
+        "longs": 0,
+        "early_exits": 0,
+        "gross_krw": 1160000.0,
+        "slippage_krw": 460000.0,
+        "fee_krw": 50121.1,
+        "net_krw": 649878.9,
+        "drawdown_krw": 1666553.75,
+        "double_cost_krw": 139757.8
+      }
+    }
+  },
+  "selection": {
+    "validation_locked_kst": "2026-11-19T20:14:03.175683+09:00",
+    "selected": "incumbent__incumbent__100",
+    "test_previously_examined": true,
+    "highest_test_candidate": "E004__M051__100",
+    "comparison": [
+      {
+        "model": "incumbent__incumbent__100",
+        "validation_net_krw": 2737154.85,
+        "test_net_krw": 639878.05,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "E042__incumbent__100",
+        "validation_net_krw": 2737154.85,
+        "test_net_krw": 639878.05,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__Q008__100",
+        "validation_net_krw": 436959.35,
+        "test_net_krw": -190192.5,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "E004__M075__100",
+        "validation_net_krw": 1777073.25,
+        "test_net_krw": 1609882.3,
+        "test_wins": 17,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__Q007__100",
+        "validation_net_krw": 436959.35,
+        "test_net_krw": -190192.5,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__M077__100",
+        "validation_net_krw": 16923.65,
+        "test_net_krw": -600227.35,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__M081__100",
+        "validation_net_krw": 2687150.6,
+        "test_net_krw": 889899.3,
+        "test_wins": 17,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__M075__100",
+        "validation_net_krw": 1777073.25,
+        "test_net_krw": 1149921.4,
+        "test_wins": 16,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__M078__100",
+        "validation_net_krw": 116932.15,
+        "test_net_krw": -740239.25,
+        "test_wins": 12,
+        "test_days": 23
+      },
+      {
+        "model": "E004__M051__100",
+        "validation_net_krw": 1777073.25,
+        "test_net_krw": 1739893.35,
+        "test_wins": 17,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__Q001__100",
+        "validation_net_krw": 856995.05,
+        "test_net_krw": -810245.2,
+        "test_wins": 11,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__M051__100",
+        "validation_net_krw": 1777073.25,
+        "test_net_krw": 1279932.45,
+        "test_wins": 16,
+        "test_days": 23
+      },
+      {
+        "model": "E004__M081__100",
+        "validation_net_krw": 2687150.6,
+        "test_net_krw": 1349860.2,
+        "test_wins": 18,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__wide_previous__025",
+        "validation_net_krw": 2497134.45,
+        "test_net_krw": 829894.2,
+        "test_wins": 12,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__wide_previous__050",
+        "validation_net_krw": 2037095.35,
+        "test_net_krw": 1289933.3,
+        "test_wins": 13,
+        "test_days": 23
+      },
+      {
+        "model": "incumbent__wide_previous__075",
+        "validation_net_krw": 2247113.2,
+        "test_net_krw": 1599959.65,
+        "test_wins": 14,
+        "test_days": 23
+      }
+    ]
+  },
+  "test_stress": {
+    "five_minute_later_fills_days": 23,
+    "five_minute_later_fills_net_krw": -70121.10000000005,
+    "without_two_best_days_krw": -806070.0,
+    "daily_5day_block95_krw": [
+      -98294.6245652174,
+      112518.29
+    ]
+  },
+  "paper": {
+    "instrument": {
+      "symbol": "A506C000",
+      "expiry": "2026-12-10",
+      "multiplier": 10,
+      "master_date": "20261114"
+    },
+    "mode": "paper",
+    "quantity": 1,
+    "sealed_kst": "2026-11-19T19:14:29.368741+09:00",
+    "account_reconciliation": {
+      "as_of_kst": "2026-11-20T16:00:01.634400+09:00",
+      "phase": "finished_flat",
+      "confirmed_fills": 2,
+      "round_trips": 1,
+      "local_position": 0,
+      "unresolved_order": false,
+      "estimated_net_from_confirmed_fills_krw": -1868.3000000000002,
+      "five_minute_bars": 82,
+      "entry_decisions": 1,
+      "account_ok": null,
+      "quotes_ok": null,
+      "pending_count": 0,
+      "confirmed_broker_position": []
+    },
+    "quote_only_comparison": {
+      "orders_sent": 0,
+      "entry_reference": 1096000.0,
+      "exit_reference": 1098000.0,
+      "scheduled_simulated_net_krw": -41864.9
+    },
+    "candidate_monitor": {
+      "as_of_kst": "2026-11-20T16:10:08.481104+09:00",
+      "net_krw": -41864.9,
+      "outcome": "quote_round_trip_with_gaps",
+      "orders_sent": 0
+    },
+    "strategy_locked_kst": "2026-11-19T20:19:20.544327+09:00",
+    "quote_revision_effective_kst": "2026-11-20T13:03:15.733760+09:00"
+  },
+  "execution_check": {
+    "changed_test_trades": [
+      {
+        "day": "2026-11-06",
+        "old_entry": 570,
+        "entry": 600,
+        "old_exit": 660,
+        "exit": 660,
+        "prior_net_krw": -321961.8,
+        "corrected_net_krw": -481948.2
+      }
+    ],
+    "stale_decisions": {
+      "validation": [
+        {
+          "day": "2026-10-15",
+          "minute": "780",
+          "kind": "exit",
+          "last_input_start": "755",
+          "action": "",
+          "hold_value": "",
+          "status": "continued_stale_input"
+        }
+      ],
+      "test": [
+        {
+          "day": "2026-11-06",
+          "minute": "570",
+          "kind": "entry",
+          "last_input_start": "540",
+          "action": "",
+          "hold_value": "",
+          "status": "skipped_stale_input"
+        }
+      ]
+    }
+  }
+}

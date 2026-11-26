@@ -1,0 +1,355 @@
+{
+  "entry": {
+    "locked_kst": "2026-11-19T18:36:14.600370+09:00",
+    "selected": "4y_32_drift",
+    "rows": {
+      "3y_8_drift": {
+        "months": 33,
+        "drift_half_life": 8,
+        "residual": false,
+        "zero_days": 0,
+        "net_krw": 1347050.3,
+        "capped_krw": 1176304.85
+      },
+      "3y_8_residual": {
+        "months": 33,
+        "drift_half_life": 8,
+        "residual": true,
+        "zero_days": 0,
+        "net_krw": 1057137.85,
+        "capped_krw": 886392.4
+      },
+      "3y_32_drift": {
+        "months": 33,
+        "drift_half_life": 32,
+        "residual": false,
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8
+      },
+      "3y_32_residual": {
+        "months": 33,
+        "drift_half_life": 32,
+        "residual": true,
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8
+      },
+      "4y_8_drift": {
+        "months": 45,
+        "drift_half_life": 8,
+        "residual": false,
+        "zero_days": 0,
+        "net_krw": 1347050.3,
+        "capped_krw": 1176304.85
+      },
+      "4y_8_residual": {
+        "months": 45,
+        "drift_half_life": 8,
+        "residual": true,
+        "zero_days": 0,
+        "net_krw": 1057137.85,
+        "capped_krw": 886392.4
+      },
+      "4y_32_drift": {
+        "months": 45,
+        "drift_half_life": 32,
+        "residual": false,
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8
+      },
+      "4y_32_residual": {
+        "months": 45,
+        "drift_half_life": 32,
+        "residual": true,
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8
+      }
+    }
+  },
+  "exit": {
+    "locked_kst": "2026-11-19T18:42:48.259804+09:00",
+    "selected": "3y_se0",
+    "rows": {
+      "base": {
+        "months": null,
+        "margin": null,
+        "early_exits": 0,
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8
+      },
+      "3y_se0": {
+        "months": 33,
+        "margin": 0,
+        "early_exits": 18,
+        "zero_days": 0,
+        "net_krw": 2737154.85,
+        "capped_krw": 2377811.05
+      },
+      "3y_se1": {
+        "months": 33,
+        "margin": 1,
+        "early_exits": 32,
+        "zero_days": 0,
+        "net_krw": -353107.8,
+        "capped_krw": -613645.0
+      },
+      "4y_se0": {
+        "months": 45,
+        "margin": 0,
+        "early_exits": 19,
+        "zero_days": 0,
+        "net_krw": 2377124.25,
+        "capped_krw": 2017780.45
+      },
+      "4y_se1": {
+        "months": 45,
+        "margin": 1,
+        "early_exits": 9,
+        "zero_days": 0,
+        "net_krw": 2317119.15,
+        "capped_krw": 1957775.35
+      }
+    }
+  },
+  "inner_screen": {
+    "locked_kst": "2026-11-19T20:03:21.132849+09:00",
+    "folds": [
+      {
+        "fit_through": "2026-03-05",
+        "from": "2026-03-06",
+        "to": "2026-05-27",
+        "sessions": 56,
+        "incumbent_net_krw": -190070.15,
+        "incumbent_action_sha256": "460cfc5c5b0a446cc06783aacc01bafe083fc5684d1ead3c1b4988b1aed90076"
+      },
+      {
+        "fit_through": "2026-05-27",
+        "from": "2026-05-28",
+        "to": "2026-08-18",
+        "sessions": 56,
+        "incumbent_net_krw": 2840994.6,
+        "incumbent_action_sha256": "4c367261cf5a74725620b3ce75028d74dd5e4d9086c476515a76c3e14caae7c5"
+      }
+    ],
+    "entry_grid": {
+      "window": [
+        "3y",
+        "4y"
+      ],
+      "fast_drift_fraction": [
+        0,
+        0.5,
+        1
+      ],
+      "half_life": [
+        84,
+        252
+      ],
+      "ridge": [
+        0.08,
+        0.7
+      ],
+      "context_gain": [
+        0,
+        0.35,
+        1
+      ]
+    },
+    "mc_grid": {
+      "window": [
+        "3y",
+        "4y"
+      ],
+      "basis": [
+        "linear",
+        "hinge"
+      ],
+      "half_life": [
+        84,
+        252
+      ],
+      "ridge": [
+        0.18,
+        0.7
+      ],
+      "downside": [
+        0,
+        0.12
+      ],
+      "margin": [
+        0,
+        0.45,
+        0.9
+      ]
+    },
+    "trace_grid": {
+      "window": [
+        "3y",
+        "4y"
+      ],
+      "half_life": [
+        84,
+        252
+      ],
+      "lambda": [
+        0.35,
+        0.85
+      ],
+      "conservatism": [
+        0.1,
+        0.6
+      ]
+    },
+    "entry_count": 72,
+    "mc_count": 96,
+    "trace_count": 16,
+    "shortlisted_entries": [
+      "E004",
+      "E008",
+      "E042",
+      "E006"
+    ],
+    "shortlisted_exits": [
+      "M077",
+      "M051",
+      "Q008",
+      "Q007",
+      "M081",
+      "M075",
+      "M078",
+      "Q001"
+    ],
+    "combination_count": 95,
+    "finalist_count": 16
+  },
+  "final_validation": {
+    "locked_kst": "2026-11-19T20:14:03.175683+09:00",
+    "incumbent": "incumbent__incumbent__100",
+    "selected": "incumbent__incumbent__100",
+    "rows": {
+      "incumbent__incumbent__100": {
+        "zero_days": 0,
+        "net_krw": 2737154.85,
+        "capped_krw": 2377811.05,
+        "double_cost_krw": 1844309.7,
+        "drawdown_krw": 1597447.85
+      },
+      "E042__incumbent__100": {
+        "zero_days": 0,
+        "net_krw": 2737154.85,
+        "capped_krw": 2377811.05,
+        "double_cost_krw": 1844309.7,
+        "drawdown_krw": 1597447.85
+      },
+      "incumbent__Q008__100": {
+        "zero_days": 0,
+        "net_krw": 436959.35,
+        "capped_krw": 28680.6,
+        "double_cost_krw": -456081.3,
+        "drawdown_krw": 1483988.45
+      },
+      "E004__M075__100": {
+        "zero_days": 0,
+        "net_krw": 1777073.25,
+        "capped_krw": 1417729.45,
+        "double_cost_krw": 884146.5,
+        "drawdown_krw": 2557613.25
+      },
+      "incumbent__Q007__100": {
+        "zero_days": 0,
+        "net_krw": 436959.35,
+        "capped_krw": 28680.6,
+        "double_cost_krw": -456081.3,
+        "drawdown_krw": 1483988.45
+      },
+      "incumbent__M077__100": {
+        "zero_days": 0,
+        "net_krw": 16923.65,
+        "capped_krw": -22989.65,
+        "double_cost_krw": -876152.7,
+        "drawdown_krw": 1483988.45
+      },
+      "incumbent__M081__100": {
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8,
+        "double_cost_krw": 1794301.2,
+        "drawdown_krw": 1647535.9
+      },
+      "incumbent__M075__100": {
+        "zero_days": 0,
+        "net_krw": 1777073.25,
+        "capped_krw": 1417729.45,
+        "double_cost_krw": 884146.5,
+        "drawdown_krw": 2557613.25
+      },
+      "incumbent__M078__100": {
+        "zero_days": 0,
+        "net_krw": 116932.15,
+        "capped_krw": -143605.05,
+        "double_cost_krw": -776135.7,
+        "drawdown_krw": 1653383.9
+      },
+      "E004__M051__100": {
+        "zero_days": 0,
+        "net_krw": 1777073.25,
+        "capped_krw": 1417729.45,
+        "double_cost_krw": 884146.5,
+        "drawdown_krw": 2557613.25
+      },
+      "incumbent__Q001__100": {
+        "zero_days": 0,
+        "net_krw": 856995.05,
+        "capped_krw": 396938.95,
+        "double_cost_krw": -36009.9,
+        "drawdown_krw": 1820120.75
+      },
+      "incumbent__M051__100": {
+        "zero_days": 0,
+        "net_krw": 1777073.25,
+        "capped_krw": 1417729.45,
+        "double_cost_krw": 884146.5,
+        "drawdown_krw": 2557613.25
+      },
+      "E004__M081__100": {
+        "zero_days": 0,
+        "net_krw": 2687150.6,
+        "capped_krw": 2327806.8,
+        "double_cost_krw": 1794301.2,
+        "drawdown_krw": 1647535.9
+      },
+      "incumbent__wide_previous__025": {
+        "zero_days": 0,
+        "net_krw": 2497134.45,
+        "capped_krw": 2137790.65,
+        "double_cost_krw": 1604268.9,
+        "drawdown_krw": 1267419.8
+      },
+      "incumbent__wide_previous__050": {
+        "zero_days": 0,
+        "net_krw": 2037095.35,
+        "capped_krw": 1677751.55,
+        "double_cost_krw": 1144190.7,
+        "drawdown_krw": 1727458.9
+      },
+      "incumbent__wide_previous__075": {
+        "zero_days": 0,
+        "net_krw": 2247113.2,
+        "capped_krw": 1887769.4,
+        "double_cost_krw": 1354226.4,
+        "drawdown_krw": 1997565.65
+      }
+    }
+  },
+  "source_sha256": {
+    "results/hynix_stopping/selection.json": "79a9c28a68260ca7aed5dbcbaf31cf93c7c5b589ee13b70fa11fcbcd9bea84c8",
+    "results/hynix_stopping/exit/selection.json": "c8c2bd2db6df5aa488c5f1838ec9ebf61070d00d1f4439425b7c20eb16d29c0d",
+    "results/hynix_tuning/screen.json": "a09076a85386992e82366255b91245f1e2846cb8056d9052c26a594988cbb446",
+    "results/hynix_tuning/execution/selection.json": "08ad214e4eb1fbd037625b32708ec86088f8e2c254d8151ab9370c905f5100c5",
+    "hynix_evening_protocol.json": "6caa66c9c3b504b4c22433558ea0193991882c0139f62e418dc99a83171633fb"
+  }
+}
