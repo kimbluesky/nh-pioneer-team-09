@@ -1,0 +1,128 @@
+{
+  "case": "R26",
+  "title": "NH FUTURES API: 토큰 만료 뒤 재시도한 요청은 호출 제한기를 거치지 않습니다",
+  "source_integrity": {
+    "checked": 3,
+    "passed": 3
+  },
+  "checks_passed": 4,
+  "checks_total": 4,
+  "checks": [
+    {
+      "name": "정상 응답: 전송 1회/대기 1회",
+      "passed": true,
+      "observed": {
+        "http_status": 200,
+        "sent": [
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 200
+          }
+        ],
+        "rate_waits": 1,
+        "token_forgets": 0
+      },
+      "expected": null
+    },
+    {
+      "name": "401 후 정상: 실제 요청 2회 발생",
+      "passed": true,
+      "observed": {
+        "http_status": 200,
+        "sent": [
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 401
+          },
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 200
+          }
+        ],
+        "rate_waits": 1,
+        "token_forgets": 1
+      },
+      "expected": null
+    },
+    {
+      "name": "401 재전송: 제한기 호출은 1회뿐",
+      "passed": true,
+      "observed": {
+        "http_status": 200,
+        "sent": [
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 401
+          },
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 200
+          }
+        ],
+        "rate_waits": 1,
+        "token_forgets": 1
+      },
+      "expected": null
+    },
+    {
+      "name": "동일 제한 등급의 모든 전송은 사전 호출 제한기 필요",
+      "passed": true,
+      "observed": {
+        "http_status": 200,
+        "sent": [
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 401
+          },
+          {
+            "api": "domestic_price",
+            "environment": "paper",
+            "status": 200
+          }
+        ],
+        "rate_waits": 1,
+        "token_forgets": 1
+      },
+      "expected": null
+    }
+  ],
+  "observed": {
+    "normal": {
+      "http_status": 200,
+      "sent": [
+        {
+          "api": "domestic_price",
+          "environment": "paper",
+          "status": 200
+        }
+      ],
+      "rate_waits": 1,
+      "token_forgets": 0
+    },
+    "reissue_retry": {
+      "http_status": 200,
+      "sent": [
+        {
+          "api": "domestic_price",
+          "environment": "paper",
+          "status": 401
+        },
+        {
+          "api": "domestic_price",
+          "environment": "paper",
+          "status": 200
+        }
+      ],
+      "rate_waits": 1,
+      "token_forgets": 1
+    }
+  },
+  "bug_reproduced": true,
+  "verification": "offline-original-source-with-synthetic-input-no-NH-network"
+}
