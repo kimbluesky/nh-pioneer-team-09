@@ -1,0 +1,213 @@
+{
+  "contract": "MNQZ26",
+  "environment": "NH_DEMO",
+  "timezone": "Asia/Seoul",
+  "cutoff": "2026-11-27T22:00:00+09:00",
+  "tick": 0.25,
+  "usd_per_point": 2,
+  "fee_per_contract_side_usd": 2,
+  "idea_budget_usd": 150,
+  "day_loss_limit_usd": 300,
+  "rule": {
+    "model": "ensemble",
+    "cut": 1.0,
+    "horizon": 12,
+    "cost_filter": "component",
+    "components": [
+      {
+        "horizon": 12,
+        "model": "huber",
+        "quantile": 0.94,
+        "cut": 0.14723812814530518,
+        "cost_filter": "forecast",
+        "stop_atr": 2.0,
+        "add_r": 0.25,
+        "partial_r": 1.0,
+        "trail_r": 1.0,
+        "pullback_atr": 0.75
+      },
+      {
+        "horizon": 12,
+        "model": "ridge_clock",
+        "quantile": 0.992,
+        "cut": 0.15817748577127544,
+        "cost_filter": "half",
+        "stop_atr": 2.0,
+        "add_r": 0.25,
+        "partial_r": 1.0,
+        "trail_r": 1.0,
+        "pullback_atr": 0.0
+      },
+      {
+        "horizon": 12,
+        "model": "barrier",
+        "quantile": 0.992,
+        "cut": 0.22582514051653613,
+        "cost_filter": "half",
+        "stop_atr": 2.0,
+        "add_r": 0.25,
+        "partial_r": 1.0,
+        "trail_r": 1.0,
+        "pullback_atr": 0.35
+      }
+    ],
+    "stop_atr": 2.0,
+    "add_r": 0.25,
+    "partial_r": 1.0,
+    "trail_r": 1.0
+  },
+  "chosen_kst": "2026-11-27T06:25:32+09:00",
+  "chronology": {
+    "train_proxy": [
+      "2017-01-01",
+      "2024-12-31"
+    ],
+    "calibration_proxy": [
+      "2025-01-02",
+      "2025-06-30"
+    ]
+  },
+  "training": {
+    "years": [
+      {
+        "year": 2017,
+        "observed_minutes": 252500,
+        "eligible": 160302,
+        "sampled": 52000
+      },
+      {
+        "year": 2018,
+        "observed_minutes": 260072,
+        "eligible": 226666,
+        "sampled": 52000
+      },
+      {
+        "year": 2019,
+        "observed_minutes": 260503,
+        "eligible": 234470,
+        "sampled": 52000
+      },
+      {
+        "year": 2020,
+        "observed_minutes": 256636,
+        "eligible": 230957,
+        "sampled": 52000
+      },
+      {
+        "year": 2021,
+        "observed_minutes": 261359,
+        "eligible": 235280,
+        "sampled": 52000
+      },
+      {
+        "year": 2022,
+        "observed_minutes": 259717,
+        "eligible": 234533,
+        "sampled": 52000
+      },
+      {
+        "year": 2023,
+        "observed_minutes": 261747,
+        "eligible": 236256,
+        "sampled": 52000
+      },
+      {
+        "year": 2024,
+        "observed_minutes": 262749,
+        "eligible": 236918,
+        "sampled": 52000
+      }
+    ],
+    "rows": 416000,
+    "mirrored_rows": 832000,
+    "calibration_rows": 120251,
+    "features": 38,
+    "hyperparameters": {
+      "n_estimators": 95,
+      "learning_rate": 0.046,
+      "max_depth": 4,
+      "num_leaves": 12,
+      "min_child_samples": 750,
+      "reg_lambda": 30,
+      "colsample_bytree": 0.85,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "random_state": 112706,
+      "n_jobs": 4,
+      "verbosity": -1
+    },
+    "ridge_alpha": 6000,
+    "huber_alpha": 0.9
+  },
+  "validation": {
+    "validation_nq": {
+      "1": {
+        "days": 132,
+        "completed": 427,
+        "marked_net": -3269.5,
+        "max_close_drawdown": 3514.5,
+        "multiple_trade_days": 93,
+        "additions": 284,
+        "partials": 128
+      },
+      "2": {
+        "days": 132,
+        "completed": 420,
+        "marked_net": -3946.0,
+        "max_close_drawdown": 4096.0,
+        "multiple_trade_days": 93,
+        "additions": 270,
+        "partials": 122
+      }
+    },
+    "validation_mnq_a": {
+      "1": {
+        "days": 29,
+        "completed": 143,
+        "marked_net": 539.5,
+        "max_close_drawdown": 1642.0,
+        "multiple_trade_days": 26,
+        "additions": 101,
+        "partials": 49
+      },
+      "2": {
+        "days": 29,
+        "completed": 148,
+        "marked_net": 663.5,
+        "max_close_drawdown": 1376.5,
+        "multiple_trade_days": 26,
+        "additions": 105,
+        "partials": 50
+      }
+    },
+    "validation_mnq_b": {
+      "1": {
+        "days": 30,
+        "completed": 144,
+        "marked_net": 1608.5,
+        "max_close_drawdown": 1025.5,
+        "multiple_trade_days": 26,
+        "additions": 96,
+        "partials": 46
+      },
+      "2": {
+        "days": 30,
+        "completed": 143,
+        "marked_net": 1459.5,
+        "max_close_drawdown": 1160.0,
+        "multiple_trade_days": 26,
+        "additions": 96,
+        "partials": 45
+      }
+    }
+  },
+  "candidate_count": 326,
+  "eligible_count": 1,
+  "weights_sha256": "04171147a4e8abe66918ef3dafffb1d7b440292fbcd9cd064d278d263bc4bd19",
+  "training_source": {
+    "url": "https://huggingface.co/datasets/syncster-data/historical-market-data/resolve/eff0dac55d843b3b83caec819efa213021a3e3e5/data/futures/1m/NQ.parquet",
+    "sha256": "35071bdad8b4abefabdf2543543d56b39c54dd56ee0ae7251ffed73107fb1681",
+    "bytes": 41193926
+  },
+  "validation_source": "https://github.com/axb0306/cme-futures-ohlc/blob/60abd3fb6369c6ce0b6a4a65b0f2562fc96b1264/MNQ/MNQ_1min_20260120_20260415.csv"
+}

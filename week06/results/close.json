@@ -1,0 +1,23 @@
+{
+  "source": "NH_DEMO",
+  "environment": "NH 해외 모의계좌 주문 모드",
+  "contract": "MNQZ26",
+  "day": "2026-11-27",
+  "execution_version": "mnq-scale-20261127",
+  "started_kst": "2026-11-27T07:00:02+09:00",
+  "last_signal_kst": "2026-11-27T21:59:00+09:00",
+  "forecasts": 839,
+  "entry_requests": 10,
+  "entry_acknowledged": 9,
+  "fills": 18,
+  "completed": 6,
+  "scale_in_fills": 3,
+  "partial_exit_fills": 1,
+  "realized_net": -35.0,
+  "quantity": 0,
+  "pending": false,
+  "daily_locked": false,
+  "window_closed_kst": "2026-11-27T22:00:00+09:00",
+  "done": true,
+  "broker_flat": true
+}
